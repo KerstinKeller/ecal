@@ -117,6 +117,8 @@ else()
   option(ECAL_THIRDPARTY_BUILD_YAML-CPP        "Build yaml-cpp with eCAL"                                         OFF)
 endif()
 
+option(ECAL_USE_MCAP                           "Write MCAP instead of HDF5 measurement files"                      ON)
+
 # This should be ON, unless build ecal hdf5 for Matlab usage
 option(ECAL_LINK_HDF5_SHARED                   "Link shared libs of HDF5"                                          ON)
 
@@ -366,10 +368,14 @@ endif()
 # --------------------------------------------------------
 # ecal hdf5 support
 # --------------------------------------------------------
-if(HAS_HDF5)
-  add_subdirectory(contrib/ecalhdf5)
-  add_subdirectory(contrib/message)
-endif()
+if (ECAL_USE_MCAP)
+  add_subdirectory(contrib/ecal-mcap)
+else ()
+  if(HAS_HDF5)
+    add_subdirectory(contrib/ecalhdf5)
+  endif()
+endif ()
+add_subdirectory(contrib/message)
 
 # --------------------------------------------------------
 # ecal core python binding
