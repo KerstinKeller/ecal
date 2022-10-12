@@ -22,7 +22,11 @@ find_package(Threads REQUIRED)
 find_package(GTest REQUIRED)
 
 set(core_test_src
+  src/add_modify_callbacks_test.cpp
+  src/callback_destruction_test.cpp
   src/core_test.cpp
+  src/new_publisher_in_callback_test.cpp
+  src/provoke_dataloss_test.cpp
 )
 
 ecal_add_gtest(${PROJECT_NAME}_cpp ${core_test_src})

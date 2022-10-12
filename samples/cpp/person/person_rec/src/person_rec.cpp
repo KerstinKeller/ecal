@@ -5,9 +5,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -18,56 +18,117 @@
 */
 
 #include <ecal/ecal.h>
-#include <ecal/msg/protobuf/subscriber.h>
+#include <ecal/msg/string/publisher.h>
+#include <ecal/msg/string/subscriber.h>
+#include <algorithm>
+#include <atomic>
+#include <thread>
+#include <vector>
 
-#include <iostream>
 
-#include "person.pb.h"
-
-void OnPerson(const char* topic_name_, const pb::People::Person& person_, const long long time_, const long long clock_)
-{
-  std::cout << "------------------------------------------" << std::endl;
-  std::cout << " HEAD "                                     << std::endl;
-  std::cout << "------------------------------------------" << std::endl;
-  std::cout << "topic name   : " << topic_name_             << std::endl;
-  std::cout << "topic time   : " << time_                   << std::endl;
-  std::cout << "topic clock  : " << clock_                  << std::endl;
-  std::cout << "------------------------------------------" << std::endl;
-  std::cout << " CONTENT "                                  << std::endl;
-  std::cout << "------------------------------------------" << std::endl;
-  std::cout << "person id    : " << person_.id()            << std::endl;
-  std::cout << "person name  : " << person_.name()          << std::endl;
-  std::cout << "person stype : " << person_.stype()         << std::endl;
-  std::cout << "person email : " << person_.email()         << std::endl;
-  std::cout << "dog.name     : " << person_.dog().name()    << std::endl;
-  std::cout << "house.rooms  : " << person_.house().rooms() << std::endl;
-  std::cout << "------------------------------------------" << std::endl;
-  std::cout                                                 << std::endl;
-}
-
-int main(int argc, char **argv)
-{
-  // initialize eCAL API
-  eCAL::Initialize(argc, argv, "person subscriber");
-
-  // set process state
-  eCAL::Process::SetState(proc_sev_healthy, proc_sev_level1, "I feel good !");
-
-  // create a subscriber (topic name "person")
-  eCAL::protobuf::CSubscriber<pb::People::Person> sub("person");
-
-  // add receive callback function (_1 = topic_name, _2 = msg, _3 = time, _4 = clock, _5 = id)
-  auto callback = std::bind(OnPerson, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
-  sub.AddReceiveCallback(callback);
-
-  while(eCAL::Ok())
+namespace {
+  // subscriber callback function
+  void OnReceive(std::atomic<bool>& alive)
   {
-    // sleep 100 ms
-    eCAL::Process::SleepMS(100);
+    alive = true;
   }
 
+  void OtherReceive(std::atomic<bool>& alive)
+  {
+    alive = true;
+  }
+
+  std::thread switch_subscribers(std::atomic<bool>& alive, const std::atomic<bool>& stop)
+  {
+    return std::thread([&]() {
+      std::vector<std::string> names{ "foo", "bar"};
+      std::shared_ptr<eCAL::string::CSubscriber<std::string>> subscriber;
+      while (!stop)
+      {
+        for (const auto& name : names)
+        {
+          subscriber.reset();
+          subscriber = std::make_shared< eCAL::string::CSubscriber<std::string>>(name);
+          auto callback = [&alive](const char*, const std::string&, long long, long long, long long)
+          {
+            OnReceive(alive);
+          };
+          subscriber->AddReceiveCallback(callback);
+          std::this_thread::sleep_for(std::chrono::seconds(2));
+          if (stop) return;
+        }
+      }
+      });
+
+  }
+
+  std::thread fix_subscriber(std::atomic<bool>& alive, const std::atomic<bool>& stop)
+  {
+    return std::thread([&]() {
+      std::shared_ptr<eCAL::string::CSubscriber<std::string>> subscriber;
+      subscriber = std::make_shared< eCAL::string::CSubscriber<std::string>>("foo");
+      auto callback = [&alive](const char*, const std::string&, long long, long long, long long)
+      {
+        OtherReceive(alive);
+      };
+      subscriber->AddReceiveCallback(callback);
+
+      while (!stop)
+      {
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+      }
+      });
+
+  }
+
+
+  std::thread check_callback_executed(std::atomic<bool>& alive, const std::atomic<bool>& stop)
+  {
+    return std::thread([&]() {
+      while (!stop)
+      {
+        if (!alive)
+        {
+          std::cout << "Publishers not alive!!!" << std::endl;
+        }
+        alive = false;
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+      }
+      });
+  }
+
+
+
+}
+int main()
+{
+  // initialize eCAL API
+  eCAL::Initialize(0, nullptr, "Provoke Datalosses Subscriber");
+
+
+  std::atomic<bool> stop(false);
+  std::atomic<bool> callbacks_alive(true);
+  std::atomic<bool> other_callback_alive(true);
+  std::thread subscriber(switch_subscribers(callbacks_alive, stop));
+  std::thread fix_subscriber(fix_subscriber(other_callback_alive, stop));
+  std::this_thread::sleep_for(std::chrono::seconds(3));
+  std::thread supervisor(check_callback_executed(callbacks_alive, stop));
+  std::thread supervisor_2(check_callback_executed(other_callback_alive, stop));
+
+  // let them work together
+  while (eCAL::Ok())
+  {
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  }
+
+  stop = true;
+  subscriber.join();
+  fix_subscriber.join();
+  supervisor.join();
+  supervisor_2.join();
+
   // finalize eCAL API
+  // without destroying any pub / sub
   eCAL::Finalize();
-  
-  return(0);
+
 }
