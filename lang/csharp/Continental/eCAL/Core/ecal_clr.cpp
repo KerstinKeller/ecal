@@ -110,6 +110,16 @@ void Util::EnableLoopback(bool state_)
   ::eCAL::Util::EnableLoopback(state_);
 }
 
+System::String^ Continental::eCAL::Core::Util::GetTopicTypeName(System::String^ topic_name_)
+{
+  return StlStringToString(::eCAL::Util::GetTopicTypeName(StringToStlString(topic_name_)));
+}
+
+array<Byte>^ Continental::eCAL::Core::Util::GetTopicDescription(System::String^ topic_name_)
+{
+  return StlStringToByteArray(::eCAL::Util::GetTopicDescription(StringToStlString(topic_name_)));
+}
+
 
 /////////////////////////////////////////////////////////////////////////////
 // Logger

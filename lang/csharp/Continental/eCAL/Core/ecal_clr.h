@@ -94,6 +94,24 @@ namespace Continental
          * @param  state_  Switch on message loop back.
         **/
         static void EnableLoopback(bool state_);
+
+        /**
+        * @brief Enable eCAL message loop back,
+        *          that means subscriber will receive messages from
+        *          publishers of the same process (default == false).
+        *
+        * @param  state_  Switch on message loop back.
+        **/
+        static System::String^ GetTopicTypeName(System::String^ topic_name_);
+
+        /**
+         * @brief Gets description of the specified topic.
+         *
+         * @param topic_name_   Topic name.
+         *
+         * @return  Topic descriptor.
+        **/
+        static array<Byte>^ GetTopicDescription(System::String^ topic_name_);
       };
 
 

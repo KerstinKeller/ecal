@@ -22,6 +22,7 @@ project(Continental.eCAL.Protobuf LANGUAGES CSharp)
 
 set(core_cs_src
   ProtoHelper.cs
+  ProtoDynamicSubscriber.cs
   ProtoSubscriber.cs
   ProtoPublisher.cs
 )
