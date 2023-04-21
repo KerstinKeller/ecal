@@ -16,7 +16,7 @@
 #
 # ========================= eCAL LICENSE =================================
 
-project(hdf5 LANGUAGES C CXX)
+project(mcap LANGUAGES C CXX)
 
 add_subdirectory(src/dependencies/lz4)
 add_subdirectory(src/dependencies/mcap)
@@ -24,19 +24,17 @@ set(ZSTD_BUILD_STATIC ON)
 add_subdirectory(src/dependencies/zstd/build/cmake)
 
 
-set(ecalhdf5_src
-    src/eh5_meas.cpp
+set(mcap_src
+    src/measurement.cpp
     src/escape.h
     src/escape.cpp
 )
 
-set(ecalhdf5_header_base
-    include/ecalhdf5/eh5_defs.h
-    include/ecalhdf5/eh5_meas.h
-    include/ecalhdf5/eh5_types.h   
+set(mcap_header_base
+    include/ecal/measurement/mcap/measurement.h
 )
 
-ecal_add_library(${PROJECT_NAME} ${ecalhdf5_src} ${ecalhdf5_header_base})
+ecal_add_library(${PROJECT_NAME} ${mcap_src} ${mcap_header_base})
 add_library(eCAL::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 target_include_directories(${PROJECT_NAME}
@@ -56,8 +54,8 @@ target_link_libraries(${PROJECT_NAME}
 
 source_group(TREE "${CMAKE_CURRENT_LIST_DIR}"
     FILES
-        ${ecalhdf5_src}
-        ${ecalhdf5_header_base}
+        ${mcap_src}
+        ${mcap_header_base}
 )
 
 ecal_install_library(${PROJECT_NAME})
