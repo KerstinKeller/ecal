@@ -30,6 +30,8 @@
 #include <memory>
 
 #include <ecal/measurement/base/types.h>
+#include <ecal/measurement/base/reader.h>
+#include <ecal/measurement/base/writer.h>
 
 namespace eCAL
 {
