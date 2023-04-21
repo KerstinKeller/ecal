@@ -24,7 +24,7 @@
 #include <memory>
 
 #include <ecal/ecal.h>
-#include <ecalhdf5/eh5_meas.h>
+#include <ecal/measurement/base/reader.h>
 
 #include "continuity_report.h"
 

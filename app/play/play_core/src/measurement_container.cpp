@@ -18,6 +18,7 @@
 */
 
 #include "measurement_container.h"
+#include <ecalhdf5/eh5_meas.h>
 
 #include <algorithm>
 #include <math.h>
