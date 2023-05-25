@@ -7,3 +7,4 @@ add_subdirectory(thirdparty/lz4/build/cmake)
 add_library(LZ4::lz4_static ALIAS lz4_static)
 
 #find_package(lz4 REQUIRED)
+set_property(TARGET lz4_static PROPERTY FOLDER thirdparty/lz4)

@@ -6,3 +6,7 @@ add_subdirectory(thirdparty/zstd/build/cmake)
 add_library(zstd::libzstd_static ALIAS libzstd_static)
 target_include_directories(libzstd_static PUBLIC ${CMAKE_CURRENT_LIST_DIR}/zstd/lib)
 #find_package(zstd REQUIRED)
+
+set_property(TARGET libzstd_static PROPERTY FOLDER thirdparty/zstd)
+set_property(TARGET libzstd_shared PROPERTY FOLDER thirdparty/zstd)
+set_property(TARGET clean-all PROPERTY FOLDER thirdparty/zstd)

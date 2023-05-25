@@ -39,5 +39,3 @@ namespace eCAL
    std::unique_ptr<base::Writer> CreateWriter(MeasurementFormat format);
  } 
 }
-
-

@@ -1,6 +1,8 @@
 #include <ecal/measurement/mcap/writer.h>
 #include <optional>
 #include <limits>
+#include <map>
+#include <set>
 #include <unordered_map>
 
 #define MCAP_IMPLEMENTATION
@@ -10,13 +12,37 @@ namespace {
   const std::string writer_id{ "ecal_mcap" };
 }
 
-// This class is not thread safe!
-class BufferedWriter
+class MinimalWriterInterface
 {
 public:
-  BufferedWriter(std::shared_ptr<::mcap::McapWriter> writer_) :
-    writer(writer_)
-  {}
+  MinimalWriterInterface() = default;
+  virtual ~MinimalWriterInterface() = default;
+  MinimalWriterInterface(const MinimalWriterInterface& other) = default;
+  MinimalWriterInterface& operator=(const MinimalWriterInterface& other) = default;
+  MinimalWriterInterface(MinimalWriterInterface&&) = default;
+  MinimalWriterInterface& operator=(MinimalWriterInterface&&) = default;
+
+  virtual void SetChannelMetaInformation(const std::string& channel_name, const std::string& channel_type, const std::string& channel_descriptor) = 0;
+  virtual bool AddEntryToFile(const void* data, const unsigned long long& size, const long long& snd_timestamp, const long long& rcv_timestamp, const std::string& channel_name, long long id, long long clock) = 0;
+};
+
+using WriterInterfaceCreator = std::function<std::unique_ptr<MinimalWriterInterface>(const std::string& path)>;
+
+// This class is not thread safe!
+class MinimalMcapWriter : public MinimalWriterInterface
+{
+public:
+  MinimalMcapWriter(const std::string& path, const ::mcap::McapWriterOptions& writer_options) 
+    : writer_options(writer_options)
+    , writer(std::make_unique< ::mcap::McapWriter>())
+  {
+    writer->open(path, writer_options);
+  }
+
+  ~MinimalMcapWriter()
+  {
+    writer->close();
+  }
 
   bool AddEntryToFile(const void* data, const unsigned long long& size, const long long& snd_timestamp, const long long& rcv_timestamp, const std::string& channel_name, long long id, long long clock)
   {
@@ -29,8 +55,8 @@ public:
       msg.channelId = it->second;
       msg.data = reinterpret_cast<const std::byte*>(data);
       msg.dataSize = size;
-      writer->write(msg);
-      return true;
+      auto status =  writer->write(msg);
+      return status.ok();
     }
     else
     {
@@ -54,10 +80,124 @@ public:
   }
 
 private:
-    std::shared_ptr<::mcap::McapWriter> writer;
+    ::mcap::McapWriterOptions writer_options;
+    std::unique_ptr<::mcap::McapWriter> writer;
     std::unordered_map<std::string, ::mcap::ChannelId> channel_id_mapping;
 };
 
+class PerChannelWriter : public MinimalWriterInterface
+{
+public:
+  PerChannelWriter(const std::string& path_, WriterInterfaceCreator writer_creator_)
+    : path(path_)
+    , writer_creator(writer_creator_)
+  {}
+
+  void SetChannelMetaInformation(const std::string& channel_name, const std::string& channel_type, const std::string& channel_descriptor)
+  {
+    auto it = FindOrCreateWriter(channel_name);
+    return it->second->SetChannelMetaInformation(channel_name, channel_type, channel_descriptor);
+  }
+
+  bool AddEntryToFile(const void* data, const unsigned long long& size, const long long& snd_timestamp, const long long& rcv_timestamp, const std::string& channel_name, long long id, long long clock)
+  {
+    auto it = FindOrCreateWriter(channel_name);
+    it->second->AddEntryToFile(data, size, snd_timestamp, rcv_timestamp, channel_name, id, clock);
+    return true;  
+  }
+
+private:
+  std::map<std::string, std::unique_ptr<MinimalWriterInterface>>::iterator FindOrCreateWriter(const std::string& channel_name)
+  {
+    auto it = channel_writer_map.find(channel_name);
+    if (it != channel_writer_map.end())
+    {
+      it = CreateNewChannelWriter(channel_name);
+    }
+    return it;
+  }
+
+  std::map<std::string, std::unique_ptr<MinimalWriterInterface>>::iterator CreateNewChannelWriter(const std::string& channel_name)
+  {
+    auto complete_path = path + "/" + channel_name;
+    auto inserted = channel_writer_map.insert({ channel_name, writer_creator(complete_path) });
+    return inserted.first;
+  }
+
+  std::string path;
+  WriterInterfaceCreator writer_creator;
+  std::map<std::string, std::unique_ptr<MinimalWriterInterface>> channel_writer_map;
+};
+
+class SizeSplitWriter : public MinimalWriterInterface
+{
+public:
+  SizeSplitWriter(const std::string& path_, size_t split_size_, WriterInterfaceCreator writer_creator_)
+    : path(path_)
+    , writer_number(0)
+    , bytes_written(0)
+    , split_size(split_size_)
+    , currently_open_writer(writer_creator_(path_))
+    , writer_creator(writer_creator_)
+  {}
+
+  void SetChannelMetaInformation(const std::string& channel_name, const std::string& channel_type, const std::string& channel_descriptor)
+  {
+    accumulated_meta_information.insert({ channel_name, channel_type, channel_descriptor });
+    currently_open_writer->SetChannelMetaInformation(channel_name, channel_type, channel_descriptor);
+  }
+
+  bool AddEntryToFile(const void* data, const unsigned long long& size, const long long& snd_timestamp, const long long& rcv_timestamp, const std::string& channel_name, long long id, long long clock)
+  {
+    if (NeedToStartNewWriter(size))
+    {
+      StartNewWriter();
+    }
+    currently_open_writer->AddEntryToFile(data, size, snd_timestamp, rcv_timestamp, channel_name, id, clock);
+    bytes_written += size;
+  }
+
+private:
+  bool NeedToStartNewWriter(unsigned long long size)
+  {
+    return (bytes_written + size > split_size);
+  }
+
+  void StartNewWriter()
+  {
+    bytes_written = 0;
+    ++writer_number;
+    auto path_name = CreatePathName();
+    currently_open_writer = writer_creator(path_name);
+    RegisterExistingMetaInfo();
+  }
+
+  std::string CreatePathName()
+  {
+    return path + "_" + std::to_string(writer_number);
+  }
+
+  void RegisterExistingMetaInfo()
+  {
+    // Register all meta information with the new writer
+    for (const auto& info : accumulated_meta_information)
+    {
+      currently_open_writer->SetChannelMetaInformation(std::get<0>(info), std::get<1>(info), std::get<2>(info));
+    }
+  }
+
+  std::string path;
+  unsigned int writer_number;
+  
+  size_t bytes_written;
+  size_t split_size;
+
+  std::unique_ptr<MinimalWriterInterface> currently_open_writer;
+
+  WriterInterfaceCreator writer_creator;
+
+  std::set<std::tuple<std::string, std::string, std::string>> accumulated_meta_information;
+};
 
 using SizeSplittingStrategy = std::optional<uint32_t>;
 
@@ -77,8 +217,7 @@ using SizeSplittingStrategy = std::optional<uint32_t>;
   class WriterImplementation
   {
   public:
-    std::unique_ptr<BufferedWriter> writer;
-    std::shared_ptr<::mcap::McapWriter> mcap_writer;
+    std::unique_ptr<MinimalWriterInterface> writer;
     WriterConfigurationOptions options;
     std::string base_filename;
   };
@@ -101,18 +240,14 @@ eCAL::measurement::mcap::Writer::Writer(const std::string& path)
 bool eCAL::measurement::mcap::Writer::Open(const std::string& path) { 
   ::mcap::McapWriterOptions options(writer_id);
   options.enableDataCRC = false;
-  options.compression = ::mcap::Compression::Lz4;
-  options.compressionLevel = ::mcap::CompressionLevel::Default;
-  implementation->mcap_writer = std::make_shared<::mcap::McapWriter>();
-  implementation->mcap_writer->open(path + implementation->base_filename + "meas.mcap", options);
-  implementation->writer = std::make_unique<BufferedWriter>(implementation->mcap_writer);
+  options.compression = ::mcap::Compression::None;
+  std::string meas_path = path + implementation->base_filename + "meas.mcap";
+  implementation->writer = std::make_unique<MinimalMcapWriter>(meas_path, options);
   return true;
 }
 
 bool eCAL::measurement::mcap::Writer::Close(){ 
-  implementation->writer.reset();
-  implementation->mcap_writer->close();
-  implementation->mcap_writer.reset();
+  implementation.reset();
   return true; 
 }
 

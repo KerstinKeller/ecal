@@ -22,6 +22,7 @@ target_include_directories(measurement_mcap
 target_link_libraries(measurement_mcap 
   PRIVATE
     mcap
+    eCAL::ecal-utils
   PUBLIC 
     eCAL::measurement_base
 )
