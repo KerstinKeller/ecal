@@ -34,7 +34,7 @@ namespace eCAL
     class OBinaryChannel
     {
     public:
-      OBinaryChannel(std::shared_ptr<base::Writer> meas_, const std::string& name_)
+      OBinaryChannel(std::shared_ptr<base::NewWriter> meas_, const std::string& name_)
         : channel_name(name_)
         , meas(meas_)
         , SenderID(0)
@@ -61,7 +61,7 @@ namespace eCAL
 
     private:
       const std::string channel_name;
-      std::shared_ptr<base::Writer> meas;
+      std::shared_ptr<base::NewWriter> meas;
 
       long long SenderID;
       long long clock;
@@ -72,7 +72,7 @@ namespace eCAL
     class OChannel
     {
     public:
-      OChannel(std::shared_ptr<base::Writer> meas_, std::string name_)
+      OChannel(std::shared_ptr<base::NewWriter> meas_, std::string name_)
         : binary_channel(meas_, name_)
       {
       }
@@ -113,15 +113,19 @@ namespace eCAL
       OChannel<T> Create(const std::string& channel) const;
 
     private:
-      std::shared_ptr<base::Writer> meas;
+      std::shared_ptr<base::NewWriter> meas;
     };
 
 
 
     inline OMeasurement::OMeasurement(const std::string& base_path_, const std::string& measurement_name_)
-      : meas{ std::make_shared<eh5::Writer>(base_path_) }
     {
-      meas->SetFileBaseName(measurement_name_);
+      using eCAL::measurement::base::NewWriter;
+      NewWriter::WriterConfigurationOptions options;
+      options.base_filename = measurement_name_;
+      meas = NewWriter::make_unique(base_path_, options, []() {return std::make_unique<eh5::Writer>(); });
+      // where do we check now the file is valid? it was never checked before!
+      // before, it might have just not worked, now we might throw an exception....
     }
 
     // This will return a nullptr if channel name and 

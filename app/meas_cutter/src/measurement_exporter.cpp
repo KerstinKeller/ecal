@@ -21,7 +21,7 @@
 #include <ecalhdf5/eh5_writer.h>
 
 MeasurementExporter::MeasurementExporter():
-  _writer(std::make_unique<eCAL::eh5::Writer>())
+  _writer()
 {
 }
 
@@ -29,26 +29,26 @@ void MeasurementExporter::setPath(const std::string& path, const std::string& ba
 {
   _root_output_path = EcalUtils::Filesystem::CleanPath(path);
   _output_path = EcalUtils::Filesystem::CleanPath(_root_output_path + EcalUtils::Filesystem::NativeSeparator(EcalUtils::Filesystem::OsStyle::Current) + eCALMeasCutterUtils::kDefaultFolderOutput, EcalUtils::Filesystem::OsStyle::Current);
-  if (!_writer->Open(_output_path))
-  {
-    throw ExporterException("Unable to create HDF5 protobuf output path " + path + ".");
-  }
+  
 
-  try
-  {
-    _writer->SetMaxSizePerFile(max_size_per_file);
-    _writer->SetFileBaseName(base_name);
-    _writer->SetOneFilePerChannelEnabled(eCALMeasCutterUtils::enable_one_file_per_topic);
+  try {
+    using eCAL::measurement::base::NewWriter;
+    NewWriter::WriterConfigurationOptions options;
+    options.base_filename = base_name;
+    options.channel_splitting_stategy = eCALMeasCutterUtils::enable_one_file_per_topic ? NewWriter::ChannelSplittingStrategy::OneChannelPerFile : NewWriter::ChannelSplittingStrategy::NoSplitting;
+    options.size_splitting_strategy = max_size_per_file;
+    _writer = NewWriter::make_unique(_output_path, options, []() {return std::make_unique<eCAL::eh5::Writer>(); });
+
   }
   catch (const std::invalid_argument&)
   {
     throw ExporterException("Key \"splitsize\" or  \"basename\" not valid!");
   }
-}
 
-MeasurementExporter::~MeasurementExporter()
-{
-  _writer->Close();
+  if (!_writer)
+  {
+    throw ExporterException("Unable to create HDF5 protobuf output path " + path + ".");
+  }
 }
 
 void MeasurementExporter::createChannel(const std::string& channel_name, const eCALMeasCutterUtils::ChannelInfo& channel_info)

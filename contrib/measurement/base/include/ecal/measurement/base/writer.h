@@ -28,6 +28,8 @@
 #include <set>
 #include <string>
 #include <memory>
+#include <optional>
+#include <stdexcept>
 
 #include <ecal/measurement/base/types.h>
 
@@ -169,6 +171,107 @@ namespace eCAL
         virtual bool AddEntryToFile(const void* data, const unsigned long long& size, const long long& snd_timestamp, const long long& rcv_timestamp, const std::string& channel_name, long long id, long long clock) = 0;
         
       };
+
+
+      class NewWriter
+      {
+      public:
+        using SizeSplittingStrategy = std::optional<size_t>;
+        using WriterCreator = std::function<std::unique_ptr<Writer>()>;
+
+        enum class ChannelSplittingStrategy
+        {
+          NoSplitting = 0,
+          OneChannelPerFile = 1
+        };
+
+        struct WriterConfigurationOptions
+        {
+          SizeSplittingStrategy size_splitting_strategy = 512;
+          ChannelSplittingStrategy channel_splitting_stategy = ChannelSplittingStrategy::NoSplitting;
+          std::string base_filename;
+        };
+
+        class InstantiationError : public std::runtime_error {
+          public:
+            InstantiationError(const std::string& message) : std::runtime_error(message) {
+            }
+        };
+
+        ~NewWriter()
+        {
+          writer_->Close();
+        }
+
+        NewWriter(const NewWriter& other) = delete;
+        NewWriter& operator=(const NewWriter& other) = delete;
+
+        NewWriter(NewWriter&&) = default;
+        NewWriter& operator=(NewWriter&&) = default;
+
+        void SetChannelDataTypeInformation(const std::string& channel_name, const DataTypeInformation& info)
+        {
+          writer_->SetChannelDataTypeInformation(channel_name, info);
+        }
+
+        bool AddEntryToFile(const void* data, const unsigned long long& size, const long long& snd_timestamp, const long long& rcv_timestamp, const std::string& channel_name, long long id, long long clock)
+        {
+          return writer_->AddEntryToFile(data, size, snd_timestamp, rcv_timestamp, channel_name, id, clock);
+        }
+
+        // Tries to create a writer, in case of error returns nothing
+        static std::optional<NewWriter> make_optional(const std::string& path, const WriterConfigurationOptions& options, const WriterCreator& create_writer)
+        {
+          try {
+            return NewWriter(path, options, create_writer);
+          }
+          catch (const InstantiationError& /*e*/)
+          {
+            // Maybe log, what when wrong?
+            return std::nullopt;
+          }
+        }
+
+        // Tries to create a writer, in case of error returns empty pointer
+        static std::unique_ptr<NewWriter> make_unique(const std::string& path, const WriterConfigurationOptions& options, const WriterCreator& create_writer)
+        {
+          NewWriter* object{ nullptr };
+          try {
+            // We cannot use make_unique because of the private constructor :/
+            object = new NewWriter(path, options, create_writer);
+            return std::unique_ptr<NewWriter>(object);
+          }
+          catch (const InstantiationError& /*e*/)
+          {
+            // Maybe log, what when wrong?
+            delete object;
+            return nullptr;
+          }
+        }
+
+      private:
+        NewWriter(const std::string& path, const WriterConfigurationOptions& options, const WriterCreator& create_writer)
+        {
+          writer_ = create_writer();
+          bool success = writer_->Open(path);
+          if (!success)
+            throw  InstantiationError("Writer at " + path + " could not be constructed");
+          writer_->SetFileBaseName(options.base_filename);
+          writer_->SetMaxSizePerFile(options.size_splitting_strategy.value_or(std::numeric_limits<size_t>::max()));
+          if (options.channel_splitting_stategy == ChannelSplittingStrategy::NoSplitting)
+          {
+            writer_->SetOneFilePerChannelEnabled(false);
+          }
+          else
+          {
+            writer_->SetOneFilePerChannelEnabled(true);
+          }
+          
+        };
+
+        std::unique_ptr<Writer> writer_;
+      };
+
     }
   }
 }
