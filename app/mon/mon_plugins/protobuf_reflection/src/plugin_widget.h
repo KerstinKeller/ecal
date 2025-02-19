@@ -1,6 +1,6 @@
 /* ========================= eCAL LICENSE =================================
  *
- * Copyright (C) 2016 - 2024 Continental Corporation
+ * Copyright (C) 2016 - 2025 Continental Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,11 +62,11 @@ private slots:
 
 private:
   QAdvancedTreeView* tree_view_;
-  MonitorTreeModel* tree_model_;
+  LazyProtobufTreeModel* tree_model_;
 
   eCAL::protobuf::CDynamicSubscriber subscriber_;
-  eCAL::protobuf::CProtoDecoder protobuf_decoder;
-  std::shared_ptr<ProtobufTreeBuilder> protobuf_tree_builder;
+  //eCAL::protobuf::CProtoDecoder protobuf_decoder;
+  //std::shared_ptr<ProtobufTreeBuilder> protobuf_tree_builder;
 
   std::mutex                                 proto_message_mutex_;
   std::shared_ptr<google::protobuf::Message> last_proto_message_;
