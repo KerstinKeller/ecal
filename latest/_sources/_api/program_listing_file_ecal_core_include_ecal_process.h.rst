@@ -47,13 +47,11 @@ Program Listing for File process.h
    
        ECAL_API void DumpConfig(std::string& cfg_s_);
    
-       ECAL_API std::string GetHostName();
+       ECAL_API const std::string& GetHostName();
    
-       ECAL_API std::string GetShmTransportDomain();
+       ECAL_API const std::string& GetShmTransportDomain();
    
-       ECAL_API std::string GetUnitName();
-   
-       ECAL_API std::string GetTaskParameter(const char* sep_);
+       ECAL_API const std::string& GetUnitName();
    
        ECAL_API void SleepMS(long time_ms_);
    
@@ -68,13 +66,13 @@ Program Listing for File process.h
    
        ECAL_API int GetProcessID();
    
-       ECAL_API std::string GetProcessIDAsString();
+       ECAL_API const std::string& GetProcessIDAsString();
    
-       ECAL_API std::string GetProcessName();
+       ECAL_API const std::string& GetProcessName();
    
-       ECAL_API std::string GetProcessParameter();
+       ECAL_API const std::string& GetProcessParameter();
    
-       ECAL_API void SetState(eCAL::Process::eSeverity severity_, eCAL::Process::eSeverityLevel level_, const char* info_);
+       ECAL_API void SetState(eCAL::Process::eSeverity severity_, eCAL::Process::eSeverityLevel level_, const std::string& info_);
    
        ECAL_DEPRECATE_SINCE_6_0("This function is deprecated and will be removed in future eCAL versions.")
        ECAL_API int StartProcess(const char* proc_name_, const char* proc_args_, const char* working_dir_, bool create_console_, eCAL::Process::eStartMode process_mode_, bool block_);

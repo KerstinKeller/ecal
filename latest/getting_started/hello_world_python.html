@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>8.1. Hello World (Python) &#8212; Eclipse eCAL™</title>
+    <title>Hello World (Python) &#8212; Eclipse eCAL™</title>
   
   
   
@@ -61,8 +61,6 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.2. Hello World with protobuf (Python)" href="hello_world_python_proto.html" />
-    <link rel="prev" title="8. Development (Python)" href="development_python.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -187,11 +185,11 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">2. Installing eCAL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="samples.html">3. eCAL Samples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cloud.html">4. Network configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">4. Network configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="services.html">5. eCAL Services</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="applications.html">6. Applications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="monitor.html">6.1.  Monitor</a></li>
@@ -200,14 +198,21 @@
 <li class="toctree-l2"><a class="reference internal" href="sys.html">6.4.  Sys</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="development.html">7. Development (C++)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="hello_world.html">7.1. Hello World</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hello_world_proto.html">7.2. Hello World with protobuf</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="howto.html">7. How to use eCAL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="howto/pubsub.html">7.1. PublisherSubscriber</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="howto/pubsub/string_hello_world.html">7.1.1. String: Hello World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto/pubsub/protobuf_person.html">7.1.2. Protobuf: Person</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto/pubsub/binary_blob.html">7.1.3. Binary: Blob</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="development_python.html">8. Development (Python)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.1. Hello World (Python)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hello_world_python_proto.html">8.2. Hello World with protobuf (Python)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="howto/clientserver.html">7.2. ClientServer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="howto/clientserver/binary_mirror.html">7.2.1. Binary: Mirror</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto/clientserver/protobuf_math.html">7.2.2. Protobuf: Math</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/configuration.html">7.3. Runtime Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmake_integration.html">7.4. CMake Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_preparation.html">7.5. Python preparation</a></li>
 </ul>
 </details></li>
 </ul>
@@ -247,22 +252,22 @@
 <li class="toctree-l3"><a class="reference internal" href="../_api/enum_process__mode_8h_1a1b07cc8c396021bf85eedc7f95ac91f6.html">Enum eStartMode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/enum_registration_8h_1ab47a7f2404314ea349d4c14d261c969c.html">Enum RegistrationEventType</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1ab602f6c8307b53fe6826d7618ac9f465.html">Function eCAL::Config::GetDropOutOfOrderMessages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a2021665a60dc38ea96ec53dfeeabb2ac.html">Function eCAL::Config::GetEcalSysFilterExcludeList</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a0e61706ed81e23d251be210649974bba.html">Function eCAL::Config::GetLoadedEcalIniPath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a00f593fbed5a932d13d95e5d670fa27d.html">Function eCAL::Config::GetEcalSysFilterExcludeList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1af5b58da0cab93d96828ae51f56da08c2.html">Function eCAL::Config::GetLoadedEcalIniPath</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1ae2fa1793150cbce526ab0b81e1773f7b.html">Function eCAL::Config::GetRegistrationRefreshMs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a313807e5364233c84ae52d3a2ab10211.html">Function eCAL::Config::GetRegistrationTimeoutMs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a10d306047609c59f6c53798259d398a5.html">Function eCAL::Config::GetShmMonitoringDomain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a3253931786d5bbb82c458c56d9b2a767.html">Function eCAL::Config::GetShmMonitoringDomain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1ad65c848628fc2d115f4e056b873ade5c.html">Function eCAL::Config::GetShmMonitoringQueueSize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a4c22b23e5ecd29319a4f8563bd1b75f9.html">Function eCAL::Config::GetShmTransportDomain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a3547edc9480cee6d3609de3f34c96d6e.html">Function eCAL::Config::GetShmTransportDomain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a9e6cb0ba42fa6e1e34e206db76ed3a7c.html">Function eCAL::Config::GetTcpPubsubMaxReconnectionAttemps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a28dc0ed11f2d0d590e814564149ccbc7.html">Function eCAL::Config::GetTcpPubsubReaderThreadpoolSize</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a2e3b5b06cd934db1bfac0d8ac6a42766.html">Function eCAL::Config::GetTcpPubsubWriterThreadpoolSize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a606731c2e14b2a298b15abc1cdb19a50.html">Function eCAL::Config::GetTerminalEmulatorCommand</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a633d1b1b9214f6b1ce56c919bcd43eaa.html">Function eCAL::Config::GetTimesyncModuleName</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1af788ae5f2f354a1e9131759dcb5888f5.html">Function eCAL::Config::GetTimesyncModuleReplay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a17f9beaa8ba91d129ff79a54d000aac3.html">Function eCAL::Config::GetTerminalEmulatorCommand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a7875526efc52849923edea4bef3e8bd7.html">Function eCAL::Config::GetTimesyncModuleName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a34788e9a78694a85db014b235b24e22f.html">Function eCAL::Config::GetTimesyncModuleReplay</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1aded02ac11bd3e730dc73364201cd3763.html">Function eCAL::Config::GetUdpMulticastConfigVersion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a1c69db24e82f221aefb2995f47d48d59.html">Function eCAL::Config::GetUdpMulticastGroup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1ae7f51eb8b589364ad50e01d4002f2159.html">Function eCAL::Config::GetUdpMulticastMask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1ad7c6f9ae2980c91c846a4b3de2de0497.html">Function eCAL::Config::GetUdpMulticastGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1aeba95f86d1e601f1cb58487a5318c616.html">Function eCAL::Config::GetUdpMulticastMask</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1a150fae520c5ad7d7ba814fde8527946f.html">Function eCAL::Config::GetUdpMulticastPort</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1aefc58fe7084b3912745ab0e9d77a3f91.html">Function eCAL::Config::GetUdpMulticastRcvBufSizeBytes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_config_8h_1aa30495547ba254caba3e6ed57a164fde.html">Function eCAL::Config::GetUdpMulticastSndBufSizeBytes</a></li>
@@ -279,8 +284,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_namespaceeCAL_1a9d09c60252170dc4f76642b3614601a4.html">Function eCAL::GetPublisherConfiguration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_namespaceeCAL_1a10ea0c3e7fa5782486a856c4dca4fac8.html">Function eCAL::GetSubscriberConfiguration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_namespaceeCAL_1a023307ac7027db8288093a3fc11d15e9.html">Function eCAL::GetVersion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_namespaceeCAL_1a3ba629552c97fe1a7fe08846a2941f6e.html">Function eCAL::GetVersionDateString</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_namespaceeCAL_1a0b257fe51d5220b61b3e6db582804412.html">Function eCAL::GetVersionString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_namespaceeCAL_1ad027f42b3111e3da85cb106f32fc9002.html">Function eCAL::GetVersionDateString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_namespaceeCAL_1ad1aee2f354dcb72366f8cb6754c8b8ea.html">Function eCAL::GetVersionString</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_init_8h_1ad66464b016b00e2a1f42854b02128185.html">Function eCAL::Init::Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_namespaceeCAL_1af8f14107926964a1ab750dab13634b39.html">Function eCAL::Initialize(const std::string&amp;, unsigned int)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_namespaceeCAL_1a30834f2dd3dbab8e0734c79b2aaf9bb4.html">Function eCAL::Initialize(eCAL::Configuration&amp;, const std::string&amp;, unsigned int)</a></li>
@@ -295,15 +300,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_namespaceeCAL_1ad71540560ae36e358ab43699cd7f4c31.html">Function eCAL::operator&lt;&lt;</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1a024a270c580d40fe8e59455226ddbf75.html">Function eCAL::Process::DumpConfig()</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1a6ea34958542106657a76e88ce57f02a3.html">Function eCAL::Process::DumpConfig(std::string&amp;)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1a5052f19e8161bc54861f0b101548cc8c.html">Function eCAL::Process::GetHostName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1a95b9db2927425fbebf3806848aa5569d.html">Function eCAL::Process::GetHostName</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1adf71bf1cf68bc4e60e99c8239b84a3b4.html">Function eCAL::Process::GetProcessID</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1aa3fcf7196e69ebaaaf2424f8089b929a.html">Function eCAL::Process::GetProcessIDAsString</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1a3ef5a956fe6ab65f091b9cccc13a3310.html">Function eCAL::Process::GetProcessName</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1a0468b912c32313f944f1425272cfd53d.html">Function eCAL::Process::GetProcessParameter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1af26bf6d1d62325be90f36338346bd0e7.html">Function eCAL::Process::GetShmTransportDomain</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1aafcbbada35b8c548ab7a0b58d46b6f4b.html">Function eCAL::Process::GetTaskParameter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1a9316c16239592058aa92936910c0fff1.html">Function eCAL::Process::GetUnitName</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1a49286e24c0e73289030ac25fc9cc0d18.html">Function eCAL::Process::SetState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1ad68fe00ed0f44db2eabfbc66d83ac8c0.html">Function eCAL::Process::GetProcessIDAsString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1a1bd6f1de7741b587e38a0b0901515c66.html">Function eCAL::Process::GetProcessName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1af6171b04474f055c5107345b49486d0d.html">Function eCAL::Process::GetProcessParameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1ad2ed2f1d43d5affe5e1c90a416076885.html">Function eCAL::Process::GetShmTransportDomain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1afc61c90f8cbc35b0ffc7d77590d945c3.html">Function eCAL::Process::GetUnitName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1ab71cb241a071ecd87bb2a3c56fa98972.html">Function eCAL::Process::SetState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1ab768762f3d5bc844ce0b025ad19c4c4a.html">Template Function eCAL::Process::SleepFor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1aaca4e4230ea147783192e7f2aa9dddfd.html">Function eCAL::Process::SleepMS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_process_8h_1a9db72d7191ea478d8b0e87e3169af959.html">Function eCAL::Process::SleepNS</a></li>
@@ -327,7 +331,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_registration_8h_1a32d0524e5d48924312037910dcf646c9.html">Function eCAL::Registration::RemPublisherEventCallback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_registration_8h_1ae1ae721b779dbc76a0a6f3ce7e3a9f80.html">Function eCAL::Registration::RemSubscriberEventCallback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_time_8h_1ab6d9d1b4bef72c120b3dc9935047ffda.html">Function eCAL::Time::GetMicroSeconds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../_api/function_time_8h_1a7fd36c3df5f4fe573f250eea2eafebde.html">Function eCAL::Time::GetName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_api/function_time_8h_1a4b28a0713a0d421c95328a1bc0d56498.html">Function eCAL::Time::GetName</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_time_8h_1a58d1b5790d3a79c5cc664449af9569c8.html">Function eCAL::Time::GetNanoSeconds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_time_8h_1ab49ab0c0adb1c27325e3cd9c07f06c3d.html">Function eCAL::Time::GetStatus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../_api/function_time_8h_1ac8f3ede210605457aa8239cb578a1157.html">Function eCAL::Time::IsMaster</a></li>
@@ -387,12 +391,11 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Using eCAL</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../configuration.html">Configuration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../configuration/cloud.html">Cloud Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/network.html">Network Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../configuration/local.html">Local configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../configuration/npcap.html"><i class="fab fa-windows"></i> Npcap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../configuration/player.html"><i class="fab fa-ubuntu"></i> Player - Max open files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../configuration/options.html">ecal.yaml</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../configuration/runtime_configuration.html">Runtime configuration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../applications.html">Applications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -419,6 +422,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../versions/ecal_versions.html">eCAL Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../versions/compatibility.html">eCAL Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versions/6.0/whats_new.html">eCAL 6.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../versions/5.13/whats_new.html">eCAL 5.13</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../versions/5.12/whats_new.html">eCAL 5.12</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../versions/5.11/whats_new.html">eCAL 5.11</a></li>
@@ -427,7 +431,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../versions/5.8/whats_new.html">eCAL 5.8</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../_download_archive/download_archive.html">All releases</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://eclipse-ecal.github.io/ecal/releases/">Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../versions/6.0/migration_guide.html">eCAL 6 Migration Guide</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/tutorials.html">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/documentation.html">Edit the documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/ecal_in_docker.html">eCAL in Docker</a></li>
@@ -686,10 +691,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">8.1.1. Dependencies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world-publisher">8.1.2. Hello World Publisher</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world-subscriber">8.1.3. Hello World Subscriber</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files">8.1.4. Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world-publisher">Hello World Publisher</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world-subscriber">Hello World Subscriber</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
 </ul>
             </nav>
         </div>
@@ -702,7 +707,7 @@
                 <article class="bd-article">
                   
   <section id="hello-world-python">
-<span id="getting-started-hello-world-python"></span><h1><span class="section-number">8.1. </span>Hello World (Python)<a class="headerlink" href="#hello-world-python" title="Link to this heading">#</a></h1>
+<span id="getting-started-hello-world-python"></span><h1>Hello World (Python)<a class="headerlink" href="#hello-world-python" title="Link to this heading">#</a></h1>
 <p>While eCAL is written in C++, it also offers a great python integration.
 Again, we are going to explore that integration by implementing a Hello World Application, that sends the string “Hello World” to an eCAL topic.</p>
 <div class="admonition important">
@@ -712,14 +717,14 @@ With the <code class="docutils literal notranslate"><span class="pre">5</span></
 The other name has already been taken by another package.</p>
 </div>
 <section id="dependencies">
-<h2><span class="section-number">8.1.1. </span>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h2>
 <p>First, you have to install some more development dependencies:</p>
 <ul>
 <li><p><i class="fab fa-windows"></i> Windows:</p>
 <ul>
 <li><p>Python 3 64-bit (<a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>)</p></li>
 <li><p>The eCAL python integration.
-Choose the appropiate version from the <a class="reference internal" href="../_download_archive/download_archive.html#download-archive"><span class="std std-ref">All releases</span></a> and download the <code class="file docutils literal notranslate"><span class="pre">.whl</span></code> file.
+Choose the appropiate version from the <span class="xref std std-ref">download_archive</span> and download the <code class="file docutils literal notranslate"><span class="pre">.whl</span></code> file.
 Open a command prompt in your donwload directory and install the python whl with:</p>
 <div class="highlight-batch notranslate"><div class="highlight"><pre><span></span>pip install ecal5-****-win_amd64.whl
 </pre></div>
@@ -741,7 +746,7 @@ Open a command prompt in your donwload directory and install the python whl with
 </pre></div>
 </div>
 </li>
-<li><p>If you are not using a PPA, choose the appropiate version from the <a class="reference internal" href="../_download_archive/download_archive.html#download-archive"><span class="std std-ref">All releases</span></a> and download the <code class="file docutils literal notranslate"><span class="pre">.whl</span></code> file.
+<li><p>If you are not using a PPA, choose the appropiate version from the <span class="xref std std-ref">download_archive</span> and download the <code class="file docutils literal notranslate"><span class="pre">.whl</span></code> file.
 Open a terminal in your donwload directory and install the python whl with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>ecal5-*-linux_x86_64.whl
 </pre></div>
@@ -754,43 +759,10 @@ Open a terminal in your donwload directory and install the python whl with:</p>
 </ul>
 </section>
 <section id="hello-world-publisher">
-<h2><span class="section-number">8.1.2. </span>Hello World Publisher<a class="headerlink" href="#hello-world-publisher" title="Link to this heading">#</a></h2>
+<h2>Hello World Publisher<a class="headerlink" href="#hello-world-publisher" title="Link to this heading">#</a></h2>
 <p>Somewhere on your hard drive create an empty directory and create a file <code class="file docutils literal notranslate"><span class="pre">hello_world.py</span></code> with the following content:</p>
 <ul>
 <li><p><i class="far fa-file-alt"></i> <code class="file docutils literal notranslate"><span class="pre">hello_world.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">ecal.core.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ecal_core</span>
-<span class="linenos"> 5</span><span class="kn">from</span><span class="w"> </span><span class="nn">ecal.core.publisher</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringPublisher</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-<span class="linenos"> 8</span>  <span class="c1"># initialize eCAL API. The name of our Process will be &quot;Python Hello World Publisher&quot;</span>
-<span class="linenos"> 9</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">,</span> <span class="s2">&quot;Python Hello World Publisher&quot;</span><span class="p">)</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span>  <span class="c1"># Create a String Publisher that publishes on the topic &quot;hello_world_python_topic&quot;</span>
-<span class="linenos">12</span>  <span class="n">pub</span> <span class="o">=</span> <span class="n">StringPublisher</span><span class="p">(</span><span class="s2">&quot;hello_world_python_topic&quot;</span><span class="p">)</span>
-<span class="linenos">13</span>  
-<span class="linenos">14</span>  <span class="c1"># Create a counter, so something changes in our message</span>
-<span class="linenos">15</span>  <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos">16</span>  
-<span class="linenos">17</span>  <span class="c1"># Infinite loop (using ecal_core.ok() will enable us to gracefully shutdown</span>
-<span class="linenos">18</span>  <span class="c1"># the process from another application)</span>
-<span class="linenos">19</span>  <span class="k">while</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">ok</span><span class="p">():</span>
-<span class="linenos">20</span>    <span class="c1"># Create a message with a counter an publish it to the topic</span>
-<span class="linenos">21</span>    <span class="n">current_message</span> <span class="o">=</span> <span class="s2">&quot;Hello World </span><span class="si">{:6d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
-<span class="linenos">22</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sending: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">current_message</span><span class="p">))</span>
-<span class="linenos">23</span>    <span class="n">pub</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">current_message</span><span class="p">)</span>
-<span class="linenos">24</span>    
-<span class="linenos">25</span>    <span class="c1"># Sleep 500 ms</span>
-<span class="linenos">26</span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="linenos">27</span>    
-<span class="linenos">28</span>    <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="linenos">29</span>  
-<span class="linenos">30</span>  <span class="c1"># finalize eCAL API</span>
-<span class="linenos">31</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">finalize</span><span class="p">()</span>
-</pre></div>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>What is happening here?</strong></p>
@@ -818,38 +790,10 @@ You will see the “Python Hello World Publisher” process and the “hello_wor
 <img alt="eCAL Monitor Hello World" src="../_images/python_hello_world_snd_monitor.png" />
 </section>
 <section id="hello-world-subscriber">
-<h2><span class="section-number">8.1.3. </span>Hello World Subscriber<a class="headerlink" href="#hello-world-subscriber" title="Link to this heading">#</a></h2>
+<h2>Hello World Subscriber<a class="headerlink" href="#hello-world-subscriber" title="Link to this heading">#</a></h2>
 <p>For the subscriber, create another file <code class="file docutils literal notranslate"><span class="pre">hello_world_rec.py</span></code> with the following content:</p>
 <ul>
 <li><p><i class="far fa-file-alt"></i> <code class="file docutils literal notranslate"><span class="pre">hello_world_rec.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">ecal.core.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ecal_core</span>
-<span class="linenos"> 5</span><span class="kn">from</span><span class="w"> </span><span class="nn">ecal.core.subscriber</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringSubscriber</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span><span class="c1"># Callback for receiving messages</span>
-<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">topic_name</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
-<span class="linenos"> 9</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-<span class="linenos">12</span>  <span class="c1"># Initialize eCAL</span>
-<span class="linenos">13</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">,</span> <span class="s2">&quot;Python Hello World Publisher&quot;</span><span class="p">)</span>
-<span class="linenos">14</span>
-<span class="linenos">15</span>  <span class="c1"># Create a subscriber that listenes on the &quot;hello_world_python_topic&quot;</span>
-<span class="linenos">16</span>  <span class="n">sub</span> <span class="o">=</span> <span class="n">StringSubscriber</span><span class="p">(</span><span class="s2">&quot;hello_world_python_topic&quot;</span><span class="p">)</span>
-<span class="linenos">17</span>
-<span class="linenos">18</span>  <span class="c1"># Set the Callback</span>
-<span class="linenos">19</span>  <span class="n">sub</span><span class="o">.</span><span class="n">set_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
-<span class="linenos">20</span>  
-<span class="linenos">21</span>  <span class="c1"># Just don&#39;t exit</span>
-<span class="linenos">22</span>  <span class="k">while</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">ok</span><span class="p">():</span>
-<span class="linenos">23</span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="linenos">24</span>  
-<span class="linenos">25</span>  <span class="c1"># finalize eCAL API</span>
-<span class="linenos">26</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">finalize</span><span class="p">()</span>
-</pre></div>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>What is happening here?</strong></p>
@@ -874,10 +818,10 @@ In general however you will want to have a better way to structure your data tha
 So let’s head on to the next topic where we will check out protobuf!</p>
 </section>
 <section id="files">
-<h2><span class="section-number">8.1.4. </span>Files<a class="headerlink" href="#files" title="Link to this heading">#</a></h2>
+<h2>Files<a class="headerlink" href="#files" title="Link to this heading">#</a></h2>
 <pre class="literal-block"><i class="far fa-folder-open"></i>
-├─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../_downloads/63b9884ef3036127c2e59fd4258777da/hello_world_snd.py"><code class="xref download docutils literal notranslate"><span class="pre">hello_world_snd.py</span></code></a>
-└─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../_downloads/0f0d9e30c42f5cd902adf8a5ceb3cc47/hello_world_rec.py"><code class="xref download docutils literal notranslate"><span class="pre">hello_world_rec.py</span></code></a></pre>
+├─ <i class="far fa-file-alt"></i> <code class="xref download docutils literal notranslate"><span class="pre">hello_world_snd.py</span></code>
+└─ <i class="far fa-file-alt"></i> <code class="xref download docutils literal notranslate"><span class="pre">hello_world_rec.py</span></code></pre>
 </section>
 </section>
 
@@ -892,24 +836,6 @@ So let’s head on to the next topic where we will check out protobuf!</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="development_python.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Development (Python)</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="hello_world_python_proto.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8.2. </span>Hello World with protobuf (Python)</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -927,10 +853,10 @@ So let’s head on to the next topic where we will check out protobuf!</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">8.1.1. Dependencies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world-publisher">8.1.2. Hello World Publisher</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world-subscriber">8.1.3. Hello World Subscriber</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files">8.1.4. Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world-publisher">Hello World Publisher</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world-subscriber">Hello World Subscriber</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
 </ul>
   </nav></div>
 
@@ -951,7 +877,7 @@ So let’s head on to the next topic where we will check out protobuf!</p>
 
   <p class="copyright">
     
-      © Copyright 2023, Continental.
+      © Copyright 2025, Continental.
       <br/>
     
   </p>
