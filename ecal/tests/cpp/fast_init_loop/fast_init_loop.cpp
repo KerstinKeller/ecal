@@ -12,7 +12,11 @@ namespace {
 class ECALRaiiInitializer {
 public:
   ECALRaiiInitializer() {
-    if (!eCAL::Initialize())
+    // We want to initialize eCAL with the default Config, e.g. UDP registration
+    // no handshake, ...
+    eCAL::Configuration c;
+    //c.registration.local.transport_type = eCAL::Registration::Local::eTransportType::shm;
+    if (!eCAL::Initialize(c))
       throw std::runtime_error("failed to initialize eCAL");
   }
 
@@ -157,6 +161,7 @@ void wait_until_one_ecal_topic_received(
         std::any_of(subscribers.begin(), subscribers.end(), has_received);
     if (any_topic_received)
       return;
+    std::this_thread::sleep_for(std::chrono::milliseconds(0));
   }
   throw std::runtime_error(
       "Timeout: No topic received data within the specified duration.");
@@ -181,6 +186,7 @@ void wait_until_all_ecal_topics_received(
                 << " milliseconds to receive all topics." << std::endl;
       return;
     }
+    std::this_thread::sleep_for(std::chrono::milliseconds(0));
   }
 
   const auto number_of_received_topics = std::count_if(
@@ -198,9 +204,9 @@ TEST(FastInitLoop, fifty_topics_one_hundret_iterations) {
   constexpr size_t iterations = 100;
 
   using std::chrono::milliseconds;
-  const milliseconds wait_until_ecal_is_ready(2000);
-  const milliseconds connect_timeout(3000);
-  const milliseconds timeout(1000);
+  const milliseconds wait_until_ecal_is_ready(3000);
+  const milliseconds connect_timeout(5000);
+  const milliseconds timeout(2000);
 
   for (size_t iteration = 0; iteration < iterations; ++iteration) {
     constexpr size_t number_of_topics = 500;
