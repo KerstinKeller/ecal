@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.1.2. Protobuf: Person &#8212; Eclipse eCAL™</title>
+    <title>7.2.3. Protobuf: Person &#8212; Eclipse eCAL™</title>
   
   
   
@@ -16,57 +16,52 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=a5c4661c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/bignums.css?v=9f114507" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/sphinx-book-theme-1.1.2-ecaladdon.css?v=cdea9536" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/tabs-3.4.5-ecaladdon.css?v=558f29d2" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../../_static/documentation_options.js?v=a401138a"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
-    <script src="../../../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
     <script src="../../../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../../../_static/tabs.js?v=3030b3cb"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'getting_started/howto/pubsub/protobuf_person';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://eclipse-ecal.github.io/ecal/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v999.0';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner =
-            true;
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="7.1.3. Binary: Blob" href="binary_blob.html" />
-    <link rel="prev" title="7.1.1. String: Hello World" href="string_hello_world.html" />
+    <link rel="next" title="7.2.4. Cap’n Proto: AddressBook" href="capnproto_addressbook.html" />
+    <link rel="prev" title="7.2.2. String: Hello World" href="string_hello_world.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -82,8 +77,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../../search.html"
       method="get">
@@ -91,6 +97,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -98,8 +105,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -115,8 +122,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -146,29 +152,33 @@
     
     
     <img src="../../../_static/ecal-logo.svg" class="logo__image only-light" alt="Eclipse eCAL™ - Home"/>
-    <img src="../../../_static/ecal-logo.svg" class="logo__image only-dark pst-js-only" alt="Eclipse eCAL™ - Home"/>
+    <script>document.write(`<img src="../../../_static/ecal-logo.svg" class="logo__image only-dark" alt="Eclipse eCAL™ - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
-<div class="version-switcher__container dropdown pst-js-only">
-  <button id="pst-version-switcher-button-2"
-    type="button"
-    class="version-switcher__button btn btn-sm dropdown-toggle"
-    data-bs-toggle="dropdown"
-    aria-haspopup="listbox"
-    aria-controls="pst-version-switcher-list-2"
-    aria-label="Version switcher list"
-  >
-    Choose version  <!-- this text may get changed later by javascript -->
-    <span class="caret"></span>
-  </button>
-  <div id="pst-version-switcher-list-2"
-    class="version-switcher__menu dropdown-menu list-group-flush py-0"
-    role="listbox" aria-labelledby="pst-version-switcher-button-2">
-    <!-- dropdown will be populated by javascript on page load -->
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
   </div>
-</div></div>
+`);
+</script></div>
         <div class="sidebar-primary-item">
 <form class="bd-search d-flex align-items-center"
       action="../../../search.html"
@@ -177,6 +187,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -201,28 +212,33 @@
 <li class="toctree-l2"><a class="reference internal" href="../../sys.html">6.4.  Sys</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../howto.html">7. How to use eCAL</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../pubsub.html">7.1. PublisherSubscriber</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="string_hello_world.html">7.1.1. String: Hello World</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">7.1.2. Protobuf: Person</a></li>
-<li class="toctree-l3"><a class="reference internal" href="binary_blob.html">7.1.3. Binary: Blob</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../howto.html">7. HowTo: Writing eCAL Sample Applications</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../setup.html">7.1. Development Setup</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../setup/cpp.html">7.1.1. C/C++ Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup/python.html">7.1.2. Python Setup</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../clientserver.html">7.2. ClientServer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../clientserver/binary_mirror.html">7.2.1. Binary: Mirror</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../clientserver/protobuf_math.html">7.2.2. Protobuf: Math</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../pubsub.html">7.2. Pubsub: Publisher &amp; Subscriber</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="binary_blob.html">7.2.1. Binary: Blob</a></li>
+<li class="toctree-l3"><a class="reference internal" href="string_hello_world.html">7.2.2. String: Hello World</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">7.2.3. Protobuf: Person</a></li>
+<li class="toctree-l3"><a class="reference internal" href="capnproto_addressbook.html">7.2.4. Cap’n Proto: AddressBook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flatbuffers_monster.html">7.2.5. FlatBuffers: Monster</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../configuration.html">7.3. Runtime Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../cmake_integration.html">7.4. CMake Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../python_preparation.html">7.5. Python preparation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../clientserver.html">7.3. Service: Client &amp; Server</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../clientserver/binary_mirror.html">7.3.1. Binary: Mirror</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clientserver/protobuf_math.html">7.3.2. Protobuf: Math</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration.html">7.4. Runtime Configuration</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../development/build_ecal.html">Building eCAL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../development/building_ecal_from_source.html">Building eCAL from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development/building_ecal_from_source.html">Default Build from Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../development/ecal_cmake_options.html">CMake options</a></li>
 </ul>
 </details></li>
@@ -240,6 +256,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/namespace_eCAL__Registration.html">Namespace eCAL::Registration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/namespace_eCAL__Time.html">Namespace eCAL::Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/namespace_eCAL__Util.html">Namespace eCAL::Util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_api/namespace_std.html">Namespace std</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/structeCAL_1_1Registration_1_1SServiceMethod.html">Struct SServiceMethod</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/structeCAL_1_1SDataTypeInformation.html">Struct SDataTypeInformation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/structeCAL_1_1SEntityId.html">Struct SEntityId</a></li>
@@ -249,6 +266,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/classeCAL_1_1eh5_1_1v3_1_1HDF5Meas.html">Class HDF5Meas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/classeCAL_1_1eh5_1_1v2_1_1HDF5Meas.html">Class HDF5Meas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/classeCAL_1_1eh5_1_1v3_1_1HDF5Meas.html">Class HDF5Meas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_api/classstd_1_1hash_3_01eCAL_1_1SDataTypeInformation_01_4.html">Template Class hash&lt; eCAL::SDataTypeInformation &gt;</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/enum_log__level_8h_1a26836a3eb06b0d47712353cc3afa320e.html">Enum eLogLevel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/enum_process__severity_8h_1adfbf566f466697438dd0f26d66c4f1f0.html">Enum eSeverity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_api/enum_process__severity_8h_1a917a843b57411c9ab3bbe4a16e517685.html">Enum eSeverityLevel</a></li>
@@ -493,14 +511,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -519,9 +532,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -661,19 +674,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -694,11 +715,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-protobuf">7.1.2.1. Person Protobuf</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-publisher">7.1.2.2. Person Publisher</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-publisher-files">7.1.2.3. Person Publisher Files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-subscriber">7.1.2.4. Person Subscriber</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-subscriber-files">7.1.2.5. Person Subscriber Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-protobuf">7.2.3.1. Person Protobuf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-publisher">7.2.3.2. Person Publisher</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-subscriber">7.2.3.3. Person Subscriber</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-dynamic-subscriber">7.2.3.4. Person Dynamic Subscriber</a></li>
 </ul>
             </nav>
         </div>
@@ -711,7 +731,7 @@
                 <article class="bd-article">
                   
   <section id="protobuf-person">
-<span id="getting-started-howto-pubsub-protobuf-person"></span><h1><span class="section-number">7.1.2. </span>Protobuf: Person<a class="headerlink" href="#protobuf-person" title="Link to this heading">#</a></h1>
+<span id="getting-started-howto-pubsub-protobuf-person"></span><h1><span class="section-number">7.2.3. </span>Protobuf: Person<a class="headerlink" href="#protobuf-person" title="Link to this heading">#</a></h1>
 <p>In the last section you learned how to send strings to an eCAL Topic.
 Using strings is great for simple data that has a textual representation.
 Quite often however your data will be more complex, so you need some kind of protocol that defines how your data is structured.</p>
@@ -720,7 +740,7 @@ Quite often however your data will be more complex, so you need some kind of pro
 <li><p>It solves the problem of how to serialize and de-serialize data for you</p></li>
 <li><p>You get downward compatibility out of the box (if you follow the guidelines)</p></li>
 <li><p>It is maintained by Google and the API is stable</p></li>
-<li><p>The eCAL Monitor can display a nice reflection view of the data</p></li>
+<li><p>The eCAL Monitor can display a reflection view of the data</p></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -731,7 +751,7 @@ As protobuf messages are defined in <code class="file docutils literal notransla
 <p>The usage of protobuf for data exchange in eCAL is very simple. You know already from the “<a class="reference internal" href="string_hello_world.html#getting-started-howto-pubsub-string-hello-world"><span class="std std-ref">String: Hello World</span></a>” how to send and receive simple string data.
 The basic setup will be the same, but instead of using the string publisher, we will use the protobuf publisher and subscriber.</p>
 <section id="person-protobuf">
-<h2><span class="section-number">7.1.2.1. </span>Person Protobuf<a class="headerlink" href="#person-protobuf" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.2.3.1. </span>Person Protobuf<a class="headerlink" href="#person-protobuf" title="Link to this heading">#</a></h2>
 <p>As the sender and receiver need the same .proto files, we place them in a separate directory next to the source directories for the sender and the receiver.</p>
 <pre class="literal-block"><i class="far fa-folder-open"></i> Person Protobuf File
 ├─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/d3a1b3f3543d310a99b8a098861ad557/person.proto"><code class="xref download docutils literal notranslate"><span class="pre">person.proto</span></code></a>
@@ -796,17 +816,17 @@ So we need them as well. The definitions are straight forward. For more informat
 </div>
 </section>
 <section id="person-publisher">
-<h2><span class="section-number">7.1.2.2. </span>Person Publisher<a class="headerlink" href="#person-publisher" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.2.3.2. </span>Person Publisher<a class="headerlink" href="#person-publisher" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>The main differences to the string publisher are:</dt><dd><ul class="simple">
-<li><p>we need to include the protobuf publisher from <code class="docutils literal notranslate"><span class="pre">ecal/msg/protobuf/publisher.h</span></code></p></li>
-<li><p>also we need the compiled protobuf message header file <code class="docutils literal notranslate"><span class="pre">person.pb.h</span></code> and include it</p></li>
-<li><p>we need to utilize the protobuf message class <code class="docutils literal notranslate"><span class="pre">Person</span></code> instead of the string class <code class="docutils literal notranslate"><span class="pre">std::string</span></code></p></li>
+<li><p>we need to include / import the protobuf specific publishers</p></li>
+<li><p>also we need to include / import the compiled protobuf message definitions for the specific programming language</p></li>
+<li><p>we need to utilize the protobuf message class <code class="docutils literal notranslate"><span class="pre">Person</span></code> instead of the string class</p></li>
 </ul>
 </dd>
 </dl>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Qysr" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="0">C++</button><button aria-controls="panel-0-QyM=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-QyM=" name="QyM=" role="tab" tabindex="-1">C#</button><button aria-controls="panel-0-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1">// Including the eCAL convenience header</span>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Qysr" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="0">C++</button><button aria-controls="panel-0-QyM=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-QyM=" name="QyM=" role="tab" tabindex="-1">C#</button><button aria-controls="panel-0-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button><button aria-controls="panel-0-UHl0aG9uIChsZWdhY3kp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9uIChsZWdhY3kp" name="UHl0aG9uIChsZWdhY3kp" role="tab" tabindex="-1">Python (legacy)</button></div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1">// Including the eCAL convenience header</span>
 <span class="linenos">  2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ecal/ecal.h&gt;</span>
 <span class="linenos">  3</span><span class="c1">// In addition we include the msg protobuf publisher</span>
 <span class="linenos">  4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ecal/msg/protobuf/publisher.h&gt;</span>
@@ -930,14 +950,14 @@ So we need them as well. The definitions are straight forward. For more informat
 <span class="linenos"> 20</span><span class="w">    </span><span class="cm">/*</span>
 <span class="linenos"> 21</span><span class="cm">      Print version info.</span>
 <span class="linenos"> 22</span><span class="cm">    */</span>
-<span class="linenos"> 23</span><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;eCAL {0} ({1})\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Core</span><span class="p">.</span><span class="n">GetVersion</span><span class="p">(),</span><span class="w"> </span><span class="n">Core</span><span class="p">.</span><span class="n">GetDate</span><span class="p">()));</span>
+<span class="linenos"> 23</span><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;eCAL {0} ({1})\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Core</span><span class="p">.</span><span class="n">GetVersionString</span><span class="p">(),</span><span class="w"> </span><span class="n">Core</span><span class="p">.</span><span class="n">GetVersionDateString</span><span class="p">()));</span>
 <span class="linenos"> 24</span>
 <span class="linenos"> 25</span><span class="w">    </span><span class="cm">/*</span>
 <span class="linenos"> 26</span><span class="cm">      Set the state for the program.</span>
 <span class="linenos"> 27</span><span class="cm">      You can vary between different states like healthy, warning, critical ...</span>
 <span class="linenos"> 28</span><span class="cm">      This can be used to communicate the application state to applications like eCAL Monitor/Sys.</span>
 <span class="linenos"> 29</span><span class="cm">    */</span>
-<span class="linenos"> 30</span><span class="w">    </span><span class="c1">// This function is not wrapped yet.</span>
+<span class="linenos"> 30</span><span class="w">    </span><span class="n">Process</span><span class="p">.</span><span class="n">SetState</span><span class="p">(</span><span class="n">eProcessSeverity</span><span class="p">.</span><span class="n">Healthy</span><span class="p">,</span><span class="w"> </span><span class="n">eProcessSeverityLevel</span><span class="p">.</span><span class="n">Level1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;I feel good!&quot;</span><span class="p">);</span>
 <span class="linenos"> 31</span>
 <span class="linenos"> 32</span><span class="w">    </span><span class="cm">/*</span>
 <span class="linenos"> 33</span><span class="cm">      Now we create a new publisher that will publish the topic &quot;person&quot;.</span>
@@ -1015,6 +1035,75 @@ So we need them as well. The definitions are straight forward. For more informat
 </div><div aria-labelledby="tab-0-UHl0aG9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="linenos"> 4</span><span class="c1"># import the eCAL core API</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">ecal.nanobind_core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ecal_core</span>
+<span class="linenos"> 6</span><span class="c1"># import the eCAL publisher AP</span>
+<span class="linenos"> 7</span><span class="kn">from</span><span class="w"> </span><span class="nn">ecal.msg.proto.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Publisher</span> <span class="k">as</span> <span class="n">ProtobufPublisher</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="kn">import</span><span class="w"> </span><span class="nn">google.protobuf</span>
+<span class="linenos">10</span><span class="kn">from</span><span class="w"> </span><span class="nn">packaging</span><span class="w"> </span><span class="kn">import</span> <span class="n">version</span>
+<span class="linenos">11</span><span class="n">proto_version</span> <span class="o">=</span> <span class="n">version</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">google</span><span class="o">.</span><span class="n">protobuf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="sa">f</span><span class="s2">&quot;./_protobuf/v</span><span class="si">{</span><span class="n">proto_version</span><span class="o">.</span><span class="n">major</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="linenos">13</span><span class="c1"># import the compiled protobuf message classes</span>
+<span class="linenos">14</span><span class="kn">import</span><span class="w"> </span><span class="nn">person_pb2</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">17</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------------&quot;</span><span class="p">)</span>
+<span class="linenos">18</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Python: PERSON SENDER         &quot;</span><span class="p">)</span>
+<span class="linenos">19</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------------&quot;</span><span class="p">)</span>
+<span class="linenos">20</span>  
+<span class="linenos">21</span>  <span class="c1"># Initialize eCAL. You always have to initialize eCAL before using it.</span>
+<span class="linenos">22</span>  <span class="c1"># The name of our eCAL Process will be &quot;person send python&quot;.</span>
+<span class="linenos">23</span>  <span class="c1"># This name will be visible in the eCAL Monitor, once the process is running.</span>
+<span class="linenos">24</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s2">&quot;person send python&quot;</span><span class="p">)</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span>  <span class="c1"># Print used eCAL version and date</span>
+<span class="linenos">27</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eCAL </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ecal_core</span><span class="o">.</span><span class="n">get_version_string</span><span class="p">(),</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">get_version_date_string</span><span class="p">()))</span>
+<span class="linenos">28</span> 
+<span class="linenos">29</span>  <span class="c1"># Set the state for the program.</span>
+<span class="linenos">30</span>  <span class="c1"># You can vary between different states like healthy, warning, critical ...</span>
+<span class="linenos">31</span>  <span class="c1"># This can be used to communicate the application state to applications like eCAL Monitor/Sys.</span>
+<span class="linenos">32</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">ecal_core</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">Severity</span><span class="o">.</span><span class="n">HEALTHY</span><span class="p">,</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">SeverityLevel</span><span class="o">.</span><span class="n">LEVEL1</span><span class="p">,</span> <span class="s2">&quot;I feel good!&quot;</span><span class="p">)</span>
+<span class="linenos">33</span>  
+<span class="linenos">34</span>  <span class="c1"># Creating the eCAL Publisher. An eCAL Process can create multiple publishers (and subscribers).</span>
+<span class="linenos">35</span>  <span class="c1"># The topic we are going to publish is called &quot;person&quot;.</span>
+<span class="linenos">36</span>  <span class="n">pub</span> <span class="o">=</span> <span class="n">ProtobufPublisher</span><span class="p">[</span><span class="n">person_pb2</span><span class="o">.</span><span class="n">Person</span><span class="p">](</span><span class="n">person_pb2</span><span class="o">.</span><span class="n">Person</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">)</span>
+<span class="linenos">37</span>  
+<span class="linenos">38</span>  <span class="c1"># Create a new message object of type &quot;Person&quot; and fill it with some data.</span>
+<span class="linenos">39</span>  <span class="n">person</span> <span class="o">=</span> <span class="n">person_pb2</span><span class="o">.</span><span class="n">Person</span><span class="p">()</span>
+<span class="linenos">40</span>  <span class="n">person</span><span class="o">.</span><span class="n">name</span>        <span class="o">=</span> <span class="s2">&quot;Max&quot;</span>
+<span class="linenos">41</span>  <span class="n">person</span><span class="o">.</span><span class="n">stype</span>       <span class="o">=</span> <span class="n">person_pb2</span><span class="o">.</span><span class="n">Person</span><span class="o">.</span><span class="n">MALE</span>
+<span class="linenos">42</span>  <span class="n">person</span><span class="o">.</span><span class="n">email</span>       <span class="o">=</span> <span class="s2">&quot;max@mail.net&quot;</span>
+<span class="linenos">43</span>  <span class="n">person</span><span class="o">.</span><span class="n">dog</span><span class="o">.</span><span class="n">name</span>    <span class="o">=</span> <span class="s2">&quot;Brandy&quot;</span>
+<span class="linenos">44</span>  <span class="n">person</span><span class="o">.</span><span class="n">house</span><span class="o">.</span><span class="n">rooms</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="linenos">45</span>  
+<span class="linenos">46</span>  <span class="n">loop_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">47</span>  <span class="c1"># Creating an infinite publish-loop.</span>
+<span class="linenos">48</span>  <span class="c1"># eCAL Supports a stop signal; when an eCAL Process is stopped, ecal_core.ok() will return false.</span>
+<span class="linenos">49</span>  <span class="k">while</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">ok</span><span class="p">():</span>
+<span class="linenos">50</span>    <span class="c1"># Change something in the message so we can see that the message is changing, e.g. in eCAL Monitor.</span>
+<span class="linenos">51</span>    <span class="n">loop_count</span> <span class="o">=</span> <span class="n">loop_count</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos">52</span>    <span class="n">person</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">loop_count</span>
+<span class="linenos">53</span>    
+<span class="linenos">54</span>    <span class="c1"># Send the content to other eCAL Processes that have subscribed to the topic &quot;hello&quot;.</span>
+<span class="linenos">55</span>    <span class="n">pub</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+<span class="linenos">56</span>    
+<span class="linenos">57</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sending: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">person</span><span class="p">))</span>
+<span class="linenos">58</span>    
+<span class="linenos">59</span>    <span class="c1"># Sleep for 500 ms so we send with a frequency of 2 Hz.</span>
+<span class="linenos">60</span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="linenos">61</span>  
+<span class="linenos">62</span>  <span class="c1"># Finalize eCAL.</span>
+<span class="linenos">63</span>  <span class="c1"># You should always do that before your application exits.</span>
+<span class="linenos">64</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">finalize</span><span class="p">()</span>
+<span class="linenos">65</span>
+<span class="linenos">66</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="linenos">67</span>  <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-UHl0aG9uIChsZWdhY3kp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-UHl0aG9uIChsZWdhY3kp" name="UHl0aG9uIChsZWdhY3kp" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="c1"># import the eCAL core API</span>
 <span class="linenos"> 6</span><span class="kn">import</span><span class="w"> </span><span class="nn">ecal.core.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ecal_core</span>
@@ -1026,14 +1115,14 @@ So we need them as well. The definitions are straight forward. For more informat
 <span class="linenos">12</span><span class="kn">import</span><span class="w"> </span><span class="nn">person_pb2</span>
 <span class="linenos">13</span>
 <span class="linenos">14</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-<span class="linenos">15</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------&quot;</span><span class="p">)</span>
-<span class="linenos">16</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Python: PERSON SENDER&quot;</span><span class="p">)</span>
-<span class="linenos">17</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------&quot;</span><span class="p">)</span>
-<span class="linenos">18</span>  
+<span class="linenos">15</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------&quot;</span><span class="p">)</span>
+<span class="linenos">16</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Python (legacy): PERSON SENDER &quot;</span><span class="p">)</span>
+<span class="linenos">17</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------&quot;</span><span class="p">)</span>
+<span class="linenos">18</span>
 <span class="linenos">19</span>  <span class="c1"># Initialize eCAL. You always have to initialize eCAL before using it.</span>
 <span class="linenos">20</span>  <span class="c1"># The name of our eCAL Process will be &quot;person send python&quot;.</span>
 <span class="linenos">21</span>  <span class="c1"># This name will be visible in the eCAL Monitor, once the process is running.</span>
-<span class="linenos">22</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s2">&quot;person send python&quot;</span><span class="p">)</span>
+<span class="linenos">22</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s2">&quot;person send python (legacy)&quot;</span><span class="p">)</span>
 <span class="linenos">23</span>  
 <span class="linenos">24</span>  <span class="c1"># Print used eCAL version and date</span>
 <span class="linenos">25</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eCAL </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ecal_core</span><span class="o">.</span><span class="n">getversion</span><span class="p">(),</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">getdate</span><span class="p">()))</span>
@@ -1081,9 +1170,6 @@ So we need them as well. The definitions are straight forward. For more informat
 </pre></div>
 </div>
 </div></div>
-</section>
-<section id="person-publisher-files">
-<h2><span class="section-number">7.1.2.3. </span>Person Publisher Files<a class="headerlink" href="#person-publisher-files" title="Link to this heading">#</a></h2>
 <pre class="literal-block"><i class="far fa-folder-open"></i>
 ├─ <i class="far fa-folder-open"></i> C++
 │  └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/3d156998937997be3bc7e5cbb4f640f4/person_send.cpp"><code class="xref download docutils literal notranslate"><span class="pre">person_send.cpp</span></code></a>
@@ -1091,14 +1177,17 @@ So we need them as well. The definitions are straight forward. For more informat
 ├─ <i class="far fa-folder-open"></i> C#
 │  └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/7df2e8d13103c96d18ee5f56575a791f/person_send_csharp.cs"><code class="xref download docutils literal notranslate"><span class="pre">person_send_csharp.cs</span></code></a>
 │
-└─ <i class="far fa-folder-open"></i> Python
-   └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/3b1559715cfb2cd299954f7b2e302245/person_send.py"><code class="xref download docutils literal notranslate"><span class="pre">person_send.py</span></code></a></pre>
+├─ <i class="far fa-folder-open"></i> Python
+|  └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/7dd140e579e9f71a7aa1173b82d1b383/nb_protobuf_person_send.py"><code class="xref download docutils literal notranslate"><span class="pre">person_send.py</span></code></a>
+|
+└─ <i class="far fa-folder-open"></i> Python (legacy)
+   └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/ad7ceb3b5608bbeff091dc5e4f5f6afd/person_send.py"><code class="xref download docutils literal notranslate"><span class="pre">person_send.py</span></code></a></pre>
 </section>
 <section id="person-subscriber">
-<h2><span class="section-number">7.1.2.4. </span>Person Subscriber<a class="headerlink" href="#person-subscriber" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.2.3.3. </span>Person Subscriber<a class="headerlink" href="#person-subscriber" title="Link to this heading">#</a></h2>
 <p>For the subscriber the same changes apply as for the publisher.</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Qysr" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Qysr" name="Qysr" role="tab" tabindex="0">C++</button><button aria-controls="panel-1-QyM=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-QyM=" name="QyM=" role="tab" tabindex="-1">C#</button><button aria-controls="panel-1-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-1-Qysr" class="sphinx-tabs-panel group-tab" id="panel-1-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// Including the eCAL convenience header</span>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Qysr" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Qysr" name="Qysr" role="tab" tabindex="0">C++</button><button aria-controls="panel-1-QyM=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-QyM=" name="QyM=" role="tab" tabindex="-1">C#</button><button aria-controls="panel-1-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button><button aria-controls="panel-1-UHl0aG9uIChsZWdhY3kp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-UHl0aG9uIChsZWdhY3kp" name="UHl0aG9uIChsZWdhY3kp" role="tab" tabindex="-1">Python (legacy)</button></div><div aria-labelledby="tab-1-Qysr" class="sphinx-tabs-panel group-tab" id="panel-1-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// Including the eCAL convenience header</span>
 <span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ecal/ecal.h&gt;</span>
 <span class="linenos"> 3</span><span class="c1">// In addition we include the msg protobuf publisher</span>
 <span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ecal/msg/protobuf/subscriber.h&gt;</span>
@@ -1213,14 +1302,14 @@ So we need them as well. The definitions are straight forward. For more informat
 <span class="linenos">20</span><span class="w">    </span><span class="cm">/*</span>
 <span class="linenos">21</span><span class="cm">      Print version info.</span>
 <span class="linenos">22</span><span class="cm">    */</span>
-<span class="linenos">23</span><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;eCAL {0} ({1})\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Core</span><span class="p">.</span><span class="n">GetVersion</span><span class="p">(),</span><span class="w"> </span><span class="n">Core</span><span class="p">.</span><span class="n">GetDate</span><span class="p">()));</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;eCAL {0} ({1})\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Core</span><span class="p">.</span><span class="n">GetVersionString</span><span class="p">(),</span><span class="w"> </span><span class="n">Core</span><span class="p">.</span><span class="n">GetVersionDateString</span><span class="p">()));</span>
 <span class="linenos">24</span>
 <span class="linenos">25</span><span class="w">    </span><span class="cm">/*</span>
 <span class="linenos">26</span><span class="cm">      Set the state for the program.</span>
 <span class="linenos">27</span><span class="cm">      You can vary between different states like healthy, warning, critical ...</span>
 <span class="linenos">28</span><span class="cm">      This can be used to communicate the application state to applications like eCAL Monitor/Sys.</span>
 <span class="linenos">29</span><span class="cm">    */</span>
-<span class="linenos">30</span><span class="w">    </span><span class="c1">// This function is not wrapped yet.</span>
+<span class="linenos">30</span><span class="w">    </span><span class="n">Process</span><span class="p">.</span><span class="n">SetState</span><span class="p">(</span><span class="n">eProcessSeverity</span><span class="p">.</span><span class="n">Healthy</span><span class="p">,</span><span class="w"> </span><span class="n">eProcessSeverityLevel</span><span class="p">.</span><span class="n">Level1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;I feel good!&quot;</span><span class="p">);</span>
 <span class="linenos">31</span>
 <span class="linenos">32</span><span class="w">    </span><span class="cm">/*</span>
 <span class="linenos">33</span><span class="cm">      Creating the eCAL Subscriber. An eCAL Process can create multiple subscribers (and publishers).</span>
@@ -1282,6 +1371,73 @@ So we need them as well. The definitions are straight forward. For more informat
 </div><div aria-labelledby="tab-1-UHl0aG9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">typing</span>
+<span class="linenos"> 5</span><span class="c1"># import the eCAL core API</span>
+<span class="linenos"> 6</span><span class="kn">import</span><span class="w"> </span><span class="nn">ecal.nanobind_core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ecal_core</span>
+<span class="linenos"> 7</span><span class="c1"># import the eCAL subscriber API</span>
+<span class="linenos"> 8</span><span class="kn">from</span><span class="w"> </span><span class="nn">ecal.msg.proto.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Subscriber</span> <span class="k">as</span> <span class="n">ProtobufSubscriber</span>
+<span class="linenos"> 9</span><span class="kn">from</span><span class="w"> </span><span class="nn">ecal.msg.common.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReceiveCallbackData</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kn">import</span><span class="w"> </span><span class="nn">google.protobuf</span>
+<span class="linenos">12</span><span class="kn">from</span><span class="w"> </span><span class="nn">packaging</span><span class="w"> </span><span class="kn">import</span> <span class="n">version</span>
+<span class="linenos">13</span><span class="n">proto_version</span> <span class="o">=</span> <span class="n">version</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">google</span><span class="o">.</span><span class="n">protobuf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="sa">f</span><span class="s2">&quot;./_protobuf/v</span><span class="si">{</span><span class="n">proto_version</span><span class="o">.</span><span class="n">major</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="linenos">15</span><span class="c1"># import the compiled protobuf message classes</span>
+<span class="linenos">16</span><span class="kn">import</span><span class="w"> </span><span class="nn">person_pb2</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1"># eCAL receive callback</span>
+<span class="linenos">19</span><span class="k">def</span><span class="w"> </span><span class="nf">data_callback</span><span class="p">(</span><span class="n">publisher_id</span> <span class="p">:</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">TopicId</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="n">ReceiveCallbackData</span><span class="p">[</span><span class="n">person_pb2</span><span class="o">.</span><span class="n">Person</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">20</span>  <span class="n">output</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="linenos">21</span><span class="s2">  ----------------------------------------------</span>
+<span class="linenos">22</span><span class="s2">   Received person message from topic </span><span class="si">{</span><span class="n">publisher_id</span><span class="o">.</span><span class="n">topic_name</span><span class="si">}</span><span class="s2"> in Python</span>
+<span class="linenos">23</span><span class="s2">  ----------------------------------------------</span>
+<span class="linenos">24</span><span class="s2">  Time         : </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">send_timestamp</span><span class="si">}</span>
+<span class="linenos">25</span><span class="s2">  Clock        : </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">send_clock</span><span class="si">}</span>
+<span class="linenos">26</span><span class="s2">  Message      : </span>
+<span class="linenos">27</span><span class="s2">    </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">message</span><span class="si">}</span>
+<span class="linenos">28</span><span class="s2">  &quot;&quot;&quot;</span>
+<span class="linenos">29</span>  <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">32</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------&quot;</span><span class="p">)</span>
+<span class="linenos">33</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Python:  PERSON RECEIVE        &quot;</span><span class="p">)</span>
+<span class="linenos">34</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------&quot;</span><span class="p">)</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span>  <span class="c1"># Initialize eCAL. You always have to initialize eCAL before using its API.</span>
+<span class="linenos">37</span>  <span class="c1"># The name of our eCAL Process will be &quot;hello receive python&quot;. </span>
+<span class="linenos">38</span>  <span class="c1"># This name will be visible in the eCAL Monitor, once the process is running.</span>
+<span class="linenos">39</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s2">&quot;person receive python&quot;</span><span class="p">)</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span>  <span class="c1"># print eCAL version and date</span>
+<span class="linenos">42</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eCAL </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ecal_core</span><span class="o">.</span><span class="n">get_version_string</span><span class="p">(),</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">get_version_date_string</span><span class="p">()))</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span>  <span class="c1"># Set the state for the program.</span>
+<span class="linenos">45</span>  <span class="c1"># You can vary between different states like healthy, warning, critical ...</span>
+<span class="linenos">46</span>  <span class="c1"># This can be used to communicate the application state to applications like eCAL Monitor/Sys.</span>
+<span class="linenos">47</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">ecal_core</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">Severity</span><span class="o">.</span><span class="n">HEALTHY</span><span class="p">,</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">SeverityLevel</span><span class="o">.</span><span class="n">LEVEL1</span><span class="p">,</span> <span class="s2">&quot;I feel good!&quot;</span><span class="p">)</span>
+<span class="linenos">48</span>
+<span class="linenos">49</span>  <span class="c1"># Creating the eCAL Subscriber. An eCAL Process can create multiple subscribers (and publishers).</span>
+<span class="linenos">50</span>  <span class="c1"># The topic we are going to receive is called &quot;person&quot;.</span>
+<span class="linenos">51</span>  <span class="n">sub</span> <span class="o">=</span> <span class="n">ProtobufSubscriber</span><span class="p">[</span><span class="n">person_pb2</span><span class="o">.</span><span class="n">Person</span><span class="p">](</span><span class="n">person_pb2</span><span class="o">.</span><span class="n">Person</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">)</span>
+<span class="linenos">52</span>  <span class="n">sub</span><span class="o">.</span><span class="n">set_receive_callback</span><span class="p">(</span><span class="n">data_callback</span><span class="p">)</span>
+<span class="linenos">53</span>  
+<span class="linenos">54</span>  <span class="c1"># Creating an infinite loop.</span>
+<span class="linenos">55</span>  <span class="c1"># eCAL Supports a stop signal; when an eCAL Process is stopped, eCAL::Ok() will return false.</span>
+<span class="linenos">56</span>  <span class="k">while</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">ok</span><span class="p">():</span>
+<span class="linenos">57</span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># Sleep for 500ms to reduce CPU usage.</span>
+<span class="linenos">58</span>  
+<span class="linenos">59</span>  <span class="c1"># Finalize eCAL.</span>
+<span class="linenos">60</span>  <span class="c1"># You should always do that before your application exits.</span>
+<span class="linenos">61</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">finalize</span><span class="p">()</span>
+<span class="linenos">62</span>  
+<span class="linenos">63</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="linenos">64</span>  <span class="n">main</span><span class="p">()</span>
+<span class="linenos">65</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-UHl0aG9uIChsZWdhY3kp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-UHl0aG9uIChsZWdhY3kp" name="UHl0aG9uIChsZWdhY3kp" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="linenos"> 4</span><span class="c1"># import the eCAL core API</span>
 <span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">ecal.core.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ecal_core</span>
 <span class="linenos"> 6</span><span class="c1"># import the eCAL subscriber API</span>
@@ -1303,14 +1459,14 @@ So we need them as well. The definitions are straight forward. For more informat
 <span class="linenos">22</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;house.rooms  : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">house</span><span class="o">.</span><span class="n">rooms</span><span class="p">))</span>
 <span class="linenos">23</span>
 <span class="linenos">24</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-<span class="linenos">25</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------&quot;</span><span class="p">)</span>
-<span class="linenos">26</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Python: PERSON RECEIVER&quot;</span><span class="p">)</span>
-<span class="linenos">27</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------&quot;</span><span class="p">)</span>
-<span class="linenos">28</span>  
+<span class="linenos">25</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------------------------&quot;</span><span class="p">)</span>
+<span class="linenos">26</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Python (legacy): PERSON RECEIVER &quot;</span><span class="p">)</span>
+<span class="linenos">27</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------------------------&quot;</span><span class="p">)</span>
+<span class="linenos">28</span>
 <span class="linenos">29</span>  <span class="c1"># Initialize eCAL. You always have to initialize eCAL before using it.</span>
-<span class="linenos">30</span>  <span class="c1"># The name of our eCAL Process will be &quot;person receive python&quot;.</span>
+<span class="linenos">30</span>  <span class="c1"># The name of our eCAL Process will be &quot;person receive python (legacy)&quot;.</span>
 <span class="linenos">31</span>  <span class="c1"># This name will be visible in the eCAL Monitor, once the process is running.</span>
-<span class="linenos">32</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s2">&quot;person receive python&quot;</span><span class="p">)</span>
+<span class="linenos">32</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s2">&quot;person receive python (legacy)&quot;</span><span class="p">)</span>
 <span class="linenos">33</span>
 <span class="linenos">34</span>  <span class="c1"># Print used eCAL version and date</span>
 <span class="linenos">35</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eCAL </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ecal_core</span><span class="o">.</span><span class="n">getversion</span><span class="p">(),</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">getdate</span><span class="p">()))</span>
@@ -1345,9 +1501,6 @@ So we need them as well. The definitions are straight forward. For more informat
 </pre></div>
 </div>
 </div></div>
-</section>
-<section id="person-subscriber-files">
-<h2><span class="section-number">7.1.2.5. </span>Person Subscriber Files<a class="headerlink" href="#person-subscriber-files" title="Link to this heading">#</a></h2>
 <pre class="literal-block"><i class="far fa-folder-open"></i>
 ├─ <i class="far fa-folder-open"></i> C++
 │  └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/7c3fe67cd5e2fc3c159dab87f5369f25/person_receive.cpp"><code class="xref download docutils literal notranslate"><span class="pre">person_receive.cpp</span></code></a>
@@ -1355,8 +1508,370 @@ So we need them as well. The definitions are straight forward. For more informat
 ├─ <i class="far fa-folder-open"></i> C#
 │  └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/40ce255f1fb73c759786236e0d45f231/person_receive_csharp.cs"><code class="xref download docutils literal notranslate"><span class="pre">person_receive_csharp.cs</span></code></a>
 │
+├─ <i class="far fa-folder-open"></i> Python
+|  └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/526f3fc3177aa35a83abe4dc0c20b926/nb_protobuf_person_receive.py"><code class="xref download docutils literal notranslate"><span class="pre">person_receive.py</span></code></a>
+|
+└─ <i class="far fa-folder-open"></i> Python (legacy)
+   └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/af84852f12450dba4b2326e1a1d6dff0/person_receive.py"><code class="xref download docutils literal notranslate"><span class="pre">person_receive.py</span></code></a></pre>
+</section>
+<section id="person-dynamic-subscriber">
+<h2><span class="section-number">7.2.3.4. </span>Person Dynamic Subscriber<a class="headerlink" href="#person-dynamic-subscriber" title="Link to this heading">#</a></h2>
+<p>Using eCAL and Protobuf, it is possible to receive data without knowing the structure of the incoming data in advance.
+Hence you can use a dynamic subscriber to receive Protobuf data, even if you do not have access to the corresponding <code class="file docutils literal notranslate"><span class="pre">.proto</span></code> file.
+This is useful for generic applications, such as the eCAL Monitor, which can display all data types without knowing them in advance.</p>
+<p>The dynamic Protobuf API is unfortunately only available for C++ and Python at the moment.
+C# does not have the capabilities for dynamic message support in Protocol Buffers at this time.
+Progress on this feature can be tracked in the following <a class="reference external" href="https://github.com/protocolbuffers/protobuf/issues/658">GitHub issue</a>.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-Qysr" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-Qysr" name="Qysr" role="tab" tabindex="0">C++</button><button aria-controls="panel-2-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-2-Qysr" class="sphinx-tabs-panel group-tab" id="panel-2-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ecal/ecal.h&gt;</span>
+<span class="linenos">  2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ecal/msg/protobuf/dynamic_subscriber.h&gt;</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos">  5</span>
+<span class="linenos">  6</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">MESSAGE_NAME</span><span class="p">(</span><span class="s">&quot;person&quot;</span><span class="p">);</span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcValue</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index_</span><span class="p">)</span>
+<span class="linenos">  9</span><span class="p">{</span>
+<span class="linenos"> 10</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">var_name</span><span class="p">;</span>
+<span class="linenos"> 11</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">group_</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="n">var_name</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">group_</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">;</span>
+<span class="linenos"> 12</span><span class="w">  </span><span class="n">var_name</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">name_</span><span class="p">;</span>
+<span class="linenos"> 13</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">index_</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">var_name</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;[&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">index_</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">;</span>
+<span class="linenos"> 14</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">var_name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value_</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos"> 15</span><span class="p">}</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcString</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index_</span><span class="p">)</span>
+<span class="linenos"> 18</span><span class="p">{</span>
+<span class="linenos"> 19</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">var_name</span><span class="p">;</span>
+<span class="linenos"> 20</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">group_</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="n">var_name</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">group_</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">;</span>
+<span class="linenos"> 21</span><span class="w">  </span><span class="n">var_name</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">name_</span><span class="p">;</span>
+<span class="linenos"> 22</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">index_</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">var_name</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;[&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">index_</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">;</span>
+<span class="linenos"> 23</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">var_name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value_</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos"> 24</span><span class="p">}</span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcProtoType</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">int32</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index_</span><span class="p">)</span>
+<span class="linenos"> 27</span><span class="p">{</span>
+<span class="linenos"> 28</span><span class="w">  </span><span class="n">ProcValue</span><span class="p">(</span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="n">value_</span><span class="p">),</span><span class="w"> </span><span class="n">index_</span><span class="p">);</span>
+<span class="linenos"> 29</span><span class="p">}</span>
+<span class="linenos"> 30</span>
+<span class="linenos"> 31</span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcProtoType</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">int64</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index_</span><span class="p">)</span>
+<span class="linenos"> 32</span><span class="p">{</span>
+<span class="linenos"> 33</span><span class="w">  </span><span class="n">ProcValue</span><span class="p">(</span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="n">value_</span><span class="p">),</span><span class="w"> </span><span class="n">index_</span><span class="p">);</span>
+<span class="linenos"> 34</span><span class="p">}</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcProtoType</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">uint32</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index_</span><span class="p">)</span>
+<span class="linenos"> 37</span><span class="p">{</span>
+<span class="linenos"> 38</span><span class="w">  </span><span class="n">ProcValue</span><span class="p">(</span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="n">value_</span><span class="p">),</span><span class="w"> </span><span class="n">index_</span><span class="p">);</span>
+<span class="linenos"> 39</span><span class="p">}</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcProtoType</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">uint64</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index_</span><span class="p">)</span>
+<span class="linenos"> 42</span><span class="p">{</span>
+<span class="linenos"> 43</span><span class="w">  </span><span class="n">ProcValue</span><span class="p">(</span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="n">value_</span><span class="p">),</span><span class="w"> </span><span class="n">index_</span><span class="p">);</span>
+<span class="linenos"> 44</span><span class="p">}</span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcProtoType</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index_</span><span class="p">)</span>
+<span class="linenos"> 47</span><span class="p">{</span>
+<span class="linenos"> 48</span><span class="w">  </span><span class="n">ProcValue</span><span class="p">(</span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="n">value_</span><span class="p">),</span><span class="w"> </span><span class="n">index_</span><span class="p">);</span>
+<span class="linenos"> 49</span><span class="p">}</span>
+<span class="linenos"> 50</span>
+<span class="linenos"> 51</span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcProtoType</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index_</span><span class="p">)</span>
+<span class="linenos"> 52</span><span class="p">{</span>
+<span class="linenos"> 53</span><span class="w">  </span><span class="n">ProcValue</span><span class="p">(</span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="n">value_</span><span class="p">),</span><span class="w"> </span><span class="n">index_</span><span class="p">);</span>
+<span class="linenos"> 54</span><span class="p">}</span>
+<span class="linenos"> 55</span>
+<span class="linenos"> 56</span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcProtoType</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index_</span><span class="p">)</span>
+<span class="linenos"> 57</span><span class="p">{</span>
+<span class="linenos"> 58</span><span class="w">  </span><span class="n">ProcValue</span><span class="p">(</span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="n">value_</span><span class="p">),</span><span class="w"> </span><span class="n">index_</span><span class="p">);</span>
+<span class="linenos"> 59</span><span class="p">}</span>
+<span class="linenos"> 60</span>
+<span class="linenos"> 61</span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcProtoType</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index_</span><span class="p">)</span>
+<span class="linenos"> 62</span><span class="p">{</span>
+<span class="linenos"> 63</span><span class="w">  </span><span class="n">ProcString</span><span class="p">(</span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="n">index_</span><span class="p">);</span>
+<span class="linenos"> 64</span><span class="p">}</span>
+<span class="linenos"> 65</span>
+<span class="linenos"> 66</span><span class="kt">void</span><span class="w"> </span><span class="nf">ProcProtoType</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">EnumValueDescriptor</span><span class="o">*</span><span class="w"> </span><span class="n">value_</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">index_</span><span class="p">)</span>
+<span class="linenos"> 67</span><span class="p">{</span>
+<span class="linenos"> 68</span><span class="w">  </span><span class="n">ProcValue</span><span class="p">(</span><span class="n">group_</span><span class="p">,</span><span class="w"> </span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="n">value_</span><span class="o">-&gt;</span><span class="n">number</span><span class="p">()),</span><span class="w"> </span><span class="n">index_</span><span class="p">);</span>
+<span class="linenos"> 69</span><span class="p">}</span>
+<span class="linenos"> 70</span>
+<span class="linenos"> 71</span><span class="kt">void</span><span class="w"> </span><span class="n">ProcProtoMsg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">Message</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">prefix_</span><span class="w"> </span><span class="cm">/* = &quot;&quot; */</span><span class="p">)</span>
+<span class="linenos"> 72</span><span class="p">{</span>
+<span class="linenos"> 73</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg_</span><span class="p">.</span><span class="n">GetDescriptor</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">field_count</span><span class="p">();</span>
+<span class="linenos"> 74</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">Reflection</span><span class="o">*</span><span class="w"> </span><span class="n">ref_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg_</span><span class="p">.</span><span class="n">GetReflection</span><span class="p">();</span>
+<span class="linenos"> 75</span>
+<span class="linenos"> 76</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">ref_ptr</span><span class="p">)</span>
+<span class="linenos"> 77</span><span class="w">  </span><span class="p">{</span>
+<span class="linenos"> 78</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">count</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos"> 79</span><span class="w">    </span><span class="p">{</span>
+<span class="linenos"> 80</span><span class="w">      </span><span class="k">auto</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg_</span><span class="p">.</span><span class="n">GetDescriptor</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">field</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="linenos"> 81</span><span class="w">  </span>
+<span class="linenos"> 82</span><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">FieldDescriptor</span><span class="o">::</span><span class="n">CppType</span><span class="w"> </span><span class="n">fdt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">cpp_type</span><span class="p">();</span>
+<span class="linenos"> 83</span><span class="w">      </span><span class="k">switch</span><span class="p">(</span><span class="n">fdt</span><span class="p">)</span>
+<span class="linenos"> 84</span><span class="w">      </span><span class="p">{</span>
+<span class="linenos"> 85</span><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">google</span><span class="o">::</span><span class="no">protobuf</span><span class="o">::</span><span class="no">FieldDescriptor</span><span class="o">::</span><span class="no">CPPTYPE_INT32</span><span class="p">:</span><span class="w">      </span><span class="c1">// TYPE_INT32, TYPE_SINT32, TYPE_SFIXED32</span>
+<span class="linenos"> 86</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">is_repeated</span><span class="p">())</span>
+<span class="linenos"> 87</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 88</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">fsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">FieldSize</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">);</span>
+<span class="linenos"> 89</span><span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fsize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">fnum</span><span class="p">)</span>
+<span class="linenos"> 90</span><span class="w">          </span><span class="p">{</span>
+<span class="linenos"> 91</span><span class="w">            </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetRepeatedInt32</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">fnum</span><span class="p">),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fnum</span><span class="p">));</span>
+<span class="linenos"> 92</span><span class="w">          </span><span class="p">}</span>
+<span class="linenos"> 93</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos"> 94</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos"> 95</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 96</span><span class="w">          </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetInt32</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos"> 97</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos"> 98</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos"> 99</span><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">google</span><span class="o">::</span><span class="no">protobuf</span><span class="o">::</span><span class="no">FieldDescriptor</span><span class="o">::</span><span class="no">CPPTYPE_INT64</span><span class="p">:</span><span class="w">      </span><span class="c1">// TYPE_INT64, TYPE_SINT64, TYPE_SFIXED64</span>
+<span class="linenos">100</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">is_repeated</span><span class="p">())</span>
+<span class="linenos">101</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">102</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">fsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">FieldSize</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">);</span>
+<span class="linenos">103</span><span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fsize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">fnum</span><span class="p">)</span>
+<span class="linenos">104</span><span class="w">          </span><span class="p">{</span>
+<span class="linenos">105</span><span class="w">            </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetRepeatedInt64</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">fnum</span><span class="p">),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fnum</span><span class="p">));</span>
+<span class="linenos">106</span><span class="w">          </span><span class="p">}</span>
+<span class="linenos">107</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">108</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">109</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">110</span><span class="w">          </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetInt64</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos">111</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">112</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">113</span><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">google</span><span class="o">::</span><span class="no">protobuf</span><span class="o">::</span><span class="no">FieldDescriptor</span><span class="o">::</span><span class="no">CPPTYPE_UINT32</span><span class="p">:</span><span class="w">     </span><span class="c1">// TYPE_UINT32, TYPE_FIXED32</span>
+<span class="linenos">114</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">is_repeated</span><span class="p">())</span>
+<span class="linenos">115</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">116</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">fsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">FieldSize</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">);</span>
+<span class="linenos">117</span><span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fsize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">fnum</span><span class="p">)</span>
+<span class="linenos">118</span><span class="w">          </span><span class="p">{</span>
+<span class="linenos">119</span><span class="w">            </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetRepeatedUInt32</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">fnum</span><span class="p">),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fnum</span><span class="p">));</span>
+<span class="linenos">120</span><span class="w">          </span><span class="p">}</span>
+<span class="linenos">121</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">122</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">123</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">124</span><span class="w">          </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetUInt32</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos">125</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">126</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">127</span><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">google</span><span class="o">::</span><span class="no">protobuf</span><span class="o">::</span><span class="no">FieldDescriptor</span><span class="o">::</span><span class="no">CPPTYPE_UINT64</span><span class="p">:</span><span class="w">     </span><span class="c1">// TYPE_UINT64, TYPE_FIXED64</span>
+<span class="linenos">128</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">is_repeated</span><span class="p">())</span>
+<span class="linenos">129</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">130</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">fsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">FieldSize</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">);</span>
+<span class="linenos">131</span><span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fsize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">fnum</span><span class="p">)</span>
+<span class="linenos">132</span><span class="w">          </span><span class="p">{</span>
+<span class="linenos">133</span><span class="w">            </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetRepeatedUInt64</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">fnum</span><span class="p">),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fnum</span><span class="p">));</span>
+<span class="linenos">134</span><span class="w">          </span><span class="p">}</span>
+<span class="linenos">135</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">136</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">137</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">138</span><span class="w">          </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetUInt64</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos">139</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">140</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">141</span><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">google</span><span class="o">::</span><span class="no">protobuf</span><span class="o">::</span><span class="no">FieldDescriptor</span><span class="o">::</span><span class="no">CPPTYPE_DOUBLE</span><span class="p">:</span><span class="w">     </span><span class="c1">// TYPE_DOUBLE</span>
+<span class="linenos">142</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">is_repeated</span><span class="p">())</span>
+<span class="linenos">143</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">144</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">fsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">FieldSize</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">);</span>
+<span class="linenos">145</span><span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fsize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">fnum</span><span class="p">)</span>
+<span class="linenos">146</span><span class="w">          </span><span class="p">{</span>
+<span class="linenos">147</span><span class="w">            </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetRepeatedDouble</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">fnum</span><span class="p">),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fnum</span><span class="p">));</span>
+<span class="linenos">148</span><span class="w">          </span><span class="p">}</span>
+<span class="linenos">149</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">150</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">151</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">152</span><span class="w">          </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetDouble</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos">153</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">154</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">155</span><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">google</span><span class="o">::</span><span class="no">protobuf</span><span class="o">::</span><span class="no">FieldDescriptor</span><span class="o">::</span><span class="no">CPPTYPE_FLOAT</span><span class="p">:</span><span class="w">      </span><span class="c1">// TYPE_FLOAT</span>
+<span class="linenos">156</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">is_repeated</span><span class="p">())</span>
+<span class="linenos">157</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">158</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">fsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">FieldSize</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">);</span>
+<span class="linenos">159</span><span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fsize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">fnum</span><span class="p">)</span>
+<span class="linenos">160</span><span class="w">          </span><span class="p">{</span>
+<span class="linenos">161</span><span class="w">            </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetRepeatedFloat</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">fnum</span><span class="p">),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fnum</span><span class="p">));</span>
+<span class="linenos">162</span><span class="w">          </span><span class="p">}</span>
+<span class="linenos">163</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">164</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">165</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">166</span><span class="w">          </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetFloat</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos">167</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">168</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">169</span><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">google</span><span class="o">::</span><span class="no">protobuf</span><span class="o">::</span><span class="no">FieldDescriptor</span><span class="o">::</span><span class="no">CPPTYPE_BOOL</span><span class="p">:</span><span class="w">       </span><span class="c1">// TYPE_BOOL</span>
+<span class="linenos">170</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">is_repeated</span><span class="p">())</span>
+<span class="linenos">171</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">172</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">fsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">FieldSize</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">);</span>
+<span class="linenos">173</span><span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fsize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">fnum</span><span class="p">)</span>
+<span class="linenos">174</span><span class="w">          </span><span class="p">{</span>
+<span class="linenos">175</span><span class="w">            </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetRepeatedBool</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">fnum</span><span class="p">),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fnum</span><span class="p">));</span>
+<span class="linenos">176</span><span class="w">          </span><span class="p">}</span>
+<span class="linenos">177</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">178</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">179</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">180</span><span class="w">          </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetBool</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos">181</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">182</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">183</span><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">google</span><span class="o">::</span><span class="no">protobuf</span><span class="o">::</span><span class="no">FieldDescriptor</span><span class="o">::</span><span class="no">CPPTYPE_ENUM</span><span class="p">:</span><span class="w">       </span><span class="c1">// TYPE_ENUM</span>
+<span class="linenos">184</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">is_repeated</span><span class="p">())</span>
+<span class="linenos">185</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">186</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">fsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">FieldSize</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">);</span>
+<span class="linenos">187</span><span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fsize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">fnum</span><span class="p">)</span>
+<span class="linenos">188</span><span class="w">          </span><span class="p">{</span>
+<span class="linenos">189</span><span class="w">            </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetRepeatedEnum</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">fnum</span><span class="p">),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fnum</span><span class="p">));</span>
+<span class="linenos">190</span><span class="w">          </span><span class="p">}</span>
+<span class="linenos">191</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">192</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">193</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">194</span><span class="w">          </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetEnum</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos">195</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">196</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">197</span><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">google</span><span class="o">::</span><span class="no">protobuf</span><span class="o">::</span><span class="no">FieldDescriptor</span><span class="o">::</span><span class="no">CPPTYPE_STRING</span><span class="p">:</span><span class="w">     </span><span class="c1">// TYPE_STRING, TYPE_BYTES</span>
+<span class="linenos">198</span><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">is_repeated</span><span class="p">())</span>
+<span class="linenos">199</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">200</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">fsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">FieldSize</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">);</span>
+<span class="linenos">201</span><span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fsize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">fnum</span><span class="p">)</span>
+<span class="linenos">202</span><span class="w">          </span><span class="p">{</span>
+<span class="linenos">203</span><span class="w">            </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetRepeatedString</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">fnum</span><span class="p">),</span><span class="w"> </span><span class="n">fnum</span><span class="p">);</span>
+<span class="linenos">204</span><span class="w">          </span><span class="p">}</span>
+<span class="linenos">205</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">206</span><span class="w">        </span><span class="k">else</span>
+<span class="linenos">207</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">208</span><span class="w">          </span><span class="n">ProcProtoType</span><span class="p">(</span><span class="n">prefix_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetString</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos">209</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">210</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">211</span><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">google</span><span class="o">::</span><span class="no">protobuf</span><span class="o">::</span><span class="no">FieldDescriptor</span><span class="o">::</span><span class="no">CPPTYPE_MESSAGE</span><span class="p">:</span><span class="w">    </span><span class="c1">// TYPE_MESSAGE, TYPE_GROUP</span>
+<span class="linenos">212</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">213</span><span class="w">          </span><span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">is_repeated</span><span class="p">())</span>
+<span class="linenos">214</span><span class="w">          </span><span class="p">{</span>
+<span class="linenos">215</span><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">fsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">FieldSize</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">);</span>
+<span class="linenos">216</span><span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fnum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fsize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">fnum</span><span class="p">)</span>
+<span class="linenos">217</span><span class="w">            </span><span class="p">{</span>
+<span class="linenos">218</span><span class="w">              </span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">Message</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetRepeatedMessage</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">fnum</span><span class="p">);</span>
+<span class="linenos">219</span><span class="w">              </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">();</span>
+<span class="linenos">220</span><span class="w">              </span><span class="n">prefix</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;[&quot;</span><span class="p">;</span>
+<span class="linenos">221</span><span class="w">              </span><span class="n">prefix</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">fnum</span><span class="p">);</span>
+<span class="linenos">222</span><span class="w">              </span><span class="n">prefix</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">;</span>
+<span class="linenos">223</span><span class="w">              </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">prefix_</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prefix_</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">prefix</span><span class="p">;</span>
+<span class="linenos">224</span>
+<span class="linenos">225</span><span class="w">              </span><span class="c1">// do not process default messages to avoid infinite recursions.</span>
+<span class="linenos">226</span><span class="w">              </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">FieldDescriptor</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">msg_fields</span><span class="p">;</span>
+<span class="linenos">227</span><span class="w">              </span><span class="n">msg</span><span class="p">.</span><span class="n">GetReflection</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">ListFields</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">msg_fields</span><span class="p">);</span>
+<span class="linenos">228</span><span class="w">              </span>
+<span class="linenos">229</span><span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prefix_</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">())</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">msg_fields</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="linenos">230</span><span class="w">                </span><span class="n">ProcProtoMsg</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">prefix</span><span class="p">);</span>
+<span class="linenos">231</span><span class="w">            </span><span class="p">}</span>
+<span class="linenos">232</span><span class="w">          </span><span class="p">}</span>
+<span class="linenos">233</span><span class="w">          </span><span class="k">else</span>
+<span class="linenos">234</span><span class="w">          </span><span class="p">{</span>
+<span class="linenos">235</span><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">Message</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref_ptr</span><span class="o">-&gt;</span><span class="n">GetMessage</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="p">);</span>
+<span class="linenos">236</span><span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">();</span>
+<span class="linenos">237</span><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">prefix_</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prefix_</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">prefix</span><span class="p">;</span>
+<span class="linenos">238</span>
+<span class="linenos">239</span><span class="w">            </span><span class="c1">// do not process default messages to avoid infinite recursions.</span>
+<span class="linenos">240</span><span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">FieldDescriptor</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">msg_fields</span><span class="p">;</span>
+<span class="linenos">241</span><span class="w">            </span><span class="n">msg</span><span class="p">.</span><span class="n">GetReflection</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">ListFields</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">msg_fields</span><span class="p">);</span>
+<span class="linenos">242</span>
+<span class="linenos">243</span><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prefix_</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">())</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">msg_fields</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="linenos">244</span><span class="w">              </span><span class="n">ProcProtoMsg</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">prefix</span><span class="p">);</span>
+<span class="linenos">245</span><span class="w">          </span><span class="p">}</span>
+<span class="linenos">246</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">247</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">248</span><span class="w">      </span><span class="k">default</span><span class="o">:</span>
+<span class="linenos">249</span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">250</span><span class="w">      </span><span class="p">}</span>
+<span class="linenos">251</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">252</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">253</span><span class="p">}</span>
+<span class="linenos">254</span>
+<span class="linenos">255</span><span class="kt">void</span><span class="w"> </span><span class="n">ProtoMsgCallback</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">eCAL</span><span class="o">::</span><span class="n">STopicId</span><span class="o">&amp;</span><span class="w"> </span><span class="n">topic_id_</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">Message</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">msg_</span><span class="p">)</span>
+<span class="linenos">256</span><span class="p">{</span>
+<span class="linenos">257</span><span class="w">  </span><span class="n">ProcProtoMsg</span><span class="p">(</span><span class="o">*</span><span class="n">msg_</span><span class="p">,</span><span class="w"> </span><span class="n">topic_id_</span><span class="p">.</span><span class="n">topic_name</span><span class="p">);</span>
+<span class="linenos">258</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">259</span><span class="p">}</span>
+<span class="linenos">260</span>
+<span class="linenos">261</span><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
+<span class="linenos">262</span><span class="p">{</span>
+<span class="linenos">263</span><span class="w">  </span><span class="c1">// initialize eCAL API</span>
+<span class="linenos">264</span><span class="w">  </span><span class="n">eCAL</span><span class="o">::</span><span class="n">Initialize</span><span class="p">(</span><span class="s">&quot;proto_dyn&quot;</span><span class="p">);</span>
+<span class="linenos">265</span>
+<span class="linenos">266</span><span class="w">  </span><span class="c1">// create dynamic subscribers for receiving and decoding messages</span>
+<span class="linenos">267</span><span class="w">  </span><span class="n">eCAL</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">CDynamicSubscriber</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="n">MESSAGE_NAME</span><span class="p">);</span>
+<span class="linenos">268</span><span class="w">  </span><span class="n">sub</span><span class="p">.</span><span class="n">SetReceiveCallback</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="n">ProtoMsgCallback</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">placeholders</span><span class="o">::</span><span class="n">_1</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">placeholders</span><span class="o">::</span><span class="n">_2</span><span class="p">));</span>
+<span class="linenos">269</span>
+<span class="linenos">270</span><span class="w">  </span><span class="c1">// enter main loop</span>
+<span class="linenos">271</span><span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="n">eCAL</span><span class="o">::</span><span class="n">Ok</span><span class="p">())</span>
+<span class="linenos">272</span><span class="w">  </span><span class="p">{</span>
+<span class="linenos">273</span><span class="w">    </span><span class="c1">// sleep main thread for 1 second</span>
+<span class="linenos">274</span><span class="w">    </span><span class="n">eCAL</span><span class="o">::</span><span class="n">Process</span><span class="o">::</span><span class="n">SleepMS</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="linenos">275</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">276</span>
+<span class="linenos">277</span><span class="w">  </span><span class="c1">// finalize eCAL API</span>
+<span class="linenos">278</span><span class="w">  </span><span class="n">eCAL</span><span class="o">::</span><span class="n">Finalize</span><span class="p">();</span>
+<span class="linenos">279</span>
+<span class="linenos">280</span><span class="w">  </span><span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos">281</span><span class="p">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-UHl0aG9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">typing</span>
+<span class="linenos"> 4</span><span class="c1"># import the eCAL core API</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">ecal.nanobind_core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ecal_core</span>
+<span class="linenos"> 6</span><span class="c1"># import the eCAL subscriber API</span>
+<span class="linenos"> 7</span><span class="kn">from</span><span class="w"> </span><span class="nn">ecal.msg.proto.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">DynamicSubscriber</span> <span class="k">as</span> <span class="n">ProtobufDynamicSubscriber</span>
+<span class="linenos"> 8</span><span class="kn">from</span><span class="w"> </span><span class="nn">ecal.msg.common.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReceiveCallbackData</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># eCAL receive callback</span>
+<span class="linenos">11</span><span class="k">def</span><span class="w"> </span><span class="nf">data_callback</span><span class="p">(</span><span class="n">publisher_id</span> <span class="p">:</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">TopicId</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="n">ReceiveCallbackData</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">12</span>  <span class="n">output</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="linenos">13</span><span class="s2">  ----------------------------------------------</span>
+<span class="linenos">14</span><span class="s2">   Received dynamic person message from topic </span><span class="si">{</span><span class="n">publisher_id</span><span class="o">.</span><span class="n">topic_name</span><span class="si">}</span><span class="s2"> in Python</span>
+<span class="linenos">15</span><span class="s2">  ----------------------------------------------</span>
+<span class="linenos">16</span><span class="s2">  Time         : </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">send_timestamp</span><span class="si">}</span>
+<span class="linenos">17</span><span class="s2">  Clock        : </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">send_clock</span><span class="si">}</span>
+<span class="linenos">18</span><span class="s2">  Message      : </span>
+<span class="linenos">19</span><span class="s2">    </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">message</span><span class="si">}</span>
+<span class="linenos">20</span><span class="s2">  &quot;&quot;&quot;</span>
+<span class="linenos">21</span>  <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">24</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------&quot;</span><span class="p">)</span>
+<span class="linenos">25</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Python: DYNAMIC PERSON RECEIVE &quot;</span><span class="p">)</span>
+<span class="linenos">26</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------&quot;</span><span class="p">)</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span>  <span class="c1"># Initialize eCAL. You always have to initialize eCAL before using its API.</span>
+<span class="linenos">29</span>  <span class="c1"># The name of our eCAL Process will be &quot;hello receive python&quot;. </span>
+<span class="linenos">30</span>  <span class="c1"># This name will be visible in the eCAL Monitor, once the process is running.</span>
+<span class="linenos">31</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="s2">&quot;dynamic person receive python&quot;</span><span class="p">)</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span>  <span class="c1"># print eCAL version and date</span>
+<span class="linenos">34</span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eCAL </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ecal_core</span><span class="o">.</span><span class="n">get_version_string</span><span class="p">(),</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">get_version_date_string</span><span class="p">()))</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span>  <span class="c1"># Set the state for the program.</span>
+<span class="linenos">37</span>  <span class="c1"># You can vary between different states like healthy, warning, critical ...</span>
+<span class="linenos">38</span>  <span class="c1"># This can be used to communicate the application state to applications like eCAL Monitor/Sys.</span>
+<span class="linenos">39</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">ecal_core</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">Severity</span><span class="o">.</span><span class="n">HEALTHY</span><span class="p">,</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">SeverityLevel</span><span class="o">.</span><span class="n">LEVEL1</span><span class="p">,</span> <span class="s2">&quot;I feel good!&quot;</span><span class="p">)</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span>  <span class="c1"># Creating the eCAL Subscriber. An eCAL Process can create multiple subscribers (and publishers).</span>
+<span class="linenos">42</span>  <span class="c1"># The topic we are going to receive is called &quot;person&quot;.</span>
+<span class="linenos">43</span>  <span class="n">sub</span> <span class="o">=</span> <span class="n">ProtobufDynamicSubscriber</span><span class="p">(</span><span class="s2">&quot;person&quot;</span><span class="p">)</span>
+<span class="linenos">44</span>  <span class="n">sub</span><span class="o">.</span><span class="n">set_receive_callback</span><span class="p">(</span><span class="n">data_callback</span><span class="p">)</span>
+<span class="linenos">45</span>  
+<span class="linenos">46</span>  <span class="c1"># Creating an infinite loop.</span>
+<span class="linenos">47</span>  <span class="c1"># eCAL Supports a stop signal; when an eCAL Process is stopped, eCAL::Ok() will return false.</span>
+<span class="linenos">48</span>  <span class="k">while</span> <span class="n">ecal_core</span><span class="o">.</span><span class="n">ok</span><span class="p">():</span>
+<span class="linenos">49</span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># Sleep for 500ms to reduce CPU usage.</span>
+<span class="linenos">50</span>  
+<span class="linenos">51</span>  <span class="c1"># Finalize eCAL.</span>
+<span class="linenos">52</span>  <span class="c1"># You should always do that before your application exits.</span>
+<span class="linenos">53</span>  <span class="n">ecal_core</span><span class="o">.</span><span class="n">finalize</span><span class="p">()</span>
+<span class="linenos">54</span>  
+<span class="linenos">55</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="linenos">56</span>  <span class="n">main</span><span class="p">()</span>
+<span class="linenos">57</span>
+</pre></div>
+</div>
+</div></div>
+<pre class="literal-block"><i class="far fa-folder-open"></i>
+├─ <i class="far fa-folder-open"></i> C++
+│  └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/49afdcf26889a2ce93b92b8aaefde0f8/proto_dyn_rec.cpp"><code class="xref download docutils literal notranslate"><span class="pre">person_receive.cpp</span></code></a>
+│
 └─ <i class="far fa-folder-open"></i> Python
-   └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/87c6d818da3b91d75c91bf410d477821/person_receive.py"><code class="xref download docutils literal notranslate"><span class="pre">person_receive.py</span></code></a></pre>
+   └─ <i class="far fa-file-alt"></i> <a class="reference download internal" download="" href="../../../_downloads/4eb53af0524792c6ecbab23ca1adf72b/nb_protobuf_dynamic_person_receive.py"><code class="xref download docutils literal notranslate"><span class="pre">person_receive.py</span></code></a></pre>
 </section>
 </section>
 
@@ -1377,15 +1892,15 @@ So we need them as well. The definitions are straight forward. For more informat
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7.1.1. </span>String: Hello World</p>
+        <p class="prev-next-title"><span class="section-number">7.2.2. </span>String: Hello World</p>
       </div>
     </a>
     <a class="right-next"
-       href="binary_blob.html"
+       href="capnproto_addressbook.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.1.3. </span>Binary: Blob</p>
+        <p class="prev-next-title"><span class="section-number">7.2.4. </span>Cap’n Proto: AddressBook</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1396,8 +1911,7 @@ So we need them as well. The definitions are straight forward. For more informat
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1406,11 +1920,10 @@ So we need them as well. The definitions are straight forward. For more informat
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-protobuf">7.1.2.1. Person Protobuf</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-publisher">7.1.2.2. Person Publisher</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-publisher-files">7.1.2.3. Person Publisher Files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-subscriber">7.1.2.4. Person Subscriber</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-subscriber-files">7.1.2.5. Person Subscriber Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-protobuf">7.2.3.1. Person Protobuf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-publisher">7.2.3.2. Person Publisher</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-subscriber">7.2.3.3. Person Subscriber</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#person-dynamic-subscriber">7.2.3.4. Person Dynamic Subscriber</a></li>
 </ul>
   </nav></div>
 
@@ -1424,6 +1937,10 @@ So we need them as well. The definitions are straight forward. For more informat
   
   <div class="footer-item">
     
+<p class="component-author">
+By Author name not set
+</p>
+
   </div>
   
   <div class="footer-item">
@@ -1455,8 +1972,8 @@ So we need them as well. The definitions are straight forward. For more informat
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
