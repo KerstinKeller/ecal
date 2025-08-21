@@ -291,8 +291,6 @@ if(MSVC)
   endif()
 endif()
 
-find_package(CMakeFunctions REQUIRED)
-
 git_revision_information(DEFAULT ${ECAL_BUILD_VERSION})
 set(eCAL_VERSION_MAJOR  ${GIT_REVISION_MAJOR})
 set(eCAL_VERSION_MINOR  ${GIT_REVISION_MINOR})
