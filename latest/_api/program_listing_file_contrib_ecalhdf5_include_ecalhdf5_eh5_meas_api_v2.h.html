@@ -387,6 +387,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="define_namespace_8h_1a3bf2369bd0acf345358aace636fce2c3.html">Define ECAL_CORE_NAMESPACE_V5</a></li>
 <li class="toctree-l3"><a class="reference internal" href="define_namespace_8h_1a242e58e407887ec1a8e2aaeaf57a9a16.html">Define ECAL_CORE_NAMESPACE_V6</a></li>
 <li class="toctree-l3"><a class="reference internal" href="define_deprecate_8h_1ad0fce642e420a9f9d32b34cb1814ea2a.html">Define ECAL_DEPRECATE_SINCE_6_0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_deprecate_8h_1a77bcc00538318df00927e91e00a3806c.html">Define ECAL_DEPRECATE_SINCE_6_1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="define_eh5__meas_8h_1ae803c5567ff361b9f9ac4c52ddb59869.html">Define ECAL_EH5_DEPRECATE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="define_eh5__defs_8h_1accb613e2b9b76ded6bf8ca42b2824c5b.html">Define ECAL_HDF5_DATE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="define_eh5__defs_8h_1a5fe10ba3f1fa8832219784c6edc73f0d.html">Define ECAL_HDF5_NAME</a></li>
@@ -471,29 +472,41 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../advanced/message_drops.html">Message Drops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/threading_model.html">Threading model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/measurement_format.html">eCAL Measurement Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/benchmarks.html">eCAL Performance Benchmarks</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/ros_comparison.html">How eCAL relates to ROS</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../license.html">License</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../license/ecal_license.html">eCAL License</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../license/thirdparty_licenses.html">External components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/apache-2.0.html">Apache 2.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/boost-1.0.html">Boost Software License 1.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/bsd-3.html">BSD 3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/convert-utf.html">Convert UTF License</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/creative-commons-3.0.html">Creative Commons 3.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/findqwt-bsd-2.html">Findqwt-style BSD2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/fontawesome-free.html">Fontawesome Free License</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/gpl-2.0.html">GPL 2.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/gpl-3.0.html">GPL 3.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/hdf5-bsd-3.html">HDF5 BSD-3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/lgpl-2.1.html">LGPL 2.1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/lgpl-3.0.html">LGPL 3.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/mit.html">MIT</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/npcap.html">Npcap license</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/qwt.html">qwt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/unlicense.html">Unlicense</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/zlib.html">zlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/asio.html">asio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/benchmark.html">Benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/cap_n_proto.html">Cap’n Proto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/convert_utf.html">convert_utf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/ecaludp.html">ecaludp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/fineftp_server.html">fineFTP Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/flaticon.html">Flaticon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/ftxui.html">FTXUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/googletest.html">GoogleTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/hdf5.html">HDF5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/libcurl.html">libcurl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/modpath_iss.html">modpath.iss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/nanobind.html">nanobind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/npcap.html">Npcap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/pcapplusplus.html">PcapPlusPlus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/protobuf.html">protobuf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/protozero.html">protozero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/qt.html">Qt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/qwt.html">Qwt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/recycle.html">recycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/robin_map.html">robin-map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/spdlog.html">spdlog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/tclap.html">tclap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/tcp_pubsub.html">tcp_pubsub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/termcolor.html">termcolor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/tinyxml_2.html">TinyXML-2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/udpcap.html">Udpcap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license/thirdparty_licenses/yaml_cpp.html">yaml-cpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../license/icon_license.html">Icon License</a></li>
@@ -718,7 +731,7 @@ document.write(`
 <p>↰ <a class="reference internal" href="file_contrib_ecalhdf5_include_ecalhdf5_eh5_meas_api_v2.h.html#file-contrib-ecalhdf5-include-ecalhdf5-eh5-meas-api-v2-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">contrib/ecalhdf5/include/ecalhdf5/eh5_meas_api_v2.h</span></code>)</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* ========================= eCAL LICENSE =================================</span>
 <span class="cm"> *</span>
-<span class="cm"> * Copyright (C) 2016 - 2024 Continental Corporation</span>
+<span class="cm"> * Copyright (C) 2016 - 2025 Continental Corporation</span>
 <span class="cm"> *</span>
 <span class="cm"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <span class="cm"> * you may not use this file except in compliance with the License.</span>
@@ -814,6 +827,8 @@ document.write(`
 <span class="w">      </span><span class="kt">bool</span><span class="w"> </span><span class="nf">GetEntryDataSize</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">entry_id</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="o">&amp;</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 
 <span class="w">      </span><span class="kt">bool</span><span class="w"> </span><span class="nf">GetEntryData</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">entry_id</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">      </span><span class="kt">bool</span><span class="w"> </span><span class="nf">GetEntryDataAsString</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">entry_id</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 
 <span class="w">      </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetFileBaseName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">base_name</span><span class="p">);</span>
 
