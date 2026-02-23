@@ -178,3 +178,71 @@ TEST(registration_database_test, tracks_current_and_previous_revision)
   EXPECT_EQ(db.CurrentRevision(), 3u);
   EXPECT_EQ(db.PreviousRevision(), 2u);
 }
+
+
+TEST(registration_database_test, diff_current_to_previous_reports_entity_changes)
+{
+  eCAL::Registration::CEcalRegistrationDatabase db;
+
+  eCAL::Registration::CEcalRegistrationDatabase::TopicRegistrationDelta reg_delta;
+  reg_delta.process_id = 5;
+  reg_delta.host_name = "host";
+  reg_delta.topic.topic_name = "foo";
+
+  db.AddOrUpdatePublisher(101, reg_delta);
+  auto diff_add = db.DiffCurrentToPrevious();
+  ASSERT_EQ(diff_add.events.size(), 1u);
+  EXPECT_EQ(diff_add.events[0].event_type, eCAL::Registration::CEcalRegistrationDatabase::EventType::new_entity);
+  EXPECT_EQ(diff_add.events[0].entity_type, eCAL::Registration::CEcalRegistrationDatabase::EntityType::publisher);
+  EXPECT_EQ(diff_add.events[0].entity_key, 101u);
+
+  reg_delta.topic.topic_size = 77;
+  db.AddOrUpdatePublisher(101, reg_delta);
+  auto diff_update = db.DiffCurrentToPrevious();
+  ASSERT_EQ(diff_update.events.size(), 1u);
+  EXPECT_EQ(diff_update.events[0].event_type, eCAL::Registration::CEcalRegistrationDatabase::EventType::updated_entity);
+  EXPECT_EQ(diff_update.events[0].entity_type, eCAL::Registration::CEcalRegistrationDatabase::EntityType::publisher);
+  EXPECT_EQ(diff_update.events[0].entity_key, 101u);
+
+  db.RemovePublisher(101);
+  auto diff_delete = db.DiffCurrentToPrevious();
+  ASSERT_EQ(diff_delete.events.size(), 1u);
+  EXPECT_EQ(diff_delete.events[0].event_type, eCAL::Registration::CEcalRegistrationDatabase::EventType::deleted_entity);
+  EXPECT_EQ(diff_delete.events[0].entity_type, eCAL::Registration::CEcalRegistrationDatabase::EntityType::publisher);
+  EXPECT_EQ(diff_delete.events[0].entity_key, 101u);
+}
+
+TEST(registration_database_test, query_apis_find_entities_by_topic_and_service)
+{
+  eCAL::Registration::CEcalRegistrationDatabase db;
+
+  eCAL::Registration::CEcalRegistrationDatabase::TopicRegistrationDelta topic_delta;
+  topic_delta.process_id = 1;
+  topic_delta.host_name = "h";
+  topic_delta.topic.topic_name = "t";
+  db.AddOrUpdatePublisher(1, topic_delta);
+  db.AddOrUpdatePublisher(2, topic_delta);
+  db.AddOrUpdateSubscriber(3, topic_delta);
+
+  eCAL::Registration::CEcalRegistrationDatabase::ServiceRegistrationDelta srv_delta;
+  srv_delta.process_id = 1;
+  srv_delta.host_name = "h";
+  srv_delta.service.service_name = "s";
+  db.AddOrUpdateServer(10, srv_delta);
+
+  eCAL::Registration::CEcalRegistrationDatabase::ClientRegistrationDelta cli_delta;
+  cli_delta.process_id = 1;
+  cli_delta.host_name = "h";
+  cli_delta.client.service_name = "s";
+  db.AddOrUpdateClient(11, cli_delta);
+
+  auto pubs = db.GetPublisherKeysByTopic("t");
+  auto subs = db.GetSubscriberKeysByTopic("t");
+  auto srvs = db.GetServerKeysByService("s");
+  auto clis = db.GetClientKeysByService("s");
+
+  EXPECT_EQ(pubs.size(), 2u);
+  EXPECT_EQ(subs.size(), 1u);
+  EXPECT_EQ(srvs.size(), 1u);
+  EXPECT_EQ(clis.size(), 1u);
+}

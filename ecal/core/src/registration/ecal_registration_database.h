@@ -60,10 +60,17 @@ namespace eCAL
         std::vector<EntityEvent> events;
       };
 
-      struct ProcessRegistrationDelta { Registration::Process process; std::string host_name; };
-      struct ProcessMonitoringDelta { Registration::ProcessState state; Registration::eTimeSyncState time_sync_state{ Registration::eTimeSyncState::tsync_none }; };
+      struct DiffResult
+      {
+        Revision from_revision{ 0 };
+        Revision to_revision{ 0 };
+        std::vector<EntityEvent> events;
+      };
 
-      struct TopicRegistrationDelta { ProcessKey process_id{ 0 }; std::string host_name; Registration::Topic topic; };
+      struct ProcessRegistrationDelta { Registration::Process process; std::string host_name; bool operator==(const ProcessRegistrationDelta& other) const { return process == other.process && host_name == other.host_name; } };
+      struct ProcessMonitoringDelta { Registration::ProcessState state; Registration::eTimeSyncState time_sync_state{ Registration::eTimeSyncState::tsync_none }; bool operator==(const ProcessMonitoringDelta& other) const { return state == other.state && time_sync_state == other.time_sync_state; } };
+
+      struct TopicRegistrationDelta { ProcessKey process_id{ 0 }; std::string host_name; Registration::Topic topic; bool operator==(const TopicRegistrationDelta& other) const { return process_id == other.process_id && host_name == other.host_name && topic == other.topic; } };
       struct TopicMonitoringDelta
       {
         int32_t registration_clock{ 0 };
@@ -75,13 +82,26 @@ namespace eCAL
         int64_t data_clock{ 0 };
         int32_t data_frequency{ 0 };
         Registration::Statistics latency_us;
+
+        bool operator==(const TopicMonitoringDelta& other) const
+        {
+          return registration_clock == other.registration_clock
+            && topic_size == other.topic_size
+            && connections_local == other.connections_local
+            && connections_external == other.connections_external
+            && message_drops == other.message_drops
+            && data_id == other.data_id
+            && data_clock == other.data_clock
+            && data_frequency == other.data_frequency
+            && latency_us == other.latency_us;
+        }
       };
 
-      struct ServiceRegistrationDelta { ProcessKey process_id{ 0 }; std::string host_name; Service::Service service; };
-      struct ServiceMonitoringDelta { int32_t registration_clock{ 0 }; };
+      struct ServiceRegistrationDelta { ProcessKey process_id{ 0 }; std::string host_name; Service::Service service; bool operator==(const ServiceRegistrationDelta& other) const { return process_id == other.process_id && host_name == other.host_name && service == other.service; } };
+      struct ServiceMonitoringDelta { int32_t registration_clock{ 0 }; bool operator==(const ServiceMonitoringDelta& other) const { return registration_clock == other.registration_clock; } };
 
-      struct ClientRegistrationDelta { ProcessKey process_id{ 0 }; std::string host_name; Service::Client client; };
-      struct ClientMonitoringDelta { int32_t registration_clock{ 0 }; };
+      struct ClientRegistrationDelta { ProcessKey process_id{ 0 }; std::string host_name; Service::Client client; bool operator==(const ClientRegistrationDelta& other) const { return process_id == other.process_id && host_name == other.host_name && client == other.client; } };
+      struct ClientMonitoringDelta { int32_t registration_clock{ 0 }; bool operator==(const ClientMonitoringDelta& other) const { return registration_clock == other.registration_clock; } };
 
       class Snapshot
       {
@@ -133,8 +153,17 @@ namespace eCAL
       ApplyResult RemoveClient(EntityKey key_);
 
       Snapshot GetSnapshot() const;
+      Snapshot GetPreviousSnapshot() const;
       Revision CurrentRevision() const;
       Revision PreviousRevision() const;
+
+      DiffResult Diff(const Snapshot& from_, const Snapshot& to_) const;
+      DiffResult DiffCurrentToPrevious() const;
+
+      std::vector<EntityKey> GetPublisherKeysByTopic(const std::string& topic_name_) const;
+      std::vector<EntityKey> GetSubscriberKeysByTopic(const std::string& topic_name_) const;
+      std::vector<EntityKey> GetServerKeysByService(const std::string& service_name_) const;
+      std::vector<EntityKey> GetClientKeysByService(const std::string& service_name_) const;
 
     private:
       struct State
@@ -176,6 +205,7 @@ namespace eCAL
 
       mutable std::mutex mutex_;
       std::shared_ptr<const State> current_state_;
+      std::shared_ptr<const State> previous_state_;
       Revision previous_revision_{ 0 };
     };
   }

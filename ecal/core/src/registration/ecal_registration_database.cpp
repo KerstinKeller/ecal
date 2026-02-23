@@ -63,6 +63,7 @@ namespace eCAL
 
     CEcalRegistrationDatabase::CEcalRegistrationDatabase()
       : current_state_(std::make_shared<State>())
+      , previous_state_(current_state_)
     {}
 
     void CEcalRegistrationDatabase::EnsureProcessMembership(State& state_, ProcessKey process_key_)
@@ -114,6 +115,7 @@ namespace eCAL
       if (!changed)
         return { current_state_->revision, std::move(events) };
 
+      previous_state_ = current_state_;
       previous_revision_ = current_state_->revision;
       next_state->revision = current_state_->revision + 1;
       current_state_ = next_state;
@@ -446,6 +448,104 @@ namespace eCAL
     {
       const std::lock_guard<std::mutex> lock(mutex_);
       return previous_revision_;
+    }
+
+    CEcalRegistrationDatabase::Snapshot CEcalRegistrationDatabase::GetPreviousSnapshot() const
+    {
+      const std::lock_guard<std::mutex> lock(mutex_);
+      return Snapshot(previous_state_);
+    }
+
+    namespace
+    {
+      template<typename MapT>
+      void AppendDiffEventsForMap(const MapT& from_map_, const MapT& to_map_, CEcalRegistrationDatabase::EntityType entity_type_, std::vector<CEcalRegistrationDatabase::EntityEvent>& events_)
+      {
+        for (const auto& kv : to_map_)
+        {
+          auto from_it = from_map_.find(kv.first);
+          if (from_it == from_map_.end())
+          {
+            events_.push_back({ CEcalRegistrationDatabase::EventType::new_entity, entity_type_, static_cast<CEcalRegistrationDatabase::EntityKey>(kv.first) });
+          }
+          else if (!(from_it->second == kv.second))
+          {
+            events_.push_back({ CEcalRegistrationDatabase::EventType::updated_entity, entity_type_, static_cast<CEcalRegistrationDatabase::EntityKey>(kv.first) });
+          }
+        }
+
+        for (const auto& kv : from_map_)
+        {
+          if (to_map_.find(kv.first) == to_map_.end())
+          {
+            events_.push_back({ CEcalRegistrationDatabase::EventType::deleted_entity, entity_type_, static_cast<CEcalRegistrationDatabase::EntityKey>(kv.first) });
+          }
+        }
+      }
+    }
+
+    CEcalRegistrationDatabase::DiffResult CEcalRegistrationDatabase::Diff(const Snapshot& from_, const Snapshot& to_) const
+    {
+      DiffResult diff;
+      diff.from_revision = from_.GetRevision();
+      diff.to_revision = to_.GetRevision();
+
+      const auto& from_state = *from_.state_;
+      const auto& to_state = *to_.state_;
+
+      AppendDiffEventsForMap(from_state.publishers,  to_state.publishers,  EntityType::publisher, diff.events);
+      AppendDiffEventsForMap(from_state.subscribers, to_state.subscribers, EntityType::subscriber, diff.events);
+      AppendDiffEventsForMap(from_state.servers,     to_state.servers,     EntityType::server, diff.events);
+      AppendDiffEventsForMap(from_state.clients,     to_state.clients,     EntityType::client, diff.events);
+      AppendDiffEventsForMap(from_state.processes,   to_state.processes,   EntityType::process, diff.events);
+
+      return diff;
+    }
+
+    CEcalRegistrationDatabase::DiffResult CEcalRegistrationDatabase::DiffCurrentToPrevious() const
+    {
+      const std::lock_guard<std::mutex> lock(mutex_);
+      return Diff(Snapshot(previous_state_), Snapshot(current_state_));
+    }
+
+    std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetPublisherKeysByTopic(const std::string& topic_name_) const
+    {
+      std::vector<EntityKey> result;
+      const std::lock_guard<std::mutex> lock(mutex_);
+      for (const auto& kv : current_state_->publishers)
+        if (kv.second.topic.topic_name == topic_name_)
+          result.push_back(kv.first);
+      return result;
+    }
+
+    std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetSubscriberKeysByTopic(const std::string& topic_name_) const
+    {
+      std::vector<EntityKey> result;
+      const std::lock_guard<std::mutex> lock(mutex_);
+      for (const auto& kv : current_state_->subscribers)
+        if (kv.second.topic.topic_name == topic_name_)
+          result.push_back(kv.first);
+      return result;
+    }
+
+    std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetServerKeysByService(const std::string& service_name_) const
+    {
+      std::vector<EntityKey> result;
+      const std::lock_guard<std::mutex> lock(mutex_);
+      for (const auto& kv : current_state_->servers)
+        if (kv.second.service.service_name == service_name_)
+          result.push_back(kv.first);
+      return result;
+    }
+
+    std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetClientKeysByService(const std::string& service_name_) const
+    {
+      std::vector<EntityKey> result;
+      const std::lock_guard<std::mutex> lock(mutex_);
+      for (const auto& kv : current_state_->clients)
+        if (kv.second.client.service_name == service_name_)
+          result.push_back(kv.first);
+      return result;
     }
   }
 }
