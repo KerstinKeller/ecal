@@ -246,3 +246,25 @@ TEST(registration_database_test, query_apis_find_entities_by_topic_and_service)
   EXPECT_EQ(srvs.size(), 1u);
   EXPECT_EQ(clis.size(), 1u);
 }
+
+
+TEST(registration_database_test, snapshot_query_is_stable_across_following_updates)
+{
+  eCAL::Registration::CEcalRegistrationDatabase db;
+
+  eCAL::Registration::CEcalRegistrationDatabase::TopicRegistrationDelta delta;
+  delta.process_id = 1;
+  delta.host_name = "h";
+  delta.topic.topic_name = "stable_topic";
+
+  db.AddOrUpdatePublisher(1, delta);
+  auto old_snapshot = db.GetSnapshot();
+
+  db.AddOrUpdatePublisher(2, delta);
+
+  auto keys_from_old = db.GetPublisherKeysByTopic(old_snapshot, "stable_topic");
+  auto keys_from_new = db.GetPublisherKeysByTopic("stable_topic");
+
+  EXPECT_EQ(keys_from_old.size(), 1u);
+  EXPECT_EQ(keys_from_new.size(), 2u);
+}

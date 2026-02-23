@@ -510,42 +510,54 @@ namespace eCAL
 
     std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetPublisherKeysByTopic(const std::string& topic_name_) const
     {
-      std::vector<EntityKey> result;
-      const std::lock_guard<std::mutex> lock(mutex_);
-      for (const auto& kv : current_state_->publishers)
-        if (kv.second.topic.topic_name == topic_name_)
-          result.push_back(kv.first);
-      return result;
+      return GetPublisherKeysByTopic(GetSnapshot(), topic_name_);
     }
 
     std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetSubscriberKeysByTopic(const std::string& topic_name_) const
     {
-      std::vector<EntityKey> result;
-      const std::lock_guard<std::mutex> lock(mutex_);
-      for (const auto& kv : current_state_->subscribers)
-        if (kv.second.topic.topic_name == topic_name_)
-          result.push_back(kv.first);
-      return result;
+      return GetSubscriberKeysByTopic(GetSnapshot(), topic_name_);
     }
 
     std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetServerKeysByService(const std::string& service_name_) const
     {
-      std::vector<EntityKey> result;
-      const std::lock_guard<std::mutex> lock(mutex_);
-      for (const auto& kv : current_state_->servers)
-        if (kv.second.service.service_name == service_name_)
-          result.push_back(kv.first);
-      return result;
+      return GetServerKeysByService(GetSnapshot(), service_name_);
     }
 
     std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetClientKeysByService(const std::string& service_name_) const
     {
-      std::vector<EntityKey> result;
-      const std::lock_guard<std::mutex> lock(mutex_);
-      for (const auto& kv : current_state_->clients)
-        if (kv.second.client.service_name == service_name_)
-          result.push_back(kv.first);
-      return result;
+      return GetClientKeysByService(GetSnapshot(), service_name_);
+    }
+
+    std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetPublisherKeysByTopic(const Snapshot& snapshot_, const std::string& topic_name_) const
+    {
+      return CollectKeys(snapshot_.state_->publishers, [&topic_name_](const TopicRegistrationDelta& topic)
+      {
+        return topic.topic.topic_name == topic_name_;
+      });
+    }
+
+    std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetSubscriberKeysByTopic(const Snapshot& snapshot_, const std::string& topic_name_) const
+    {
+      return CollectKeys(snapshot_.state_->subscribers, [&topic_name_](const TopicRegistrationDelta& topic)
+      {
+        return topic.topic.topic_name == topic_name_;
+      });
+    }
+
+    std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetServerKeysByService(const Snapshot& snapshot_, const std::string& service_name_) const
+    {
+      return CollectKeys(snapshot_.state_->servers, [&service_name_](const ServiceRegistrationDelta& service)
+      {
+        return service.service.service_name == service_name_;
+      });
+    }
+
+    std::vector<CEcalRegistrationDatabase::EntityKey> CEcalRegistrationDatabase::GetClientKeysByService(const Snapshot& snapshot_, const std::string& service_name_) const
+    {
+      return CollectKeys(snapshot_.state_->clients, [&service_name_](const ClientRegistrationDelta& client)
+      {
+        return client.client.service_name == service_name_;
+      });
     }
   }
 }

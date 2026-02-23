@@ -263,3 +263,13 @@ Create a new test target e.g. `registration_database_test`.
 3. Add GTests for equivalence, cascade behavior, revision retention, and hot/cold update isolation.
 
 This creates a concrete, testable baseline and directly addresses performance concerns around deserialization and cache locality.
+
+
+## 10) API review outcomes (naming, clean code, architecture)
+
+1. Keep mutation method names as `AddOrUpdate*`, `Update*Monitoring`, `Remove*` for explicit intent.
+2. Prefer snapshot-centric read APIs for consistency and lock-light reads.
+   - Added/targeted overload pattern: `Get*KeysBy*(const Snapshot&, ...)` in addition to convenience `Get*KeysBy*(...)`.
+3. Treat diffing as first-class API (`Diff(...)`, `DiffCurrentToPrevious()`) so consumers do not reconstruct state transitions.
+4. Avoid macro-heavy expansion in long term; prefer typed helpers and smaller focused functions.
+5. Keep delta structs value-comparable (`operator==`) to make change detection deterministic and easy to test.
