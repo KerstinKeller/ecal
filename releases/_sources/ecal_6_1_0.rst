@@ -147,4 +147,13 @@ eCAL Installer
        `Python 3.8 (.whl) <https://github.com/eclipse-ecal/ecal/releases/download/v6.1.0/eclipse_ecal-6.1.0-cp38-cp38-manylinux_2_28_aarch64.whl>`__ 
 
        
+|fa-code| Source
+----------------
+
+.. list-table::
+    :widths: 1
+
+    * - `ecal-fat-source.tar.gz <https://github.com/eclipse-ecal/ecal/releases/download/v6.1.0/ecal-fat-source.tar.gz>`__
+
+    
 
