@@ -385,6 +385,8 @@ if (ECAL_CORE_REGISTRATION)
       src/registration/ecal_registration_provider.h
       src/registration/ecal_registration_receiver.cpp
       src/registration/ecal_registration_receiver.h
+      src/registration/ecal_registration_database.cpp
+      src/registration/ecal_registration_database.h
       src/registration/ecal_registration_sample_applier.cpp
       src/registration/ecal_registration_sample_applier.h
       src/registration/ecal_registration_sample_applier_gates.cpp

@@ -23,6 +23,7 @@ find_package(GTest REQUIRED)
 
 set(registration_test_src
     src/registration_timout_provider_test.cpp
+    src/registration_database_test.cpp
 )
 
 ecal_add_gtest(${PROJECT_NAME} ${registration_test_src})
