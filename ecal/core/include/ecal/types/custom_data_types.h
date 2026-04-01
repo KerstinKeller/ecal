@@ -70,9 +70,8 @@ namespace eCAL
 
     enum class SynchronizationMutexType
     {
-      default_,
-      mutex_v1,
-      robust_mutex_v1
+      mutex_v1 = 1,
+      robust_mutex_v1 = 2
     };
   }
 } 

@@ -155,7 +155,7 @@ namespace eCAL
     bool               topic_tlayer_ecal_udp(false);
     bool               topic_tlayer_ecal_shm(false);
     bool               topic_tlayer_ecal_tcp(false);
-    eCAL::Types::SynchronizationMutexType topic_tlayer_ecal_shm_mutex_type = eCAL::Types::SynchronizationMutexType::default_;
+    eCAL::Types::SynchronizationMutexType topic_tlayer_ecal_shm_mutex_type = eCAL::Types::SynchronizationMutexType::mutex_v1;
     for (const auto& layer : sample_topic.transport_layer)
     {
       topic_tlayer_ecal_udp |= (layer.type == tl_ecal_udp) && layer.active;

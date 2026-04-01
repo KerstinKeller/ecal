@@ -94,9 +94,6 @@ namespace eCAL
   bool CNamedMutex::Create(const std::string& name_, SynchronizationMutexType synchronization_mutex_type_, bool recoverable_)
   {
 #ifdef ECAL_OS_LINUX
-    if (synchronization_mutex_type_ == SynchronizationMutexType::default_)
-      synchronization_mutex_type_ = ResolveDefaultSynchronizationMutexType();
-
     switch (synchronization_mutex_type_)
     {
     case SynchronizationMutexType::robust_mutex_v1:
@@ -107,7 +104,6 @@ namespace eCAL
 #endif
       break;
     case SynchronizationMutexType::mutex_v1:
-    case SynchronizationMutexType::default_:
     default:
       m_impl = std::make_unique<CNamedMutexImpl>(name_, recoverable_);
       break;

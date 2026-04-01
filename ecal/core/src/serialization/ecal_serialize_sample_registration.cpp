@@ -93,7 +93,12 @@ namespace
         }
         break;
       case +eCAL::pb::LayerParShm::optional_enum_synchronization_mutex_type:
-        layer.synchronization_mutex_type = static_cast<eCAL::Types::SynchronizationMutexType>(reader.get_enum());
+      {
+        const auto synchronization_mutex_type = reader.get_enum();
+        layer.synchronization_mutex_type = (synchronization_mutex_type == static_cast<int>(eCAL::Types::SynchronizationMutexType::robust_mutex_v1))
+          ? eCAL::Types::SynchronizationMutexType::robust_mutex_v1
+          : eCAL::Types::SynchronizationMutexType::mutex_v1;
+      }
         break;
       default:
         reader.skip();

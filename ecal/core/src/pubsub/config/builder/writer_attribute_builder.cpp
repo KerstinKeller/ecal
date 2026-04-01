@@ -34,13 +34,12 @@ namespace eCAL
 #endif
     }
 
-    eCAL::Types::SynchronizationMutexType ResolveSynchronizationMutexType(const eCAL::Configuration& config_, eCAL::Types::SynchronizationMutexType synchronization_mutex_type_)
+    eCAL::Types::SynchronizationMutexType ResolveSynchronizationMutexType(const eCAL::Configuration& config_)
     {
-      if (synchronization_mutex_type_ != eCAL::Types::SynchronizationMutexType::default_)
-        return synchronization_mutex_type_;
-
-      if (config_.transport_layer.shm.synchronization_mutex_type != eCAL::Types::SynchronizationMutexType::default_)
-        return config_.transport_layer.shm.synchronization_mutex_type;
+      if (config_.transport_layer.shm.synchronization_mutex_type == eCAL::TransportLayer::SHM::SynchronizationMutexType::mutex_v1)
+        return eCAL::Types::SynchronizationMutexType::mutex_v1;
+      if (config_.transport_layer.shm.synchronization_mutex_type == eCAL::TransportLayer::SHM::SynchronizationMutexType::robust_mutex_v1)
+        return eCAL::Types::SynchronizationMutexType::robust_mutex_v1;
 
       return ResolveCompiledDefaultSynchronizationMutexType();
     }
@@ -73,7 +72,7 @@ namespace eCAL
     attributes.shm.memfile_min_size_bytes  = publisher_config.layer.shm.memfile_min_size_bytes;
     attributes.shm.memfile_reserve_percent = publisher_config.layer.shm.memfile_reserve_percent;
     attributes.shm.zero_copy_mode          = publisher_config.layer.shm.zero_copy_mode;
-    attributes.shm.synchronization_mutex_type = ResolveSynchronizationMutexType(config_, publisher_config.layer.shm.synchronization_mutex_type);
+    attributes.shm.synchronization_mutex_type = ResolveSynchronizationMutexType(config_);
 
     attributes.udp.enable        = publisher_config.layer.udp.enable;
     attributes.udp.broadcast     = config_.communication_mode == eCAL::eCommunicationMode::local;

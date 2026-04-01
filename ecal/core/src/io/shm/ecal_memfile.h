@@ -48,7 +48,7 @@ namespace eCAL
     /**
      * @brief Constructor. 
     **/
-    CMemoryFile(std::shared_ptr<CMemFileMap> memfile_map_, Types::SynchronizationMutexType synchronization_mutex_type_ = Types::SynchronizationMutexType::default_);
+    CMemoryFile(std::shared_ptr<CMemFileMap> memfile_map_, Types::SynchronizationMutexType synchronization_mutex_type_ = Types::SynchronizationMutexType::mutex_v1);
 
     /**
      * @brief Destructor. 

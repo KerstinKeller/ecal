@@ -112,7 +112,6 @@ namespace eCAL
           unsigned int memfile_buffer_count    { 1U };    /*!< Maximum number of used buffers (needs to be greater than 1, default = 1) */
           unsigned int memfile_min_size_bytes  { 4096 };  //!< Default memory file size for new publisher (Default: 4096)
           unsigned int memfile_reserve_percent { 50 };    //!< Dynamic file size reserve before recreating memory file if topic size changes (Default: 50)
-          Types::SynchronizationMutexType synchronization_mutex_type { Types::SynchronizationMutexType::default_ }; //!< Synchronization mutex type for shared memory
         };
       }
 

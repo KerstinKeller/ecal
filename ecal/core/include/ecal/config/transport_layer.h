@@ -81,9 +81,16 @@ namespace eCAL
 
     namespace SHM
     {
+      enum class SynchronizationMutexType
+      {
+        default_ = 0,
+        mutex_v1 = 1,
+        robust_mutex_v1 = 2
+      };
+
       struct Configuration
       {
-        Types::SynchronizationMutexType synchronization_mutex_type{ Types::SynchronizationMutexType::default_ }; //!< Synchronization mutex type for shared memory
+        SynchronizationMutexType synchronization_mutex_type{ SynchronizationMutexType::default_ }; //!< Synchronization mutex type for shared memory
       };
     }
 

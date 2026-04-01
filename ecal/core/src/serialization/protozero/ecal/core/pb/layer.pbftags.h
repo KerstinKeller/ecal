@@ -66,7 +66,7 @@ inline constexpr std::int32_t operator+(eTransportLayerType v) {
 }
 
 enum class eSynchronizationMutexType : std::int32_t {
-    sync_mutex_default = 0,
+    sync_mutex_unspecified = 0,
     sync_mutex_mutex_v1 = 1,
     sync_mutex_robust_mutex_v1 = 2
 };

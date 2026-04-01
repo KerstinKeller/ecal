@@ -38,8 +38,7 @@ namespace eCAL
       {
         struct Configuration
         {
-          bool                            enable { true };                                           //!< enable layer (Default: true)
-          Types::SynchronizationMutexType synchronization_mutex_type { Types::SynchronizationMutexType::default_ }; //!< Synchronization mutex type for shared memory
+          bool enable { true }; //!< enable layer (Default: true)
         };
       }
 

@@ -135,7 +135,7 @@ namespace eCAL
     struct LayerParShm
     {
       Util::CExpandingVector<std::string> memory_file_list;             // list of memory file names
-      Types::SynchronizationMutexType     synchronization_mutex_type = Types::SynchronizationMutexType::default_;
+      Types::SynchronizationMutexType     synchronization_mutex_type = Types::SynchronizationMutexType::mutex_v1;
 
       bool operator==(const LayerParShm& other) const {
         return memory_file_list == other.memory_file_list
@@ -145,7 +145,7 @@ namespace eCAL
       void clear()
       {
         memory_file_list.clear();
-        synchronization_mutex_type = Types::SynchronizationMutexType::default_;
+        synchronization_mutex_type = Types::SynchronizationMutexType::mutex_v1;
       }
     };
 

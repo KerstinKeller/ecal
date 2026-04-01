@@ -76,28 +76,28 @@ namespace YAML
     return layer_priority_vector;
   }
 
-  std::string ToString(eCAL::Types::SynchronizationMutexType synchronization_mutex_type_)
+  std::string ToString(eCAL::TransportLayer::SHM::SynchronizationMutexType synchronization_mutex_type_)
   {
     switch (synchronization_mutex_type_)
     {
-    case eCAL::Types::SynchronizationMutexType::default_:
+    case eCAL::TransportLayer::SHM::SynchronizationMutexType::default_:
       return "default";
-    case eCAL::Types::SynchronizationMutexType::mutex_v1:
+    case eCAL::TransportLayer::SHM::SynchronizationMutexType::mutex_v1:
       return "mutex_v1";
-    case eCAL::Types::SynchronizationMutexType::robust_mutex_v1:
+    case eCAL::TransportLayer::SHM::SynchronizationMutexType::robust_mutex_v1:
       return "robust_mutex_v1";
     default:
       return "default";
     }
   }
 
-  eCAL::Types::SynchronizationMutexType SynchronizationMutexTypeFromString(const std::string& synchronization_mutex_type_)
+  eCAL::TransportLayer::SHM::SynchronizationMutexType SynchronizationMutexTypeFromString(const std::string& synchronization_mutex_type_)
   {
     if (synchronization_mutex_type_ == "mutex_v1")
-      return eCAL::Types::SynchronizationMutexType::mutex_v1;
+      return eCAL::TransportLayer::SHM::SynchronizationMutexType::mutex_v1;
     if (synchronization_mutex_type_ == "robust_mutex_v1")
-      return eCAL::Types::SynchronizationMutexType::robust_mutex_v1;
-    return eCAL::Types::SynchronizationMutexType::default_;
+      return eCAL::TransportLayer::SHM::SynchronizationMutexType::robust_mutex_v1;
+    return eCAL::TransportLayer::SHM::SynchronizationMutexType::default_;
   }
 }
 
@@ -356,7 +356,6 @@ namespace YAML
     node["memfile_buffer_count"]     = config_.memfile_buffer_count;
     node["memfile_min_size_bytes"]   = config_.memfile_min_size_bytes;
     node["memfile_reserve_percent"]  = config_.memfile_reserve_percent;
-    node["synchronization_mutex_type"] = ToString(config_.synchronization_mutex_type);
     return node;
   }
 
@@ -368,9 +367,6 @@ namespace YAML
     AssignValue<unsigned int>(config_.memfile_buffer_count, node_, "memfile_buffer_count");
     AssignValue<unsigned int>(config_.memfile_min_size_bytes, node_, "memfile_min_size_bytes");
     AssignValue<unsigned int>(config_.memfile_reserve_percent, node_, "memfile_reserve_percent");
-    std::string synchronization_mutex_type = ToString(config_.synchronization_mutex_type);
-    AssignValue<std::string>(synchronization_mutex_type, node_, "synchronization_mutex_type");
-    config_.synchronization_mutex_type = SynchronizationMutexTypeFromString(synchronization_mutex_type);
     return true;
   }
   
@@ -453,16 +449,12 @@ namespace YAML
   {
     Node node;
     node["enable"] = config_.enable;
-    node["synchronization_mutex_type"] = ToString(config_.synchronization_mutex_type);
     return node;
   }
 
   bool convert<eCAL::Subscriber::Layer::SHM::Configuration>::decode(const Node& node_, eCAL::Subscriber::Layer::SHM::Configuration& config_)
   {
     AssignValue<bool>(config_.enable, node_, "enable");
-    std::string synchronization_mutex_type = ToString(config_.synchronization_mutex_type);
-    AssignValue<std::string>(synchronization_mutex_type, node_, "synchronization_mutex_type");
-    config_.synchronization_mutex_type = SynchronizationMutexTypeFromString(synchronization_mutex_type);
     return true;
   }
   

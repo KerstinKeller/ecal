@@ -184,7 +184,10 @@ namespace{
             {
               if (shm_reader.tag() == +eCAL::pb::LayerParShm::optional_enum_synchronization_mutex_type)
               {
-                target_sample_.synchronization_mutex_type = static_cast<eCAL::Types::SynchronizationMutexType>(shm_reader.get_enum());
+                const auto synchronization_mutex_type = shm_reader.get_enum();
+                target_sample_.synchronization_mutex_type = (synchronization_mutex_type == static_cast<int>(eCAL::Types::SynchronizationMutexType::robust_mutex_v1))
+                  ? eCAL::Types::SynchronizationMutexType::robust_mutex_v1
+                  : eCAL::Types::SynchronizationMutexType::mutex_v1;
               }
               else
               {
