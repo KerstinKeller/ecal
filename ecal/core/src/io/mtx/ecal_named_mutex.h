@@ -23,6 +23,8 @@
 
 #pragma once
 
+#include <ecal/types/custom_data_types.h>
+
 #include <string>
 #include <memory>
 #include <cstdint>
@@ -34,6 +36,9 @@ namespace eCAL
   class CNamedMutex
   {
   public:
+    using SynchronizationMutexType = eCAL::Types::SynchronizationMutexType;
+
+    explicit CNamedMutex(const std::string& name_, SynchronizationMutexType synchronization_mutex_type_, bool recoverable_ = false);
     explicit CNamedMutex(const std::string& name_, bool recoverable_ = false);
     CNamedMutex();
     ~CNamedMutex();
@@ -43,6 +48,7 @@ namespace eCAL
     CNamedMutex(CNamedMutex&& named_mutex) noexcept;
     CNamedMutex& operator=(CNamedMutex&& named_mutex)  noexcept;
 
+    bool Create(const std::string& name_, SynchronizationMutexType synchronization_mutex_type_, bool recoverable_ = false);
     bool Create(const std::string& name_, bool recoverable_ = false);
     void Destroy();
 

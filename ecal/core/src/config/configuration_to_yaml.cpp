@@ -75,6 +75,30 @@ namespace YAML
 
     return layer_priority_vector;
   }
+
+  std::string ToString(eCAL::Types::SynchronizationMutexType synchronization_mutex_type_)
+  {
+    switch (synchronization_mutex_type_)
+    {
+    case eCAL::Types::SynchronizationMutexType::default_:
+      return "default";
+    case eCAL::Types::SynchronizationMutexType::mutex_v1:
+      return "mutex_v1";
+    case eCAL::Types::SynchronizationMutexType::robust_mutex_v1:
+      return "robust_mutex_v1";
+    default:
+      return "default";
+    }
+  }
+
+  eCAL::Types::SynchronizationMutexType SynchronizationMutexTypeFromString(const std::string& synchronization_mutex_type_)
+  {
+    if (synchronization_mutex_type_ == "mutex_v1")
+      return eCAL::Types::SynchronizationMutexType::mutex_v1;
+    if (synchronization_mutex_type_ == "robust_mutex_v1")
+      return eCAL::Types::SynchronizationMutexType::robust_mutex_v1;
+    return eCAL::Types::SynchronizationMutexType::default_;
+  }
 }
 
 namespace YAML
@@ -281,10 +305,26 @@ namespace YAML
     AssignValue<eCAL::TransportLayer::UDP::MulticastConfiguration>(config_.local, node_, "local");
     return true;
   }
+
+  Node convert<eCAL::TransportLayer::SHM::Configuration>::encode(const eCAL::TransportLayer::SHM::Configuration& config_)
+  {
+    Node node;
+    node["synchronization_mutex_type"] = ToString(config_.synchronization_mutex_type);
+    return node;
+  }
+
+  bool convert<eCAL::TransportLayer::SHM::Configuration>::decode(const Node& node_, eCAL::TransportLayer::SHM::Configuration& config_)
+  {
+    std::string synchronization_mutex_type = ToString(config_.synchronization_mutex_type);
+    AssignValue<std::string>(synchronization_mutex_type, node_, "synchronization_mutex_type");
+    config_.synchronization_mutex_type = SynchronizationMutexTypeFromString(synchronization_mutex_type);
+    return true;
+  }
   
   Node convert<eCAL::TransportLayer::Configuration>::encode(const eCAL::TransportLayer::Configuration& config_)
   {
     Node node;
+    node["shm"] = config_.shm;
     node["udp"] = config_.udp;
     node["tcp"] = config_.tcp;
 
@@ -293,6 +333,7 @@ namespace YAML
 
   bool convert<eCAL::TransportLayer::Configuration>::decode(const Node& node_, eCAL::TransportLayer::Configuration& config_)
   {
+    AssignValue<eCAL::TransportLayer::SHM::Configuration>(config_.shm, node_, "shm");
     AssignValue<eCAL::TransportLayer::UDP::Configuration>(config_.udp, node_, "udp");
     AssignValue<eCAL::TransportLayer::TCP::Configuration>(config_.tcp, node_, "tcp");
     return true;
@@ -315,6 +356,7 @@ namespace YAML
     node["memfile_buffer_count"]     = config_.memfile_buffer_count;
     node["memfile_min_size_bytes"]   = config_.memfile_min_size_bytes;
     node["memfile_reserve_percent"]  = config_.memfile_reserve_percent;
+    node["synchronization_mutex_type"] = ToString(config_.synchronization_mutex_type);
     return node;
   }
 
@@ -326,6 +368,9 @@ namespace YAML
     AssignValue<unsigned int>(config_.memfile_buffer_count, node_, "memfile_buffer_count");
     AssignValue<unsigned int>(config_.memfile_min_size_bytes, node_, "memfile_min_size_bytes");
     AssignValue<unsigned int>(config_.memfile_reserve_percent, node_, "memfile_reserve_percent");
+    std::string synchronization_mutex_type = ToString(config_.synchronization_mutex_type);
+    AssignValue<std::string>(synchronization_mutex_type, node_, "synchronization_mutex_type");
+    config_.synchronization_mutex_type = SynchronizationMutexTypeFromString(synchronization_mutex_type);
     return true;
   }
   
@@ -408,12 +453,16 @@ namespace YAML
   {
     Node node;
     node["enable"] = config_.enable;
+    node["synchronization_mutex_type"] = ToString(config_.synchronization_mutex_type);
     return node;
   }
 
   bool convert<eCAL::Subscriber::Layer::SHM::Configuration>::decode(const Node& node_, eCAL::Subscriber::Layer::SHM::Configuration& config_)
   {
     AssignValue<bool>(config_.enable, node_, "enable");
+    std::string synchronization_mutex_type = ToString(config_.synchronization_mutex_type);
+    AssignValue<std::string>(synchronization_mutex_type, node_, "synchronization_mutex_type");
+    config_.synchronization_mutex_type = SynchronizationMutexTypeFromString(synchronization_mutex_type);
     return true;
   }
   

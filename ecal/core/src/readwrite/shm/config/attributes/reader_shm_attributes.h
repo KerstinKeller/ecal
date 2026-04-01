@@ -19,6 +19,8 @@
 
 #pragma once
 
+#include <ecal/types/custom_data_types.h>
+
 #include <string>
 
 namespace eCAL
@@ -31,6 +33,7 @@ namespace eCAL
       {
         int          process_id;
         unsigned int registration_timeout_ms;
+        Types::SynchronizationMutexType synchronization_mutex_type;
       };
     }
   }

@@ -23,6 +23,29 @@
 
 namespace eCAL
 {
+  namespace
+  {
+    eCAL::Types::SynchronizationMutexType ResolveCompiledDefaultSynchronizationMutexType()
+    {
+#if defined(ECAL_OS_LINUX) && defined(ECAL_USE_CLOCKLOCK_MUTEX) && defined(ECAL_HAS_CLOCKLOCK_MUTEX)
+      return eCAL::Types::SynchronizationMutexType::robust_mutex_v1;
+#else
+      return eCAL::Types::SynchronizationMutexType::mutex_v1;
+#endif
+    }
+
+    eCAL::Types::SynchronizationMutexType ResolveSynchronizationMutexType(const eCAL::Configuration& config_, eCAL::Types::SynchronizationMutexType synchronization_mutex_type_)
+    {
+      if (synchronization_mutex_type_ != eCAL::Types::SynchronizationMutexType::default_)
+        return synchronization_mutex_type_;
+
+      if (config_.transport_layer.shm.synchronization_mutex_type != eCAL::Types::SynchronizationMutexType::default_)
+        return config_.transport_layer.shm.synchronization_mutex_type;
+
+      return ResolveCompiledDefaultSynchronizationMutexType();
+    }
+  }
+
   eCALReader::SAttributes BuildReaderAttributes(const std::string& topic_name_, const eCAL::Configuration& config_)
   {
     const auto& subscriber_config      = config_.subscriber;
@@ -64,6 +87,7 @@ namespace eCAL
     attributes.tcp.max_reconnection_attempts = transport_layer_config.tcp.max_reconnections;
     
     attributes.shm.enable = subscriber_config.layer.shm.enable;
+    attributes.shm.synchronization_mutex_type = ResolveSynchronizationMutexType(config_, subscriber_config.layer.shm.synchronization_mutex_type);
     
     return attributes;
   }

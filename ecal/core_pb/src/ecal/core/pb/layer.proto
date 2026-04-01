@@ -22,13 +22,21 @@ syntax = "proto3";
 
 package eCAL.pb;
 
+enum eSynchronizationMutexType
+{
+  sync_mutex_default         = 0;
+  sync_mutex_mutex_v1        = 1;
+  sync_mutex_robust_mutex_v1 = 2;
+}
+
 message LayerParUdpMC
 {
 }
 
 message LayerParShm
 {
-  repeated string  memory_file_list   =   1;    // list of memory file names
+  repeated string             memory_file_list             =   1;    // list of memory file names
+  eSynchronizationMutexType   synchronization_mutex_type   =   2;    // synchronization mutex type
 }
 
 message LayerParTcp

@@ -39,7 +39,7 @@ namespace eCAL
 {
   CSyncMemoryFile::CSyncMemoryFile(const std::string& base_name_, size_t size_, SSyncMemoryFileAttr attr_, std::shared_ptr<CMemFileMap> memfile_map_)
     : m_attr(attr_)
-    , m_memfile(std::move(memfile_map_))
+    , m_memfile(std::move(memfile_map_), m_attr.synchronization_mutex_type)
     , m_created(false)
   {
     Create(base_name_, size_);

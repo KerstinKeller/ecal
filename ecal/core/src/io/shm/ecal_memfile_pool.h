@@ -51,7 +51,7 @@ namespace eCAL
   class CMemFileObserver
   {
   public:
-    CMemFileObserver(std::shared_ptr<CMemFileMap> memfile_map_);
+    CMemFileObserver(std::shared_ptr<CMemFileMap> memfile_map_, Types::SynchronizationMutexType synchronization_mutex_type_);
     ~CMemFileObserver();
 
     CMemFileObserver(const CMemFileObserver&) = delete;
@@ -59,7 +59,7 @@ namespace eCAL
     CMemFileObserver(CMemFileObserver&& rhs) = delete;
     CMemFileObserver& operator=(CMemFileObserver&& rhs) = delete;
 
-    bool Create(const std::string& memfile_name_, const std::string& memfile_event_);
+    bool Create(const std::string& memfile_name_, const std::string& memfile_event_, Types::SynchronizationMutexType synchronization_mutex_type_);
     bool Destroy();
 
     bool Start(int timeout_, const MemFileDataCallbackT& callback_);
@@ -98,7 +98,7 @@ namespace eCAL
     void Start();
     void Stop();
 
-    bool ObserveFile(const std::string& memfile_name_, const std::string& memfile_event_, int timeout_observation_ms, const MemFileDataCallbackT& callback_);
+    bool ObserveFile(const std::string& memfile_name_, const std::string& memfile_event_, int timeout_observation_ms, Types::SynchronizationMutexType synchronization_mutex_type_, const MemFileDataCallbackT& callback_);
 
   protected:
     void CleanupPoolThread();

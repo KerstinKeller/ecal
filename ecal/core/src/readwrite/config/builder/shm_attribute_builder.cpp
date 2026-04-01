@@ -29,6 +29,7 @@ namespace eCAL
 
       attributes.process_id              = attr_.process_id;
       attributes.registration_timeout_ms = attr_.registration_timeout_ms;
+      attributes.synchronization_mutex_type = attr_.shm.synchronization_mutex_type;
       
       return attributes;
     }
@@ -44,6 +45,7 @@ namespace eCAL
       attributes.memfile_buffer_count    = attr_.shm.memfile_buffer_count;
       attributes.memfile_reserve_percent = attr_.shm.memfile_reserve_percent;
       attributes.memfile_min_size_bytes  = attr_.shm.memfile_min_size_bytes;
+      attributes.synchronization_mutex_type = attr_.shm.synchronization_mutex_type;
 
       attributes.topic_name = attr_.topic_name;
       attributes.host_name  = attr_.host_name;
