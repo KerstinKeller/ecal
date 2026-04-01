@@ -40,12 +40,12 @@ namespace eCAL
   ////////////////////////////////////////
   // CMemFileObserver
   ////////////////////////////////////////
-  CMemFileObserver::CMemFileObserver(std::shared_ptr<CMemFileMap> memfile_map_)
+  CMemFileObserver::CMemFileObserver(std::shared_ptr<CMemFileMap> memfile_map_, Types::SynchronizationMutexType synchronization_mutex_type_)
     : m_created(false)
     , m_do_stop(false)
     , m_is_observing(false)
     , m_time_of_last_life_signal(std::chrono::steady_clock::now())
-    , m_memfile(std::move(memfile_map_))
+    , m_memfile(std::move(memfile_map_), synchronization_mutex_type_)
   {
   }
 
@@ -58,7 +58,7 @@ namespace eCAL
     Destroy();
   }
 
-  bool CMemFileObserver::Create(const std::string& memfile_name_, const std::string& memfile_event_)
+  bool CMemFileObserver::Create(const std::string& memfile_name_, const std::string& memfile_event_, Types::SynchronizationMutexType /*synchronization_mutex_type_*/)
   {
     if (m_created) return false;
 
@@ -370,7 +370,7 @@ namespace eCAL
     m_created = false;
   }
 
-  bool CMemFileThreadPool::ObserveFile(const std::string& memfile_name_, const std::string& memfile_event_, int timeout_observation_ms, const MemFileDataCallbackT& callback_)
+  bool CMemFileThreadPool::ObserveFile(const std::string& memfile_name_, const std::string& memfile_event_, int timeout_observation_ms, Types::SynchronizationMutexType synchronization_mutex_type_, const MemFileDataCallbackT& callback_)
   {
     if(!m_created)            return(false);
     if(memfile_name_.empty()) return(false);
@@ -401,8 +401,8 @@ namespace eCAL
     // okay, we need to start a new observer
     else
     {
-      auto observer = std::make_shared<CMemFileObserver>(m_memfile_map);
-      observer->Create(memfile_name_, memfile_event_);
+      auto observer = std::make_shared<CMemFileObserver>(m_memfile_map, synchronization_mutex_type_);
+      observer->Create(memfile_name_, memfile_event_, synchronization_mutex_type_);
       observer->Start(timeout_observation_ms, callback_);
       m_observer_pool[memfile_name_] = observer;
 #ifndef NDEBUG

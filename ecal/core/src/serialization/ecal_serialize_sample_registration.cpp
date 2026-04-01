@@ -77,6 +77,7 @@ namespace
     {
       writer.add_string(+eCAL::pb::LayerParShm::repeated_string_memory_file_list, memory_file);
     }
+    writer.add_enum(+eCAL::pb::LayerParShm::optional_enum_synchronization_mutex_type, static_cast<int>(layer.synchronization_mutex_type));
   }
 
   void DeserializeParamSHM(::protozero::pbf_reader& reader, eCAL::Registration::LayerParShm& layer)
@@ -90,6 +91,14 @@ namespace
           auto& memory_file_string = layer.memory_file_list.push_back();
           AssignString(reader, memory_file_string);
         }
+        break;
+      case +eCAL::pb::LayerParShm::optional_enum_synchronization_mutex_type:
+      {
+        const auto synchronization_mutex_type = reader.get_enum();
+        layer.synchronization_mutex_type = (synchronization_mutex_type == static_cast<int>(eCAL::Types::SynchronizationMutexType::robust_mutex_v1))
+          ? eCAL::Types::SynchronizationMutexType::robust_mutex_v1
+          : eCAL::Types::SynchronizationMutexType::mutex_v1;
+      }
         break;
       default:
         reader.skip();
@@ -853,4 +862,3 @@ namespace protozero
   }
 }
 }
-

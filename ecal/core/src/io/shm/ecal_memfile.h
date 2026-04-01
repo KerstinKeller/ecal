@@ -30,6 +30,7 @@
 #include <string>
 
 #include <ecal/pubsub/payload_writer.h>
+#include <ecal/types/custom_data_types.h>
 
 #include "ecal_memfile_info.h"
 #include "io/mtx/ecal_named_mutex.h"
@@ -47,7 +48,7 @@ namespace eCAL
     /**
      * @brief Constructor. 
     **/
-    CMemoryFile(std::shared_ptr<CMemFileMap> memfile_map_);
+    CMemoryFile(std::shared_ptr<CMemFileMap> memfile_map_, Types::SynchronizationMutexType synchronization_mutex_type_ = Types::SynchronizationMutexType::mutex_v1);
 
     /**
      * @brief Destructor. 
@@ -225,6 +226,7 @@ namespace eCAL
     SInternalHeader               m_header;
     std::shared_ptr<SMemFileInfo> m_memfile_info;
     CNamedMutex                   m_memfile_mutex;
+    Types::SynchronizationMutexType m_synchronization_mutex_type;
 
   private:
     CMemoryFile(const CMemoryFile&);                 // prevent copy-construction

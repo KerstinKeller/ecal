@@ -561,6 +561,7 @@ namespace eCAL
       shm_tlayer.version   = ecal_transport_layer_version;
       shm_tlayer.enabled   = m_layers.shm.read_enabled;
       shm_tlayer.active    = m_layers.shm.active;
+      shm_tlayer.par_layer.layer_par_shm.synchronization_mutex_type = m_attributes.shm.synchronization_mutex_type;
       ecal_reg_sample_topic.transport_layer.push_back(shm_tlayer);
     }
 #endif

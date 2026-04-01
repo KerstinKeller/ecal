@@ -19,6 +19,8 @@
 
 #pragma once
 
+#include <ecal/types/custom_data_types.h>
+
 #include <string>
 
 namespace eCAL
@@ -33,6 +35,7 @@ namespace eCAL
         unsigned int memfile_buffer_count;
         unsigned int memfile_min_size_bytes;
         unsigned int memfile_reserve_percent;
+        Types::SynchronizationMutexType synchronization_mutex_type;
 
         std::string host_name;
         std::string topic_name;
