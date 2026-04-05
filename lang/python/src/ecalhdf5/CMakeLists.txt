@@ -30,6 +30,8 @@ set(python_files
   ecal/measurement/measurement.py
   ecal/measurement/writer.py
   ecal/measurement/__init__.py
+  ecal/measurement2/measurement.py
+  ecal/measurement2/__init__.py
 )
 
 target_sources(${PROJECT_NAME}

@@ -2,6 +2,12 @@ set(python_samples_measurement
   measurement/low_level_rw.py
   measurement/low_level_rw_protobuf.py
   measurement/measurement_read.py
+  measurement/binary_write.py
+  measurement/binary_read.py
+  measurement/person_write.py
+  measurement/person_read.py
+  measurement/string_write.py
+  measurement/string_read.py
 )
 
 set(python_samples_core
