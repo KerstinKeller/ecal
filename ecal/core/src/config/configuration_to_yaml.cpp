@@ -75,6 +75,55 @@ namespace YAML
 
     return layer_priority_vector;
   }
+
+  std::string ShmMutexTypeToString(eCAL::TransportLayer::SHM::eMutexType mutex_type_)
+  {
+    switch (mutex_type_)
+    {
+#ifdef ECAL_OS_WINDOWS
+    case eCAL::TransportLayer::SHM::eMutexType::winapi_mutex:
+      return "winapi_mutex";
+#endif
+#ifdef ECAL_OS_LINUX
+    case eCAL::TransportLayer::SHM::eMutexType::pthread_mutex:
+      return "pthread_mutex";
+  #if defined(ECAL_HAS_ROBUST_MUTEX) || defined(ECAL_HAS_CLOCKLOCK_MUTEX)
+    case eCAL::TransportLayer::SHM::eMutexType::pthread_robust_mutex:
+      return "pthread_robust_mutex";
+  #endif
+#endif
+    default:
+      return "";
+    }
+  }
+
+  eCAL::TransportLayer::SHM::eMutexType StringToShmMutexType(const std::string& mutex_type_)
+  {
+#ifdef ECAL_OS_WINDOWS
+    (void)mutex_type_;
+    return eCAL::TransportLayer::SHM::eMutexType::winapi_mutex;
+#elif defined(ECAL_OS_LINUX)
+    if (mutex_type_ == "pthread_mutex")
+    {
+      return eCAL::TransportLayer::SHM::eMutexType::pthread_mutex;
+    }
+  #if defined(ECAL_HAS_ROBUST_MUTEX) || defined(ECAL_HAS_CLOCKLOCK_MUTEX)
+    if (mutex_type_ == "pthread_robust_mutex")
+    {
+      return eCAL::TransportLayer::SHM::eMutexType::pthread_robust_mutex;
+    }
+    return eCAL::TransportLayer::SHM::eMutexType::pthread_robust_mutex;
+  #else
+    return eCAL::TransportLayer::SHM::eMutexType::pthread_mutex;
+  #endif
+#endif
+
+#ifdef ECAL_OS_WINDOWS
+    return eCAL::TransportLayer::SHM::eMutexType::winapi_mutex;
+#else
+    return eCAL::TransportLayer::SHM::Configuration().mutex_type;
+#endif
+  }
 }
 
 namespace YAML
@@ -287,6 +336,7 @@ namespace YAML
     Node node;
     node["udp"] = config_.udp;
     node["tcp"] = config_.tcp;
+    node["shm"] = config_.shm;
 
     return node;
   }
@@ -295,6 +345,25 @@ namespace YAML
   {
     AssignValue<eCAL::TransportLayer::UDP::Configuration>(config_.udp, node_, "udp");
     AssignValue<eCAL::TransportLayer::TCP::Configuration>(config_.tcp, node_, "tcp");
+    AssignValue<eCAL::TransportLayer::SHM::Configuration>(config_.shm, node_, "shm");
+    return true;
+  }
+
+  Node convert<eCAL::TransportLayer::SHM::Configuration>::encode(const eCAL::TransportLayer::SHM::Configuration& config_)
+  {
+    Node node;
+    node["mutex_type"] = ShmMutexTypeToString(config_.mutex_type);
+    return node;
+  }
+
+  bool convert<eCAL::TransportLayer::SHM::Configuration>::decode(const Node& node_, eCAL::TransportLayer::SHM::Configuration& config_)
+  {
+    std::string mutex_type;
+    AssignValue<std::string>(mutex_type, node_, "mutex_type");
+    if (!mutex_type.empty())
+    {
+      config_.mutex_type = StringToShmMutexType(mutex_type);
+    }
     return true;
   }
 
@@ -310,6 +379,7 @@ namespace YAML
   {
     Node node;
     node["enable"]                   = config_.enable;
+    node["mutex_type"]               = ShmMutexTypeToString(config_.mutex_type);
     node["zero_copy_mode"]           = config_.zero_copy_mode;
     node["acknowledge_timeout_ms"]   = config_.acknowledge_timeout_ms;
     node["memfile_buffer_count"]     = config_.memfile_buffer_count;
@@ -320,7 +390,13 @@ namespace YAML
 
   bool convert<eCAL::Publisher::Layer::SHM::Configuration>::decode(const Node& node_, eCAL::Publisher::Layer::SHM::Configuration& config_)
   {
+    std::string mutex_type;
     AssignValue<bool>(config_.enable, node_, "enable");
+    AssignValue<std::string>(mutex_type, node_, "mutex_type");
+    if (!mutex_type.empty())
+    {
+      config_.mutex_type = StringToShmMutexType(mutex_type);
+    }
     AssignValue<bool>(config_.zero_copy_mode, node_, "zero_copy_mode");
     AssignValue<unsigned int>(config_.acknowledge_timeout_ms, node_, "acknowledge_timeout_ms");
     AssignValue<unsigned int>(config_.memfile_buffer_count, node_, "memfile_buffer_count");
@@ -408,12 +484,19 @@ namespace YAML
   {
     Node node;
     node["enable"] = config_.enable;
+    node["mutex_type"] = ShmMutexTypeToString(config_.mutex_type);
     return node;
   }
 
   bool convert<eCAL::Subscriber::Layer::SHM::Configuration>::decode(const Node& node_, eCAL::Subscriber::Layer::SHM::Configuration& config_)
   {
+    std::string mutex_type;
     AssignValue<bool>(config_.enable, node_, "enable");
+    AssignValue<std::string>(mutex_type, node_, "mutex_type");
+    if (!mutex_type.empty())
+    {
+      config_.mutex_type = StringToShmMutexType(mutex_type);
+    }
     return true;
   }
   
@@ -704,6 +787,9 @@ namespace YAML
     std::string communication_mode;
     AssignValue<std::string>(communication_mode, node_, "communication_mode");
     config_.communication_mode = communication_mode == "network" ? eCAL::eCommunicationMode::network : eCAL::eCommunicationMode::local;
+
+    config_.publisher.layer.shm.mutex_type  = config_.transport_layer.shm.mutex_type;
+    config_.subscriber.layer.shm.mutex_type = config_.transport_layer.shm.mutex_type;
 
     return true;
   }

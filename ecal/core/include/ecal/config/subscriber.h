@@ -39,6 +39,7 @@ namespace eCAL
         struct Configuration
         {
           bool enable { true }; //!< enable layer (Default: true)
+          TransportLayer::SHM::eMutexType mutex_type { TransportLayer::SHM::Configuration().mutex_type }; //!< SHM named mutex implementation
         };
       }
 

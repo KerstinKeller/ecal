@@ -67,8 +67,14 @@ TEST(core_cpp_config_yaml /*unused*/, yaml_processing_comparison /*unused*/)
     config.transport_layer.tcp.number_executor_reader = 9;
     config.transport_layer.tcp.number_executor_writer = 10;
     config.transport_layer.tcp.max_reconnections = 11;
+#ifdef ECAL_OS_WINDOWS
+    config.transport_layer.shm.mutex_type = eCAL::TransportLayer::SHM::eMutexType::winapi_mutex;
+#else
+    config.transport_layer.shm.mutex_type = eCAL::TransportLayer::SHM::eMutexType::pthread_mutex;
+#endif
 
     config.publisher.layer.shm.enable = false;
+    config.publisher.layer.shm.mutex_type = config.transport_layer.shm.mutex_type;
     config.publisher.layer.shm.zero_copy_mode = true;
     config.publisher.layer.shm.acknowledge_timeout_ms = 12;
     config.publisher.layer.shm.memfile_buffer_count = 13;
@@ -80,6 +86,7 @@ TEST(core_cpp_config_yaml /*unused*/, yaml_processing_comparison /*unused*/)
     config.publisher.layer_priority_remote = {eCAL::TransportLayer::eType::tcp, eCAL::TransportLayer::eType::udp_mc};
 
     config.subscriber.layer.shm.enable = false;
+    config.subscriber.layer.shm.mutex_type = config.transport_layer.shm.mutex_type;
     config.subscriber.layer.udp.enable = false;
     config.subscriber.layer.tcp.enable = true;
     config.subscriber.drop_out_of_order_messages = false;
@@ -130,7 +137,9 @@ TEST(core_cpp_config_yaml /*unused*/, yaml_processing_comparison /*unused*/)
     EXPECT_EQ(config.transport_layer.tcp.number_executor_reader, config_from_yaml.transport_layer.tcp.number_executor_reader);
     EXPECT_EQ(config.transport_layer.tcp.number_executor_writer, config_from_yaml.transport_layer.tcp.number_executor_writer);
     EXPECT_EQ(config.transport_layer.tcp.max_reconnections, config_from_yaml.transport_layer.tcp.max_reconnections);
+    EXPECT_EQ(config.transport_layer.shm.mutex_type, config_from_yaml.transport_layer.shm.mutex_type);
     EXPECT_EQ(config.publisher.layer.shm.enable, config_from_yaml.publisher.layer.shm.enable);
+    EXPECT_EQ(config.publisher.layer.shm.mutex_type, config_from_yaml.publisher.layer.shm.mutex_type);
     EXPECT_EQ(config.publisher.layer.shm.zero_copy_mode, config_from_yaml.publisher.layer.shm.zero_copy_mode);
     EXPECT_EQ(config.publisher.layer.shm.acknowledge_timeout_ms, config_from_yaml.publisher.layer.shm.acknowledge_timeout_ms);
     EXPECT_EQ(config.publisher.layer.shm.memfile_buffer_count, config_from_yaml.publisher.layer.shm.memfile_buffer_count);
@@ -141,6 +150,7 @@ TEST(core_cpp_config_yaml /*unused*/, yaml_processing_comparison /*unused*/)
     EXPECT_EQ(config.publisher.layer_priority_local, config_from_yaml.publisher.layer_priority_local);
     EXPECT_EQ(config.publisher.layer_priority_remote, config_from_yaml.publisher.layer_priority_remote);
     EXPECT_EQ(config.subscriber.layer.shm.enable, config_from_yaml.subscriber.layer.shm.enable);
+    EXPECT_EQ(config.subscriber.layer.shm.mutex_type, config_from_yaml.subscriber.layer.shm.mutex_type);
     EXPECT_EQ(config.subscriber.layer.udp.enable, config_from_yaml.subscriber.layer.udp.enable);
     EXPECT_EQ(config.subscriber.layer.tcp.enable, config_from_yaml.subscriber.layer.tcp.enable);
     EXPECT_EQ(config.subscriber.drop_out_of_order_messages, config_from_yaml.subscriber.drop_out_of_order_messages);

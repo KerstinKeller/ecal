@@ -105,6 +105,7 @@ namespace eCAL
         struct Configuration
         {
           bool         enable                  { true };  //!< enable layer 
+          TransportLayer::SHM::eMutexType mutex_type { TransportLayer::SHM::Configuration().mutex_type }; //!< SHM named mutex implementation
 
           bool         zero_copy_mode          { false }; //!< Enable zero copy shared memory transport mode 
           unsigned int acknowledge_timeout_ms  { 0U };    /*!< Force connected subscribers to send acknowledge event after processing the message.

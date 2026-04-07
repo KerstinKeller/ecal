@@ -79,10 +79,40 @@ namespace eCAL
       };
     }
 
+    namespace SHM
+    {
+      enum class eMutexType
+      {
+#ifdef ECAL_OS_WINDOWS
+        winapi_mutex,
+#endif
+#ifdef ECAL_OS_LINUX
+        pthread_mutex,
+  #if defined(ECAL_HAS_ROBUST_MUTEX) || defined(ECAL_HAS_CLOCKLOCK_MUTEX)
+        pthread_robust_mutex,
+  #endif
+#endif
+      };
+
+      struct Configuration
+      {
+#ifdef ECAL_OS_WINDOWS
+        eMutexType mutex_type { eMutexType::winapi_mutex };
+#elif defined(ECAL_OS_LINUX)
+  #if defined(ECAL_HAS_ROBUST_MUTEX) || defined(ECAL_HAS_CLOCKLOCK_MUTEX)
+        eMutexType mutex_type { eMutexType::pthread_robust_mutex };
+  #else
+        eMutexType mutex_type { eMutexType::pthread_mutex };
+  #endif
+#endif
+      };
+    }
+
     struct Configuration
     {
       UDP::Configuration udp;
       TCP::Configuration tcp;
+      SHM::Configuration shm;
     };
   }
 }
