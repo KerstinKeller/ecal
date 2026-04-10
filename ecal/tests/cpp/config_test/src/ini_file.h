@@ -96,6 +96,8 @@ transport_layer:
     max_reconnections: 7
 
   shm:     
+    # Named mutex implementation used for shared-memory synchronization
+    mutex_type: "pthread_mutex"
     # Default memory file size for new publisher
     memfile_min_size_bytes: 4096
     # Dynamic file size reserve before recreating memory file if topic size changes
