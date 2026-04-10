@@ -44,6 +44,7 @@ namespace eCAL
     size_t  reserve;            //!< dynamic file size reserve before recreating memory file if payload size changes [%]
     int64_t timeout_open_ms;    //!< timeout to open a memory file using mutex lock [ms]
     int64_t timeout_ack_ms;     //!< timeout for memory read acknowledge signal from data reader [ms]
+    Types::SynchronizationMutexType synchronization_mutex_type; //!< synchronization mutex type
   };
 
   class CSyncMemoryFile

@@ -154,6 +154,7 @@ namespace eCAL
   Registration::LayerParShm CDataWriterSHM::GetConnectionParameter()
   {
     Registration::LayerParShm layer_par_shm;
+    layer_par_shm.synchronization_mutex_type = m_attributes.synchronization_mutex_type;
     for (auto& memory_file : m_memory_file_vec)
     {
       layer_par_shm.memory_file_list.push_back(memory_file->GetName());
@@ -179,6 +180,7 @@ namespace eCAL
     memory_file_attr.reserve         = m_attributes.memfile_reserve_percent;
     memory_file_attr.timeout_open_ms = PUB_MEMFILE_OPEN_TO;
     memory_file_attr.timeout_ack_ms  = m_attributes.acknowledge_timeout_ms;
+    memory_file_attr.synchronization_mutex_type = m_attributes.synchronization_mutex_type;
 
     // retrieve the memory file size of existing files
     size_t memory_file_size(0);

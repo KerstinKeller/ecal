@@ -148,6 +148,13 @@ namespace{
     writer_.add_enum(+eCAL::pb::TransportLayer::optional_enum_type, static_cast<int>(source_sample_.type));
     writer_.add_int32(+eCAL::pb::TransportLayer::optional_int32_version, source_sample_.version);
     writer_.add_bool(+eCAL::pb::TransportLayer::optional_bool_active, source_sample_.active);
+
+    if (source_sample_.type == eCAL::Monitoring::eTransportLayerType::shm)
+    {
+      Writer parameter_writer{ writer_, +eCAL::pb::TransportLayer::optional_message_par_layer };
+      Writer shm_writer{ parameter_writer, +eCAL::pb::ConnectionPar::optional_message_layer_par_shm };
+      shm_writer.add_enum(+eCAL::pb::LayerParShm::optional_enum_synchronization_mutex_type, static_cast<int>(source_sample_.synchronization_mutex_type));
+    }
   } 
 
   void DeserializeTransportLayer(protozero::pbf_reader& reader_, eCAL::Monitoring::STransportLayer& target_sample_)
@@ -165,6 +172,36 @@ namespace{
       case +eCAL::pb::TransportLayer::optional_bool_active:
         target_sample_.active = reader_.get_bool();
         break;
+      case +eCAL::pb::TransportLayer::optional_message_par_layer:
+      {
+        auto parameter_reader = reader_.get_message();
+        while (parameter_reader.next())
+        {
+          if (parameter_reader.tag() == +eCAL::pb::ConnectionPar::optional_message_layer_par_shm)
+          {
+            auto shm_reader = parameter_reader.get_message();
+            while (shm_reader.next())
+            {
+              if (shm_reader.tag() == +eCAL::pb::LayerParShm::optional_enum_synchronization_mutex_type)
+              {
+                const auto synchronization_mutex_type = shm_reader.get_enum();
+                target_sample_.synchronization_mutex_type = (synchronization_mutex_type == static_cast<int>(eCAL::Types::SynchronizationMutexType::robust_mutex_v1))
+                  ? eCAL::Types::SynchronizationMutexType::robust_mutex_v1
+                  : eCAL::Types::SynchronizationMutexType::mutex_v1;
+              }
+              else
+              {
+                shm_reader.skip();
+              }
+            }
+          }
+          else
+          {
+            parameter_reader.skip();
+          }
+        }
+      }
+      break;
       default:
         reader_.skip();
       }

@@ -79,8 +79,24 @@ namespace eCAL
       };
     }
 
+    namespace SHM
+    {
+      enum class SynchronizationMutexType
+      {
+        default_ = 0,
+        mutex_v1 = 1,
+        robust_mutex_v1 = 2
+      };
+
+      struct Configuration
+      {
+        SynchronizationMutexType synchronization_mutex_type{ SynchronizationMutexType::default_ }; //!< Synchronization mutex type for shared memory
+      };
+    }
+
     struct Configuration
     {
+      SHM::Configuration shm;
       UDP::Configuration udp;
       TCP::Configuration tcp;
     };

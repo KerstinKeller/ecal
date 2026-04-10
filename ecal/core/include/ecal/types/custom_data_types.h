@@ -67,5 +67,11 @@ namespace eCAL
       V1 = 1,
       V2 = 2
     };
+
+    enum class SynchronizationMutexType
+    {
+      mutex_v1 = 1,
+      robust_mutex_v1 = 2
+    };
   }
 } 

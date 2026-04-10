@@ -23,6 +23,28 @@
 
 namespace eCAL
 {
+  namespace
+  {
+    eCAL::Types::SynchronizationMutexType ResolveCompiledDefaultSynchronizationMutexType()
+    {
+#if defined(ECAL_OS_LINUX) && defined(ECAL_USE_CLOCKLOCK_MUTEX) && defined(ECAL_HAS_CLOCKLOCK_MUTEX)
+      return eCAL::Types::SynchronizationMutexType::robust_mutex_v1;
+#else
+      return eCAL::Types::SynchronizationMutexType::mutex_v1;
+#endif
+    }
+
+    eCAL::Types::SynchronizationMutexType ResolveSynchronizationMutexType(const eCAL::Configuration& config_)
+    {
+      if (config_.transport_layer.shm.synchronization_mutex_type == eCAL::TransportLayer::SHM::SynchronizationMutexType::mutex_v1)
+        return eCAL::Types::SynchronizationMutexType::mutex_v1;
+      if (config_.transport_layer.shm.synchronization_mutex_type == eCAL::TransportLayer::SHM::SynchronizationMutexType::robust_mutex_v1)
+        return eCAL::Types::SynchronizationMutexType::robust_mutex_v1;
+
+      return ResolveCompiledDefaultSynchronizationMutexType();
+    }
+  }
+
   eCALWriter::SAttributes BuildWriterAttributes(const std::string& topic_name_, const eCAL::Configuration& config_)
   {
     const auto& publisher_config        = config_.publisher;
@@ -50,6 +72,7 @@ namespace eCAL
     attributes.shm.memfile_min_size_bytes  = publisher_config.layer.shm.memfile_min_size_bytes;
     attributes.shm.memfile_reserve_percent = publisher_config.layer.shm.memfile_reserve_percent;
     attributes.shm.zero_copy_mode          = publisher_config.layer.shm.zero_copy_mode;
+    attributes.shm.synchronization_mutex_type = ResolveSynchronizationMutexType(config_);
 
     attributes.udp.enable        = publisher_config.layer.udp.enable;
     attributes.udp.broadcast     = config_.communication_mode == eCAL::eCommunicationMode::local;
