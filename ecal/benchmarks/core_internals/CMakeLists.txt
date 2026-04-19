@@ -20,6 +20,9 @@ cmake_minimum_required(VERSION 3.15)
 
 project(ecal_benchmark_internal)
 
+
+set(ecal_utils ecal-utils)
+
 add_executable(ecal_benchmark_descgate
   benchmark_descgate.cpp
 )
@@ -60,3 +63,17 @@ target_link_libraries(ecal_benchmark_serialization
 )
 
 target_compile_features(ecal_benchmark_serialization PRIVATE cxx_std_14)
+
+add_executable(ecal_benchmark_named_mutex
+  benchmark_named_mutex.cpp
+)
+
+target_link_libraries(ecal_benchmark_named_mutex
+  PRIVATE
+    benchmark::benchmark
+    ecal_core_private
+    ${ecal_utils}
+)
+
+target_compile_features(ecal_benchmark_named_mutex PRIVATE cxx_std_14)
+
