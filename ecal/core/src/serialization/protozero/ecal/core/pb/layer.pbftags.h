@@ -15,7 +15,8 @@ inline constexpr uint32_t operator+(LayerParUdpMC e) {
 }
 
 enum class LayerParShm : ::protozero::pbf_tag_type {
-    repeated_string_memory_file_list = 1
+    repeated_string_memory_file_list = 1,
+    optional_enum_synchronization_mutex_type = 2
 };
 
 inline constexpr uint32_t operator+(LayerParShm e) {
@@ -61,6 +62,16 @@ enum class eTransportLayerType : std::int32_t {
 };
 
 inline constexpr std::int32_t operator+(eTransportLayerType v) {
+    return static_cast<std::int32_t>(v);
+}
+
+enum class eSynchronizationMutexType : std::int32_t {
+    sync_mutex_unspecified = 0,
+    sync_mutex_mutex_v1 = 1,
+    sync_mutex_robust_mutex_v1 = 2
+};
+
+inline constexpr std::int32_t operator+(eSynchronizationMutexType v) {
     return static_cast<std::int32_t>(v);
 }
 

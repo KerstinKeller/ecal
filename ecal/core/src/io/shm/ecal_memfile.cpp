@@ -38,15 +38,31 @@
 
 namespace eCAL
 {
+  namespace
+  {
+    CNamedMutex::SynchronizationMutexType ToNamedMutexType(Types::SynchronizationMutexType synchronization_mutex_type_)
+    {
+      switch (synchronization_mutex_type_)
+      {
+      case Types::SynchronizationMutexType::robust_mutex_v1:
+        return CNamedMutex::SynchronizationMutexType::robust_mutex_v1;
+      case Types::SynchronizationMutexType::mutex_v1:
+      default:
+        return CNamedMutex::SynchronizationMutexType::mutex_v1;
+      }
+    }
+  }
+
   /////////////////////////////////////////////////////////////////////////////////
   // Memory file handling class
   /////////////////////////////////////////////////////////////////////////////////
 
-  CMemoryFile::CMemoryFile(std::shared_ptr<CMemFileMap> memfile_map_) :
+  CMemoryFile::CMemoryFile(std::shared_ptr<CMemFileMap> memfile_map_, Types::SynchronizationMutexType synchronization_mutex_type_) :
     m_created(false),
     m_auto_sanitizing(false),
     m_payload_initialized(false),
     m_access_state(access_state::closed),
+    m_synchronization_mutex_type(synchronization_mutex_type_),
     m_memfile_map(std::move(memfile_map_))
   {
   }
@@ -98,7 +114,7 @@ namespace eCAL
 
     // create mutex
     // for performance reasons only apply consistency check if it is explicitly set
-    if(!m_memfile_mutex.Create(name_, m_auto_sanitizing))
+    if(!m_memfile_mutex.Create(name_, ToNamedMutexType(m_synchronization_mutex_type), m_auto_sanitizing))
     {
 #ifndef NDEBUG
       printf("Could not create memory file mutex: %s.\n", name_);

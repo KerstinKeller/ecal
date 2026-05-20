@@ -34,6 +34,13 @@ namespace eCAL
   class CNamedMutex
   {
   public:
+    enum class SynchronizationMutexType
+    {
+      mutex_v1 = 1,
+      robust_mutex_v1 = 2
+    };
+
+    explicit CNamedMutex(const std::string& name_, SynchronizationMutexType synchronization_mutex_type_, bool recoverable_ = false);
     explicit CNamedMutex(const std::string& name_, bool recoverable_ = false);
     CNamedMutex();
     ~CNamedMutex();
@@ -43,6 +50,7 @@ namespace eCAL
     CNamedMutex(CNamedMutex&& named_mutex) noexcept;
     CNamedMutex& operator=(CNamedMutex&& named_mutex)  noexcept;
 
+    bool Create(const std::string& name_, SynchronizationMutexType synchronization_mutex_type_, bool recoverable_ = false);
     bool Create(const std::string& name_, bool recoverable_ = false);
     void Destroy();
 

@@ -155,11 +155,16 @@ namespace eCAL
     bool               topic_tlayer_ecal_udp(false);
     bool               topic_tlayer_ecal_shm(false);
     bool               topic_tlayer_ecal_tcp(false);
+    eCAL::Types::SynchronizationMutexType topic_tlayer_ecal_shm_mutex_type = eCAL::Types::SynchronizationMutexType::mutex_v1;
     for (const auto& layer : sample_topic.transport_layer)
     {
       topic_tlayer_ecal_udp |= (layer.type == tl_ecal_udp) && layer.active;
       topic_tlayer_ecal_shm |= (layer.type == tl_ecal_shm) && layer.active;
       topic_tlayer_ecal_tcp |= (layer.type == tl_ecal_tcp) && layer.active;
+      if (layer.type == tl_ecal_shm)
+      {
+        topic_tlayer_ecal_shm_mutex_type = layer.par_layer.layer_par_shm.synchronization_mutex_type;
+      }
     }
     const int32_t      connections_local = sample_topic.connections_local;
     const int32_t      connections_external = sample_topic.connections_external;
@@ -234,6 +239,7 @@ namespace eCAL
         eCAL::Monitoring::STransportLayer transport_layer;
         transport_layer.type   = eCAL::Monitoring::eTransportLayerType::shm;
         transport_layer.active = topic_tlayer_ecal_shm;
+        transport_layer.synchronization_mutex_type = topic_tlayer_ecal_shm_mutex_type;
         TopicInfo.transport_layer.push_back(transport_layer);
       }
       // transport_layer tcp

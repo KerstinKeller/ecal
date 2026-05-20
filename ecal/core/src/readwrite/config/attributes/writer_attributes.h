@@ -54,6 +54,7 @@ namespace eCAL
       unsigned int memfile_buffer_count;
       unsigned int memfile_min_size_bytes;
       unsigned int memfile_reserve_percent;
+      Types::SynchronizationMutexType synchronization_mutex_type;
     };
 
 

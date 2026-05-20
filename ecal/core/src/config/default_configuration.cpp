@@ -86,6 +86,21 @@ namespace
     }
   }
 
+  std::string quoteString(const eCAL::TransportLayer::SHM::SynchronizationMutexType synchronization_mutex_type_)
+  {
+    switch (synchronization_mutex_type_)
+    {
+    case eCAL::TransportLayer::SHM::SynchronizationMutexType::default_:
+      return "\"default\"";
+    case eCAL::TransportLayer::SHM::SynchronizationMutexType::mutex_v1:
+      return "\"mutex_v1\"";
+    case eCAL::TransportLayer::SHM::SynchronizationMutexType::robust_mutex_v1:
+      return "\"robust_mutex_v1\"";
+    default:
+      return "\"default\"";
+    }
+  }
+
   std::string quoteString(const eCAL::eCommunicationMode mode_)
   {
     switch (mode_)
@@ -206,6 +221,10 @@ namespace eCAL
       ss << R"()"                                                                                                                   << "\n";
       ss << R"(# Transport layer configuration)"                                                                                    << "\n";
       ss << R"(transport_layer:)"                                                                                                   << "\n";
+      ss << R"(  shm:)"                                                                                                             << "\n";
+      ss << R"(    # Shared memory synchronization mutex type [default, mutex_v1, robust_mutex_v1])"                               << "\n";
+      ss << R"(    synchronization_mutex_type: )"                   << quoteString(config_.transport_layer.shm.synchronization_mutex_type) << "\n";
+      ss << R"()"                                                                                                                   << "\n";
       ss << R"(  udp:)"                                                                                                             << "\n";
       ss << R"(    # UDP configuration version (Since eCAL 5.12.))"                                                                 << "\n";
       ss << R"(    # v1: default behavior)"                                                                                         << "\n";
@@ -267,7 +286,6 @@ namespace eCAL
       ss << R"(      memfile_min_size_bytes: )"                      << config_.publisher.layer.shm.memfile_min_size_bytes          << "\n";
       ss << R"(      # Dynamic file size reserve before recreating memory file if topic size changes)"                              << "\n";
       ss << R"(      memfile_reserve_percent: )"                     << config_.publisher.layer.shm.memfile_reserve_percent         << "\n";
-      ss << R"()"                                                                                                                   << "\n";
       ss << R"(    # Base configuration for UDP publisher)"                                                                         << "\n";
       ss << R"(    udp:)"                                                                                                           << "\n";
       ss << R"(      # Enable layer)"                                                                                               << "\n";
@@ -291,7 +309,6 @@ namespace eCAL
       ss << R"(    shm:)"                                                                                                           << "\n";
       ss << R"(      # Enable layer)"                                                                                               << "\n";
       ss << R"(      enable: )"                                        << config_.subscriber.layer.shm.enable                       << "\n";
-      ss << R"()"                                                                                                                   << "\n";
       ss << R"(    # Base configuration for UDP subscriber)"                                                                        << "\n";
       ss << R"(    udp:)"                                                                                                           << "\n";
       ss << R"(      # Enabler layer)"                                                                                              << "\n";

@@ -26,6 +26,7 @@
 #pragma once
 
 #include <ecal/types.h>
+#include <ecal/types/custom_data_types.h>
 
 #include <map>
 #include <string>
@@ -68,6 +69,7 @@ namespace eCAL
       eTransportLayerType  type    = eTransportLayerType::none;    //<! transport layer type
       int32_t      version = 0;                                    //<! transport layer version
       bool         active  = false;                                //<! transport layer used?
+      Types::SynchronizationMutexType synchronization_mutex_type = Types::SynchronizationMutexType::mutex_v1; //<! shm synchronization mutex type
     };
 
     struct SStatistics                                            //<! eCAL Statistics struct

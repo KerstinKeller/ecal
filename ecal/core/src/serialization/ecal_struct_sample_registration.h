@@ -29,6 +29,7 @@
 #include "ecal_struct_service.h"
 
 #include <ecal/types.h>
+#include <ecal/types/custom_data_types.h>
 #include "util/expanding_vector.h"
 
 #include <cstdint>
@@ -134,14 +135,17 @@ namespace eCAL
     struct LayerParShm
     {
       Util::CExpandingVector<std::string> memory_file_list;             // list of memory file names
+      Types::SynchronizationMutexType     synchronization_mutex_type = Types::SynchronizationMutexType::mutex_v1;
 
       bool operator==(const LayerParShm& other) const {
-        return memory_file_list == other.memory_file_list;
+        return memory_file_list == other.memory_file_list
+          && synchronization_mutex_type == other.synchronization_mutex_type;
       }
 
       void clear()
       {
         memory_file_list.clear();
+        synchronization_mutex_type = Types::SynchronizationMutexType::mutex_v1;
       }
     };
 

@@ -45,7 +45,8 @@ namespace eCAL
 
     struct SSHMAttributes
     {
-      bool enable;
+      bool                            enable;
+      Types::SynchronizationMutexType synchronization_mutex_type;
     };
 
     struct SAttributes
