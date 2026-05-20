@@ -98,6 +98,7 @@ target_sources(ecal_core_serialization
     src/serialization/ecal_serialize_sample_payload.h
     src/serialization/ecal_serialize_sample_registration.h
     src/serialization/ecal_serialize_service.h
+    src/serialization/ecal_serialize_tracing.h
     src/serialization/ecal_struct_sample_common.h
     src/serialization/ecal_struct_sample_payload.h
     src/serialization/ecal_struct_sample_registration.h
@@ -113,6 +114,7 @@ target_sources(ecal_core_serialization
     src/serialization/protozero/ecal/core/pb/process.pbftags.h
     src/serialization/protozero/ecal/core/pb/service.pbftags.h
     src/serialization/protozero/ecal/core/pb/topic.pbftags.h
+    src/serialization/protozero/ecal/core/pb/tracing.pbftags.h
     src/serialization/ecal_serialize_common.cpp
     src/serialization/ecal_serialize_common.h
     src/serialization/ecal_serialize_logging.cpp
@@ -120,6 +122,7 @@ target_sources(ecal_core_serialization
     src/serialization/ecal_serialize_sample_payload.cpp
     src/serialization/ecal_serialize_sample_registration.cpp
     src/serialization/ecal_serialize_service.cpp
+    src/serialization/ecal_serialize_tracing.cpp
 )
 
 target_include_directories(ecal_core_serialization
@@ -477,6 +480,8 @@ set(ecal_tracing_src
     src/tracing/tracing_writer.h
     src/tracing/tracing_writer_jsonl.cpp
     src/tracing/tracing_writer_jsonl.h
+    src/tracing/tracing_writer_protobuf.cpp
+    src/tracing/tracing_writer_protobuf.h
 )
 
 ######################################

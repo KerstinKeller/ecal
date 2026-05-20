@@ -133,6 +133,7 @@ set(proto_files
   ${proto_root}/ecal/core/pb/process.proto
   ${proto_root}/ecal/core/pb/service.proto
   ${proto_root}/ecal/core/pb/topic.proto
+  ${proto_root}/ecal/core/pb/tracing.proto
 )
 
 target_sources(core_protos
