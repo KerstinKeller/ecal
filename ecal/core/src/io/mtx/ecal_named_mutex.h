@@ -23,6 +23,8 @@
 
 #pragma once
 
+#include <ecal/os.h>
+
 #include <string>
 #include <memory>
 #include <cstdint>
@@ -34,7 +36,21 @@ namespace eCAL
   class CNamedMutex
   {
   public:
+    enum class eType
+    {
+#ifdef ECAL_OS_WINDOWS
+      winapi_mutex,
+#endif
+#ifdef ECAL_OS_LINUX
+      pthread_mutex,
+  #if defined(ECAL_HAS_ROBUST_MUTEX) || defined(ECAL_HAS_CLOCKLOCK_MUTEX)
+      pthread_robust_mutex,
+  #endif
+#endif
+    };
+
     explicit CNamedMutex(const std::string& name_, bool recoverable_ = false);
+    CNamedMutex(const std::string& name_, eType mutex_type_, bool recoverable_ = false);
     CNamedMutex();
     ~CNamedMutex();
 
@@ -44,6 +60,7 @@ namespace eCAL
     CNamedMutex& operator=(CNamedMutex&& named_mutex)  noexcept;
 
     bool Create(const std::string& name_, bool recoverable_ = false);
+    bool Create(const std::string& name_, eType mutex_type_, bool recoverable_ = false);
     void Destroy();
 
     bool IsCreated() const;

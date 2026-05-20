@@ -130,6 +130,14 @@ namespace YAML
   };
 
   template<>
+  struct convert<eCAL::TransportLayer::SHM::Configuration>
+  {
+    static Node encode(const eCAL::TransportLayer::SHM::Configuration& config_);
+
+    static bool decode(const Node& node_, eCAL::TransportLayer::SHM::Configuration& config_);
+  };
+
+  template<>
   struct convert<eCAL::TransportLayer::Configuration>
   {
     static Node encode(const eCAL::TransportLayer::Configuration& config_);

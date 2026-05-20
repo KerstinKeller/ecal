@@ -138,6 +138,27 @@ namespace
   {
     return std::string("\"") + ip_.Get() + std::string("\"");
   }
+
+  std::string quoteString(const eCAL::TransportLayer::SHM::eMutexType mutex_type_)
+  {
+    switch (mutex_type_)
+    {
+#ifdef ECAL_OS_WINDOWS
+    case eCAL::TransportLayer::SHM::eMutexType::winapi_mutex:
+      return "\"winapi_mutex\"";
+#endif
+#ifdef ECAL_OS_LINUX
+    case eCAL::TransportLayer::SHM::eMutexType::pthread_mutex:
+      return "\"pthread_mutex\"";
+  #if defined(ECAL_HAS_ROBUST_MUTEX) || defined(ECAL_HAS_CLOCKLOCK_MUTEX)
+    case eCAL::TransportLayer::SHM::eMutexType::pthread_robust_mutex:
+      return "\"pthread_robust_mutex\"";
+  #endif
+#endif
+    default:
+      return "";
+    }
+  }
 }
 
 namespace eCAL
@@ -248,6 +269,10 @@ namespace eCAL
       ss << R"(    # Reconnection attemps the session will try to reconnect in case of an issue)"                                   << "\n";
       ss << R"(    max_reconnections: )"                             << config_.transport_layer.tcp.max_reconnections               << "\n";
       ss << R"()"                                                                                                                   << "\n";
+      ss << R"(  shm: )"                                                                                                            << "\n";
+      ss << R"(    # Named mutex implementation used for shared-memory synchronization)"                                           << "\n";
+      ss << R"(    mutex_type: )"                                    << quoteString(config_.transport_layer.shm.mutex_type)        << "\n";
+      ss << R"()"                                                                                                                   << "\n";
       ss << R"()"                                                                                                                   << "\n";
       ss << R"(# Publisher specific base settings)"                                                                                 << "\n";
       ss << R"(publisher:)"                                                                                                         << "\n";
@@ -256,6 +281,8 @@ namespace eCAL
       ss << R"(    shm:)"                                                                                                           << "\n";
       ss << R"(      # Enable layer)"                                                                                               << "\n";
       ss << R"(      enable: )"                                      << config_.publisher.layer.shm.enable                          << "\n";
+      ss << R"(      # Inherits transport_layer.shm.mutex_type)"                                                                   << "\n";
+      ss << R"(      mutex_type: )"                                  << quoteString(config_.publisher.layer.shm.mutex_type)        << "\n";
       ss << R"(      # Enable zero copy shared memory transport mode)"                                                              << "\n";
       ss << R"(      zero_copy_mode: )"                              << config_.publisher.layer.shm.zero_copy_mode                  << "\n";
       ss << R"(      # Force connected subscribers to send acknowledge event after processing the message.)"                        << "\n";
@@ -291,6 +318,8 @@ namespace eCAL
       ss << R"(    shm:)"                                                                                                           << "\n";
       ss << R"(      # Enable layer)"                                                                                               << "\n";
       ss << R"(      enable: )"                                        << config_.subscriber.layer.shm.enable                       << "\n";
+      ss << R"(      # Inherits transport_layer.shm.mutex_type)"                                                                   << "\n";
+      ss << R"(      mutex_type: )"                                    << quoteString(config_.subscriber.layer.shm.mutex_type)     << "\n";
       ss << R"()"                                                                                                                   << "\n";
       ss << R"(    # Base configuration for UDP subscriber)"                                                                        << "\n";
       ss << R"(    udp:)"                                                                                                           << "\n";
