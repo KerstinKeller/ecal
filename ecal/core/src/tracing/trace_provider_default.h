@@ -22,7 +22,7 @@
 #include "trace_provider.h"
 #include "tracing.h"
 #include "tracing_writer.h"
-#include "tracing_writer_jsonl.h"
+#include "tracing_writer_protobuf.h"
 #include "util/single_instance_helper.h"
 
 #include <vector>
@@ -41,7 +41,7 @@ namespace eCAL
       friend class Util::CSingleInstanceHelper<CTraceProviderDefault>;
 
     public:
-      static std::shared_ptr<CTraceProviderDefault> Create(std::unique_ptr<TracingWriter> writer = std::make_unique<CTracingWriterJSONL>(), size_t batch_size = kDefaultTracingBatchSize);
+      static std::shared_ptr<CTraceProviderDefault> Create(std::unique_ptr<TracingWriter> writer = std::make_unique<CTracingWriterProtobuf>(), size_t batch_size = kDefaultTracingBatchSize);
 
       CTraceProviderDefault(const CTraceProviderDefault&)            = delete;
       CTraceProviderDefault& operator=(const CTraceProviderDefault&) = delete;

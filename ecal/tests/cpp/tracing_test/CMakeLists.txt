@@ -26,6 +26,7 @@ set(tracing_test_src
   src/tracing_test_helpers.h
   src/trace_provider_test.cpp
   src/tracing_writer_test.cpp
+  src/tracing_serialization_test.cpp
 )
 
 ecal_add_gtest(${PROJECT_NAME} ${tracing_test_src})
