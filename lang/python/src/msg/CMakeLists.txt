@@ -24,13 +24,16 @@ add_library(python_msg INTERFACE)
 set(pure_python_files
   ecal/msg/__init__.py
   ecal/msg/common/core.py
+  ecal/msg/common/measurement.py
   ecal/msg/common/serializer.py
   ecal/msg/common/__init__.py
   ecal/msg/proto/core.py
+  ecal/msg/proto/measurement.py
   ecal/msg/proto/helper.py
   ecal/msg/proto/serializer.py
   ecal/msg/proto/__init__.py
   ecal/msg/string/core.py
+  ecal/msg/string/measurement.py
   ecal/msg/string/serializer.py
   ecal/msg/string/__init__.py
 )
