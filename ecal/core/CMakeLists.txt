@@ -1,7 +1,7 @@
 # ========================= eCAL LICENSE =================================
 #
 # Copyright (C) 2016 - 2025 Continental Corporation
-# Copyright 2025 AUMOVIO and subsidiaries. All rights reserved.
+# Copyright 2025 - 2026 AUMOVIO and subsidiaries. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -48,10 +48,6 @@ if (ECAL_CORE_CONFIGURATION)
   find_package(yaml-cpp       REQUIRED)
   include(${ECAL_PROJECT_ROOT}/thirdparty/yaml-cpp/compatibility-yaml-cpp.cmake)
   yaml_cpp_create_compatibility_targets()
-endif()
-
-if (ECAL_CORE_COMMAND_LINE)
-  find_package(tclap          REQUIRED)
 endif()
 
 if (ECAL_CORE_TRANSPORT_TCP)
@@ -462,6 +458,20 @@ if(ECAL_CORE_TIMEPLUGIN)
 endif()
 
 ######################################
+# tracing
+######################################
+set(ecal_tracing_src
+    src/tracing/layer_type.cpp
+    src/tracing/layer_type.h
+    src/tracing/span.cpp
+    src/tracing/span.h
+    src/tracing/trace_provider.cpp
+    src/tracing/trace_provider.h
+    src/tracing/trace_provider_default.cpp
+    src/tracing/trace_provider_default.h
+)
+
+######################################
 # util
 ######################################
 set(ecal_util_src
@@ -477,12 +487,6 @@ set(ecal_util_src
     src/util/getenvvar.h
     src/util/counter_cache.h
 )
-if (ECAL_CORE_COMMAND_LINE)
-  list(APPEND ecal_util_src
-      src/util/advanced_tclap_output.cpp
-      src/util/advanced_tclap_output.h
-  )
-endif()
 
 ######################################
 # common
@@ -577,6 +581,7 @@ set(ecal_public_headers
     include/ecal/config/registration.h
     include/ecal/config/subscriber.h
     include/ecal/config/time.h
+    include/ecal/config/tracing.h
     include/ecal/config/transport_layer.h
     include/ecal/pubsub/subscriber.h
     include/ecal/pubsub/types.h
@@ -639,6 +644,7 @@ set(ecal_sources
     ${ecal_serialization_src}
     ${ecal_service_src}
     ${ecal_time_src}
+    ${ecal_tracing_src}
     ${ecal_util_src}
     ${ecal_cmn_src}
     ${ecal_builder_src}
@@ -682,7 +688,6 @@ target_compile_definitions(ecal_core_private
 
 set(ECAL_CORE_FEATURES
   ECAL_CORE_CONFIGURATION
-  ECAL_CORE_COMMAND_LINE
   ECAL_CORE_REGISTRATION
   ECAL_CORE_MONITORING
   ECAL_CORE_PUBLISHER
@@ -715,7 +720,6 @@ target_include_directories(ecal_core_private
 target_link_libraries(ecal_core_private 
   PUBLIC
     $<$<BOOL:${ECAL_CORE_CONFIGURATION}>:yaml-cpp::yaml-cpp>
-    $<$<BOOL:${ECAL_CORE_COMMAND_LINE}>:tclap::tclap>
     $<$<BOOL:${ECAL_CORE_TRANSPORT_TCP}>:tcp_pubsub::tcp_pubsub>
     $<$<BOOL:${ECAL_CORE_TIMEPLUGIN}>:ecaltime>
     ecaludp::ecaludp
@@ -733,6 +737,7 @@ target_link_libraries(ecal_core_private
     asio::asio
     Threads::Threads
     eCAL::ecal-utils
+    eCAL::tracing
   PRIVATE
     # we need this so that e.g. the test can just link ecal_core_private and will get the object files of this library.
     ecal_core_serialization $<TARGET_OBJECTS:ecal_core_serialization>

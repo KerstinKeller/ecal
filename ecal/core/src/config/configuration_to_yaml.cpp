@@ -258,6 +258,7 @@ namespace YAML
     node["mask"]                = config_.mask.Get();
     node["send_buffer"]         = config_.send_buffer;
     node["receive_buffer"]      = config_.receive_buffer;
+    node["max_datagram_size"]   = config_.max_datagram_size;
     node["join_all_interfaces"] = config_.join_all_interfaces;
     node["npcap_enabled"]       = config_.npcap_enabled;
     node["network"]             = config_.network;
@@ -276,6 +277,7 @@ namespace YAML
     AssignValue<std::string>(config_.mask, node_, "mask");
     AssignValue<unsigned int>(config_.send_buffer, node_, "send_buffer");
     AssignValue<unsigned int>(config_.receive_buffer, node_, "receive_buffer");
+    AssignValue<unsigned int>(config_.max_datagram_size, node_, "max_datagram_size");
     AssignValue<bool>(config_.join_all_interfaces, node_, "join_all_interfaces");
     AssignValue<bool>(config_.npcap_enabled, node_, "npcap_enabled");
 
@@ -672,6 +674,28 @@ namespace YAML
 
 
   /*
+     ______             _          
+    /_  __/______ _____(_)__  ___ _
+     / / / __/ _ `/ __/ / _ \/ _ `/
+    /_/ /_/  \_,_/\__/_/_//_/\_, / 
+                            /___/  
+  */
+
+  Node convert<eCAL::Tracing::Configuration>::encode(const eCAL::Tracing::Configuration& config_)
+  {
+    Node node;
+    node["enabled"] = config_.enabled;
+    return node;
+  }
+
+  bool convert<eCAL::Tracing::Configuration>::decode(const Node& node_, eCAL::Tracing::Configuration& config_)
+  {
+    AssignValue<bool>(config_.enabled, node_, "enabled");
+    return true;
+  }
+
+
+  /*
        __  ___     _                      ____                    __  _         
       /  |/  /__ _(_)__    _______  ___  / _(_)__ ___ _________ _/ /_(_)__  ___ 
      / /|_/ / _ `/ / _ \  / __/ _ \/ _ \/ _/ / _ `/ // / __/ _ `/ __/ / _ \/ _ \
@@ -689,6 +713,7 @@ namespace YAML
     node["time"]               = config_.timesync;
     node["application"]        = config_.application;
     node["logging"]            = config_.logging;
+    node["tracing"]            = config_.tracing;
     node["communication_mode"] = config_.communication_mode == eCAL::eCommunicationMode::network ? "network" : "local";
     
     return node;
@@ -703,6 +728,7 @@ namespace YAML
     AssignValue<eCAL::Time::Configuration>(config_.timesync, node_, "time");
     AssignValue<eCAL::Application::Configuration>(config_.application, node_, "application");
     AssignValue<eCAL::Logging::Configuration>(config_.logging, node_, "logging");
+    AssignValue<eCAL::Tracing::Configuration>(config_.tracing, node_, "tracing");
     
     std::string communication_mode;
     AssignValue<std::string>(communication_mode, node_, "communication_mode");

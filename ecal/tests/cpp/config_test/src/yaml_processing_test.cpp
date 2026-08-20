@@ -58,6 +58,7 @@ TEST(core_cpp_config_yaml /*unused*/, yaml_processing_comparison /*unused*/)
     config.transport_layer.udp.mask = "255.254.254.242";
     config.transport_layer.udp.send_buffer = 6242880;
     config.transport_layer.udp.receive_buffer = 6242881;
+    config.transport_layer.udp.max_datagram_size = 60000;
     config.transport_layer.udp.join_all_interfaces = true;
     config.transport_layer.udp.npcap_enabled = true;
     config.transport_layer.udp.local.group = "129.255.255.254";
@@ -90,6 +91,8 @@ TEST(core_cpp_config_yaml /*unused*/, yaml_processing_comparison /*unused*/)
     config.application.startup.terminal_emulator = "term_emulator";
     config.application.sys.filter_excl = "filter_excl";
     
+    config.tracing.enabled = true;
+
     config.logging.provider.console.enable = false;
     config.logging.provider.console.log_level = eCAL::Logging::eLogLevel::log_level_debug1;
     config.logging.provider.file.enable = true;
@@ -122,6 +125,7 @@ TEST(core_cpp_config_yaml /*unused*/, yaml_processing_comparison /*unused*/)
     EXPECT_EQ(config.transport_layer.udp.mask, config_from_yaml.transport_layer.udp.mask);
     EXPECT_EQ(config.transport_layer.udp.send_buffer, config_from_yaml.transport_layer.udp.send_buffer);
     EXPECT_EQ(config.transport_layer.udp.receive_buffer, config_from_yaml.transport_layer.udp.receive_buffer);
+    EXPECT_EQ(config.transport_layer.udp.max_datagram_size, config_from_yaml.transport_layer.udp.max_datagram_size);
     EXPECT_EQ(config.transport_layer.udp.join_all_interfaces, config_from_yaml.transport_layer.udp.join_all_interfaces);
     EXPECT_EQ(config.transport_layer.udp.npcap_enabled, config_from_yaml.transport_layer.udp.npcap_enabled);
     EXPECT_EQ(config.transport_layer.udp.local.group, config_from_yaml.transport_layer.udp.local.group);
@@ -159,6 +163,7 @@ TEST(core_cpp_config_yaml /*unused*/, yaml_processing_comparison /*unused*/)
     EXPECT_EQ(config.logging.provider.udp_config.port, config_from_yaml.logging.provider.udp_config.port);
     EXPECT_EQ(config.logging.receiver.enable, config_from_yaml.logging.receiver.enable);
     EXPECT_EQ(config.logging.receiver.udp_config.port, config_from_yaml.logging.receiver.udp_config.port);
+    EXPECT_EQ(config.tracing.enabled, config_from_yaml.tracing.enabled);
 
     auto yaml_from_config = YAML::Node(config);
     eCAL::Configuration config_from_yaml_config = yaml_from_config.as<eCAL::Configuration>();
@@ -180,6 +185,7 @@ TEST(core_cpp_config_yaml /*unused*/, yaml_processing_comparison /*unused*/)
     EXPECT_EQ(config.transport_layer.udp.mask, config_from_yaml_config.transport_layer.udp.mask);
     EXPECT_EQ(config.transport_layer.udp.send_buffer, config_from_yaml_config.transport_layer.udp.send_buffer);
     EXPECT_EQ(config.transport_layer.udp.receive_buffer, config_from_yaml_config.transport_layer.udp.receive_buffer);
+    EXPECT_EQ(config.transport_layer.udp.max_datagram_size, config_from_yaml_config.transport_layer.udp.max_datagram_size);
     EXPECT_EQ(config.transport_layer.udp.join_all_interfaces, config_from_yaml_config.transport_layer.udp.join_all_interfaces);
     EXPECT_EQ(config.transport_layer.udp.npcap_enabled, config_from_yaml_config.transport_layer.udp.npcap_enabled);
     EXPECT_EQ(config.transport_layer.udp.local.group, config_from_yaml_config.transport_layer.udp.local.group);
@@ -217,6 +223,7 @@ TEST(core_cpp_config_yaml /*unused*/, yaml_processing_comparison /*unused*/)
     EXPECT_EQ(config.logging.provider.udp_config.port, config_from_yaml_config.logging.provider.udp_config.port);
     EXPECT_EQ(config.logging.receiver.enable, config_from_yaml_config.logging.receiver.enable);
     EXPECT_EQ(config.logging.receiver.udp_config.port, config_from_yaml_config.logging.receiver.udp_config.port);
+    EXPECT_EQ(config.tracing.enabled, config_from_yaml_config.tracing.enabled);
 }
 
 TEST(core_cpp_config /*unused*/, read_write_file_test /*unused*/)
